@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private Vector2 moveBounds;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.W))
@@ -31,9 +33,14 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 newPosition = transform.position + new Vector3(move.x, move.y, 0);
 
-        if (newPosition.x >= -5 && newPosition.x <= 5 && newPosition.y >= -5 && newPosition.y <= 5)
+        if (newPosition.x >= -moveBounds.x && newPosition.x <= moveBounds.x && newPosition.y >= -moveBounds.y && newPosition.y <= moveBounds.y)
         {
             transform.position = newPosition;
         }
+    }
+
+    public void SetBounds(Vector2 newBounds)
+    {
+        moveBounds = newBounds;
     }
 }
