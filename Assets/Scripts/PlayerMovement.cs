@@ -39,6 +39,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void MovePlayerTo(Vector2 newPosition)
+    {
+        if (newPosition.x >= -moveBounds.x && newPosition.x <= moveBounds.x && newPosition.y >= -moveBounds.y && newPosition.y <= moveBounds.y)
+        {
+            transform.position = newPosition;
+        }
+    }
+
     public void SetBounds(Vector2 newBounds)
     {
         moveBounds = newBounds;

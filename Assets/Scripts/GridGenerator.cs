@@ -40,6 +40,7 @@ public class GridGenerator : MonoBehaviour
                 if (x == xHalf && y == yHalf)
                 {
                     generatedNode.GetComponent<SpriteRenderer>().color = Color.magenta;
+                    GameController.instance.playerMovement.MovePlayerTo(new Vector2(x, y));
                 }
             }
         }
