@@ -32,7 +32,7 @@ public class GridGenerator : MonoBehaviour
 
         for (int x = 0; x < size.x; x++)
         {
-            for (int y = 0; y < size.x; y++)
+            for (int y = 0; y < size.y; y++)
             {
                 Transform generatedNode = Instantiate(nodePrefab, new Vector2(x - xHalf, y - yHalf), Quaternion.identity).transform;
                 generatedNode.parent = transform;
@@ -43,5 +43,7 @@ public class GridGenerator : MonoBehaviour
                 }
             }
         }
+
+        Camera.main.orthographicSize = 0.635f * ((size.x > size.y) ? size.x : size.y);
     }
 }
