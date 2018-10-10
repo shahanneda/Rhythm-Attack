@@ -28,8 +28,7 @@ public class GridGenerator : MonoBehaviour
         int xHalf = Mathf.FloorToInt(size.x / 2f);
         int yHalf = Mathf.FloorToInt(size.y / 2f);
 
-        PlayerMovement playerMovement = GameController.instance.playerMovement;
-        playerMovement.SetBounds(new Vector2(xHalf, yHalf));
+        GameController.instance.playerMovement.SetBounds(new Vector2(xHalf, yHalf));
 
         for (int x = 0; x < size.x; x++)
         {
@@ -41,7 +40,7 @@ public class GridGenerator : MonoBehaviour
                 if (x == xHalf && y == yHalf)
                 {
                     generatedNode.GetComponent<SpriteRenderer>().color = Color.magenta;
-                    playerMovement.MovePlayerTo(new Vector2(x, y));
+                    GameController.instance.playerMovement.MovePlayerTo(new Vector2(x, y));
                 }
             }
         }
