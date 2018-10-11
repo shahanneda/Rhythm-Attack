@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22144237510096e4abf19eba1063c66e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  song: {fileID: 11400000, guid: ba609698f1ae54b47a6e80831a80f948, type: 2}
+  song: {fileID: 11400000, guid: e8e6667e5f0eb4f72ab51b80069fe57b, type: 2}
 --- !u!82 &522981999
 AudioSource:
   m_ObjectHideFlags: 0
@@ -334,7 +334,7 @@ Prefab:
     - target: {fileID: 114900454158589228, guid: 7fcc7b2746316d542b87030520d2faaf,
         type: 2}
       propertyPath: autoPlayer
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114900454158589228, guid: 7fcc7b2746316d542b87030520d2faaf,
         type: 2}

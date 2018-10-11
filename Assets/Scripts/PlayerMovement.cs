@@ -7,8 +7,6 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveBounds;
     private Vector2 movement;
 
-    public float transitionSpeed = 0.01f;
-
     public bool autoPlayer;
 
     private void Start()
@@ -22,10 +20,15 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             movement = new Vector2(Input.GetKey(KeyCode.D) ? 1 : Input.GetKey(KeyCode.A) ? -1 : 0, Input.GetKey(KeyCode.W) ? 1 : Input.GetKey(KeyCode.S) ? -1 : 0);
+            // IF PLAYERCONTROLLER.UseDash == true
+            // TODO: Make playercontroller TODO: Smooth out dash
+            if (Input.GetKey(KeyCode.LeftShift)){
+                movement = new Vector2(movement.x * 2,movement.y * 2);
+            }
             MovePlayer(movement);
         }
     }
-
+    //TODO: SMOOTh the movement between each beat
     public void MovePlayer(Vector2 move)
     {
         Vector3 newPosition = transform.position + new Vector3(move.x, move.y, 0);
@@ -33,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
         if (newPosition.x >= -moveBounds.x && newPosition.x <= moveBounds.x && newPosition.y >= -moveBounds.y && newPosition.y <= moveBounds.y)
         {
 
-            SlowMover(transform.position);
+            transform.position = newPosition;
         }
     }
 
@@ -44,17 +47,7 @@ public class PlayerMovement : MonoBehaviour
             transform.position = newPosition;
         }
     }
-    private void SlowMover(Vector2 newPosition){
-        //If there is a better way please change
-        if (new Vector2(transform.position.x, transform.position.y) != newPosition)
-        {
-            transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * transitionSpeed);
-        }else
-        {
-            SlowMover(newPosition);
-        }
-           
-    }
+
     public void SetBounds(Vector2 newBounds)
     {
         moveBounds = newBounds;
