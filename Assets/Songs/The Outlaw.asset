@@ -13,4 +13,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audio: {fileID: 8300000, guid: 04520c103d0b4a542a9ca70ce50a0475, type: 3}
   name: The Outlaw
-  bpm: 144
+  tempo: 144

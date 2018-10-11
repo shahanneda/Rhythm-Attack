@@ -8,9 +8,15 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 movement;
 
-    private void Update()
+    private void Start()
     {
-        movement = new Vector2(Input.GetKeyDown(KeyCode.D) ? 1 : Input.GetKeyDown(KeyCode.A) ? -1 : 0, Input.GetKeyDown(KeyCode.W) ? 1 : Input.GetKeyDown(KeyCode.S) ? -1 : 0);
+        GameController.instance.songController.beat += CheckPlayerMovement;
+    }
+
+    private void CheckPlayerMovement()
+    {
+        print("Hello");
+        movement = new Vector2(Input.GetKey(KeyCode.D) ? 1 : Input.GetKey(KeyCode.A) ? -1 : 0, Input.GetKey(KeyCode.W) ? 1 : Input.GetKey(KeyCode.S) ? -1 : 0);
         MovePlayer(movement);
     }
 

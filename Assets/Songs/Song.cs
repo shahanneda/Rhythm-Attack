@@ -5,5 +5,5 @@ public class Song : ScriptableObject
 {
     public AudioClip audio;
     public new string name = "New Song";
-    public int bpm;
+    public int tempo;
 }
