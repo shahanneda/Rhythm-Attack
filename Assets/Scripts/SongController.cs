@@ -12,6 +12,7 @@ public class SongController : MonoBehaviour
     private AudioSource audioSource;
 
     private float beatCounter;
+    private float secondsBetweenBeats;
 
     private void Start()
     {
@@ -24,6 +25,7 @@ public class SongController : MonoBehaviour
         }
 
         beat += BeatCount;
+        secondsBetweenBeats = 60f / song.tempo;
     }
 
     private void FixedUpdate()
@@ -38,6 +40,6 @@ public class SongController : MonoBehaviour
 
     public void BeatCount()
     {
-        beatCounter = 60f / song.tempo;
+        beatCounter = secondsBetweenBeats;
     }
 }
