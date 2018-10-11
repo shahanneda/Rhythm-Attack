@@ -331,6 +331,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114900454158589228, guid: 7fcc7b2746316d542b87030520d2faaf,
+        type: 2}
+      propertyPath: autoPlayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114900454158589228, guid: 7fcc7b2746316d542b87030520d2faaf,
+        type: 2}
+      propertyPath: transitionSpeed
+      value: 0.001
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
   m_IsPrefabAsset: 0

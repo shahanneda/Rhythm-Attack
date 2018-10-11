@@ -5,10 +5,12 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Vector2 moveBounds;
-
     private Vector2 movement;
 
+    public float transitionSpeed = 0.01f;
+
     public bool autoPlayer;
+
     private void Start()
     {
         GameController.instance.songController.beat += CheckPlayerMovement;
@@ -30,7 +32,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (newPosition.x >= -moveBounds.x && newPosition.x <= moveBounds.x && newPosition.y >= -moveBounds.y && newPosition.y <= moveBounds.y)
         {
-            transform.position = newPosition;
+
+            SlowMover(transform.position);
         }
     }
 
@@ -41,7 +44,17 @@ public class PlayerMovement : MonoBehaviour
             transform.position = newPosition;
         }
     }
-
+    private void SlowMover(Vector2 newPosition){
+        //If there is a better way please change
+        if (new Vector2(transform.position.x, transform.position.y) != newPosition)
+        {
+            transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * transitionSpeed);
+        }else
+        {
+            SlowMover(newPosition);
+        }
+           
+    }
     public void SetBounds(Vector2 newBounds)
     {
         moveBounds = newBounds;
