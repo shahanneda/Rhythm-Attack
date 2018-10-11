@@ -15,8 +15,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckPlayerMovement()
     {
+        /*
         movement = new Vector2(Input.GetKey(KeyCode.D) ? 1 : Input.GetKey(KeyCode.A) ? -1 : 0, Input.GetKey(KeyCode.W) ? 1 : Input.GetKey(KeyCode.S) ? -1 : 0);
         MovePlayer(movement);
+        */
+
+        MovePlayer(new Vector2(Random.Range(-1, 2), Random.Range(-1, 2)));
     }
 
     public void MovePlayer(Vector2 move)
