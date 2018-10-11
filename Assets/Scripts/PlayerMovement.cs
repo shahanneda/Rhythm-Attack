@@ -15,7 +15,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckPlayerMovement()
     {
-        Debug.Log("BEAT");
         movement = new Vector2(Input.GetKey(KeyCode.D) ? 1 : Input.GetKey(KeyCode.A) ? -1 : 0, Input.GetKey(KeyCode.W) ? 1 : Input.GetKey(KeyCode.S) ? -1 : 0);
         MovePlayer(movement);
     }
