@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Vector2 moveBounds;
-    private Vector2 movement;
 
     public bool autoPlayer;
+
+    private Vector2 moveBounds;
+    private Vector2 movement;
 
     private void Start()
     {
@@ -16,7 +17,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckPlayerMovement()
     {
-        if (autoPlayer) MovePlayer(new Vector2(Random.Range(0, 2) * 2 - 1, Random.Range(0, 2) * 2 - 1));
+        if (autoPlayer)
+        {
+            MovePlayer(new Vector2(Random.Range(0, 2) * 2 - 1, Random.Range(0, 2) * 2 - 1));
+        }
         else
         {
             movement = new Vector2(Input.GetKey(KeyCode.D) ? 1 : Input.GetKey(KeyCode.A) ? -1 : 0, Input.GetKey(KeyCode.W) ? 1 : Input.GetKey(KeyCode.S) ? -1 : 0);
