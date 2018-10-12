@@ -26,8 +26,9 @@ public class PlayerMovement : MonoBehaviour
             movement = new Vector2(Input.GetKey(KeyCode.D) ? 1 : Input.GetKey(KeyCode.A) ? -1 : 0, Input.GetKey(KeyCode.W) ? 1 : Input.GetKey(KeyCode.S) ? -1 : 0);
             // IF PLAYERCONTROLLER.UseDash == true
             // TODO: Make playercontroller TODO: Smooth out dash
-            if (Input.GetKey(KeyCode.LeftShift)){
-                movement = new Vector2(movement.x * 2,movement.y * 2);
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                movement = new Vector2(movement.x * 2, movement.y * 2);
             }
             if(movement.x.Equals(0) && movement.y.Equals(0)){
                 print("PLAYER MISSED BEAT!");
