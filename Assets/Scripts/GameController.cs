@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour
 
     public PlayerController playerController;
     public SongController songController;
+    public GUIController guiController;
 
     private void OnEnable()
     {
@@ -15,7 +16,14 @@ public class GameController : MonoBehaviour
     }
     private void Start()
     {
-        if(playerController == null){
+        guiController = FindObjectOfType<GUIController>();
+
+        if (guiController == null)
+        {
+            throw new MissingReferenceException("Please add guiController to scene!!");
+        }
+
+        if (playerController == null){
             throw new MissingReferenceException("Please add playerController to game controller!!");
         }
         if (songController == null)

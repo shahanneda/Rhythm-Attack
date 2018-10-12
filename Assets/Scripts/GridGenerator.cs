@@ -11,6 +11,7 @@ public class GridGenerator : MonoBehaviour
     private void Start()
     {
         GenerateGrid();
+     
     }
 
     public void GenerateGrid()
