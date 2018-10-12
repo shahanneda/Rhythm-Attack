@@ -26,7 +26,12 @@ public class PlayerController : MonoBehaviour {
 		
 	}
 
+     //  USE  *ONLY* THESE  METHODS WHEN YOU WANT TO INTRACT WITH HEALTH!
     public void TakeDamage(float count){
         playerHealth.Decrease(count);
+    }
+    public void AddHealth(float count)
+    {
+        playerHealth.Increase(count);
     }
 }

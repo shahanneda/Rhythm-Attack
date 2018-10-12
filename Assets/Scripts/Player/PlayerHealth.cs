@@ -24,6 +24,11 @@ public class PlayerHealth : MonoBehaviour {
         //TODO: Check if less than zero and do appropiate actions;
         Health -= count;
     }
+    public void Increase(float count)
+    {
+        //TODO: Check if more than 100 and do appropiate actions;
+        Health -= count;
+    }
     private void UpdateGui(){
         GameController.instance.guiController.SetHealthText(Health.ToString());
     }
