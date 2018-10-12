@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 moveBounds;
     private Vector2 movement;
-
+    public float transitionSpeed = 1f;
     private void Start()
     {
         GameController.instance.songController.beat += CheckPlayerMovement;
@@ -44,8 +44,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (newPosition.x >= -moveBounds.x && newPosition.x <= moveBounds.x && newPosition.y >= -moveBounds.y && newPosition.y <= moveBounds.y)
         {
-
-            transform.position = newPosition;
+                SlowMover(newPosition);
         }
     }
 
@@ -55,6 +54,24 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.position = newPosition;
         }
+    }
+
+
+    private void SlowMover(Vector2 newPosition)
+    {
+        //If there is a better way please change
+        if (!new Vector2(transform.position.x, transform.position.y).Equals(newPosition))
+        {
+           // newPosition = ;
+           // print(transform.position.ToString() + " Is not hte same as " + newPosition.ToString());
+           
+            transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime) ;
+            SlowMover(newPosition);
+           
+
+        }
+
+
     }
 
     public void SetBounds(Vector2 newBounds)

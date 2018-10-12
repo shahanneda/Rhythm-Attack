@@ -129,7 +129,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e194b727c3cdc44d3939e731ff6e90eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 100
 --- !u!1 &338452549
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,6 +484,11 @@ Prefab:
     - target: {fileID: 4644424046275748, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114900454158589228, guid: 7fcc7b2746316d542b87030520d2faaf,
+        type: 2}
+      propertyPath: transitionSpeed
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
