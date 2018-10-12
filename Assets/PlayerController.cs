@@ -13,7 +13,13 @@ public class PlayerController : MonoBehaviour {
         if(playerMovement == null){
             throw new MissingReferenceException("Please add PlayerMovement to player!!");
         }
-	}
+
+        playerHealth = GetComponent<PlayerHealth>();
+        if (playerHealth == null)
+        {
+            throw new MissingReferenceException("Please add playerHealth to player!!");
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {
