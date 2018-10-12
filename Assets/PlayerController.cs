@@ -5,8 +5,10 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
     [HideInInspector]
     public PlayerMovement playerMovement;
-	// Use this for initialization
-	void Start () {
+
+    private PlayerHealth playerHealth;
+    // Use this for initialization
+    void Start () {
         playerMovement = GetComponent<PlayerMovement>();
         if(playerMovement == null){
             throw new MissingReferenceException("Please add PlayerMovement to player!!");
@@ -17,4 +19,8 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void TakeDamage(float count){
+        playerHealth.Decrease(count);
+    }
 }
