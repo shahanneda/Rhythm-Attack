@@ -15,7 +15,7 @@ public class GUIController : MonoBehaviour {
         dashText = GameObject.FindWithTag("DashText").GetComponent<Text>();
         if (dashText == null)
         {
-            throw new MissingReferenceException("Please add Healthtext with tag to scene!!");
+            throw new MissingReferenceException("Please add dashText with tag to scene!!");
         }
 
     }
