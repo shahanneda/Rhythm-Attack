@@ -9,8 +9,12 @@ public class PlayerController : MonoBehaviour {
     private PlayerHealth playerHealth;
 
     private int dashes = 3;
+
+    private float nextDashTime;
     // Use this for initialization
     void Start () {
+        nextDashTime = Time.time;
+
         playerMovement = GetComponent<PlayerMovement>();
         if(playerMovement == null){
             throw new MissingReferenceException("Please add PlayerMovement to player!!");
@@ -25,7 +29,10 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if(Time.time -5 > nextDashTime){
+            nextDashTime = Time.time + 5;
+            AddDash();
+        }
 	}
 
      //  USE  *ONLY* THESE  METHODS WHEN YOU WANT TO INTRACT WITH HEALTH!
@@ -44,7 +51,21 @@ public class PlayerController : MonoBehaviour {
             dashes = 0;
             return false;
         }
+        nextDashTime = Time.time;
         GameController.instance.guiController.SetDashText(dashes.ToString());
         return true;
     }
+    
+    public bool AddDash()
+    {
+        dashes++;
+        if (dashes > 3)
+        {
+            dashes = 3;
+            return false;
+        }
+        GameController.instance.guiController.SetDashText(dashes.ToString());
+        return true;
+    }
+
 }
