@@ -19,12 +19,6 @@ public class GUIController : MonoBehaviour {
         }
 
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
     public void SetHealthText(string text){
         healthText.text = text;
     }

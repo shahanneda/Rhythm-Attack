@@ -44,23 +44,17 @@ public class PlayerMovement : MonoBehaviour
 
                 }
             }
-            // TODO: Make playercontroller TODO: Smooth out dash
-
             if (movement.x.Equals(0) && movement.y.Equals(0))
             {
                 GameController.instance.playerController.TakeDamage(2f);
 
             }
-        
             if(!(movement.x + movement.y).Equals(0))
             {
                 MovePlayer(movement);
             }
-            //print(GameController.instance.songController.beatCounter);
-
         }
     }
-    //TODO: SMOOTh the movement between each beat
     public void MovePlayer(Vector2 move)
     {
         Vector3 newPosition = new Vector3(Mathf.Round(transform.position.x ) + move.x, Mathf.Round(transform.position.y ) + move.y, 0);
@@ -69,7 +63,6 @@ public class PlayerMovement : MonoBehaviour
             toLocation = newPosition;
         }
     }
-
     public void MovePlayerTo(Vector2 newPosition)
     {
         if (newPosition.x >= -moveBounds.x && newPosition.x <= moveBounds.x && newPosition.y >= -moveBounds.y && newPosition.y <= moveBounds.y)
@@ -77,11 +70,6 @@ public class PlayerMovement : MonoBehaviour
             toLocation = newPosition;
         }
     }
-
-
-
-
-
     public void SetBounds(Vector2 newBounds)
     {
         moveBounds = newBounds;

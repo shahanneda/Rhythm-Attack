@@ -26,15 +26,12 @@ public class PlayerController : MonoBehaviour {
             throw new MissingReferenceException("Please add playerHealth to player!!");
         }
     }
-	
-	// Update is called once per frame
 	void Update () {
         if(Time.time -5 > nextDashTime){
             nextDashTime = Time.time + 5;
             AddDash();
         }
 	}
-
      //  USE  *ONLY* THESE  METHODS WHEN YOU WANT TO INTRACT WITH HEALTH!
     public void TakeDamage(float count){
         playerHealth.Decrease(count);
@@ -43,7 +40,6 @@ public class PlayerController : MonoBehaviour {
     {
         playerHealth.Increase(count);
     }
-
     public bool UseDash()
     {
         dashes--;
