@@ -9,12 +9,20 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 moveBounds;
     private Vector2 movement;
-    public float transitionSpeed = 1f;
+    public float transitionSpeed = 0.1f;
+    private Vector2 toLocation;
     private void Start()
     {
         GameController.instance.songController.beat += CheckPlayerMovement;
     }
+    private void FixedUpdate()
 
+    {
+        if(toLocation != null){
+            transform.position = Vector3.Lerp(transform.position, toLocation, transitionSpeed);
+        }
+
+    }
     private void CheckPlayerMovement()
     {
         if (autoPlayer)
@@ -30,21 +38,25 @@ public class PlayerMovement : MonoBehaviour
             {
                 movement = new Vector2(movement.x * 2, movement.y * 2);
             }
-            if(movement.x.Equals(0) && movement.y.Equals(0)){
+            if (movement.x.Equals(0) && movement.y.Equals(0))
+            {
                 GameController.instance.playerController.TakeDamage(2f);
-                print("PLAYER MISSED BEAT!");
             }
-            MovePlayer(movement);
+        
+            if(!(movement.x + movement.y).Equals(0))
+            {
+                MovePlayer(movement);
+            }
+
         }
     }
     //TODO: SMOOTh the movement between each beat
     public void MovePlayer(Vector2 move)
     {
-        Vector3 newPosition = transform.position + new Vector3(move.x, move.y, 0);
-
+        Vector3 newPosition = new Vector3(Mathf.Round(transform.position.x ) + move.x, Mathf.Round(transform.position.y ) + move.y, 0);
         if (newPosition.x >= -moveBounds.x && newPosition.x <= moveBounds.x && newPosition.y >= -moveBounds.y && newPosition.y <= moveBounds.y)
         {
-                SlowMover(newPosition);
+            toLocation = newPosition;
         }
     }
 
@@ -52,27 +64,13 @@ public class PlayerMovement : MonoBehaviour
     {
         if (newPosition.x >= -moveBounds.x && newPosition.x <= moveBounds.x && newPosition.y >= -moveBounds.y && newPosition.y <= moveBounds.y)
         {
-            transform.position = newPosition;
+            toLocation = newPosition;
         }
     }
 
 
-    private void SlowMover(Vector2 newPosition)
-    {
-        //If there is a better way please change
-        if (!new Vector2(transform.position.x, transform.position.y).Equals(newPosition))
-        {
-           // newPosition = ;
-           // print(transform.position.ToString() + " Is not hte same as " + newPosition.ToString());
-           
-            transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime) ;
-            SlowMover(newPosition);
-           
-
-        }
 
 
-    }
 
     public void SetBounds(Vector2 newBounds)
     {
