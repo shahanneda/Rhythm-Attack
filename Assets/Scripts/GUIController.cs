@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class GUIController : MonoBehaviour {
     private Text healthText;
+    private Text dashText;
 	// Use this for initialization
 	void Start () {
         healthText = GameObject.FindWithTag("HealthText").GetComponent<Text>();
@@ -11,6 +12,12 @@ public class GUIController : MonoBehaviour {
         {
             throw new MissingReferenceException("Please add Healthtext with tag to scene!!");
         }
+        dashText = GameObject.FindWithTag("DashText").GetComponent<Text>();
+        if (dashText == null)
+        {
+            throw new MissingReferenceException("Please add Healthtext with tag to scene!!");
+        }
+
     }
 	
 	// Update is called once per frame
@@ -21,4 +28,10 @@ public class GUIController : MonoBehaviour {
     public void SetHealthText(string text){
         healthText.text = text;
     }
+
+    public void SetDashText(string text){
+        dashText.text = text;
+    }
+
+ 
 }

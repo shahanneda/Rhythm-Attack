@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour {
     public PlayerMovement playerMovement;
 
     private PlayerHealth playerHealth;
+
+    private int dashes = 3;
     // Use this for initialization
     void Start () {
         playerMovement = GetComponent<PlayerMovement>();
@@ -33,5 +35,16 @@ public class PlayerController : MonoBehaviour {
     public void AddHealth(float count)
     {
         playerHealth.Increase(count);
+    }
+
+    public bool UseDash()
+    {
+        dashes--;
+        if(dashes < 0){
+            dashes = 0;
+            return false;
+        }
+        GameController.instance.guiController.SetDashText(dashes.ToString());
+        return true;
     }
 }
