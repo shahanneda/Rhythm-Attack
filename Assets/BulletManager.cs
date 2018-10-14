@@ -50,7 +50,7 @@ public class BulletManager : MonoBehaviour {
             for (int y = 0; y < 15; y++)
             {
                 if(bulletPattern1[x,y] == 'r'){
-                    GameController.instance.gridGenerator.bulletGrid[x, x].gameObject.SetActive(true);
+                    GameController.instance.gridGenerator.bulletGrid[x, y].gameObject.SetActive(true);
                 }
 
 
