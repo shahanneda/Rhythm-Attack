@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour {
+public class PlayerHealth : MonoBehaviour
+{
     //use this healthOfPlayer sparingly as it dosen't update the gui;
     private float HealthOfPlayer = 100;
 
@@ -17,20 +18,24 @@ public class PlayerHealth : MonoBehaviour {
         set
         {
             HealthOfPlayer = value;
-            UpdateGui();
+            UpdateGUI();
         }
     }
-    public void Decrease(float count){
+
+    public void Decrease(float count)
+    {
         //TODO: Check if less than zero and do appropiate actions;
         Health -= count;
     }
+
     public void Increase(float count)
     {
         //TODO: Check if more than 100 and do appropiate actions;
         Health -= count;
     }
-    private void UpdateGui(){
+
+    private void UpdateGUI()
+    {
         GameController.instance.guiController.SetHealthText(Health.ToString());
     }
-
 }

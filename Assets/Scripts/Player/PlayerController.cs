@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(float count)
     {
         playerHealth.Decrease(count);
+        GameController.instance.guiController.DamageOverlay();
     }
 
     public void AddHealth(float count)
