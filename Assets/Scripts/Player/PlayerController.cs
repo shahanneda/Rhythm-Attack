@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour
             TakeDamage(10);
         }
     }
+
     //  USE  *ONLY* THESE  METHODS WHEN YOU WANT TO INTRACT WITH HEALTH!
     public void TakeDamage(float count)
     {
@@ -61,11 +62,13 @@ public class PlayerController : MonoBehaviour
     public bool UseDash()
     {
         dashes--;
+
         if (dashes < 0)
         {
             dashes = 0;
             return false;
         }
+
         nextDashTime = Time.time;
         GameController.instance.guiController.SetDashText(dashes.ToString());
         return true;
@@ -74,11 +77,13 @@ public class PlayerController : MonoBehaviour
     public bool AddDash()
     {
         dashes++;
+
         if (dashes > 3)
         {
             dashes = 3;
             return false;
         }
+
         GameController.instance.guiController.SetDashText(dashes.ToString());
         return true;
     }

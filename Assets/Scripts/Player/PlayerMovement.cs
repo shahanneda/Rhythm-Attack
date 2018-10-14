@@ -38,13 +38,12 @@ public class PlayerMovement : MonoBehaviour
                     {
                         movement = new Vector2(movement.x * 2, movement.y * 2);
                     }
-
                 }
             }
 
             if (movement.x.Equals(0) && movement.y.Equals(0))
             {
-                GameController.instance.playerController.TakeDamage(2f);
+                GameController.instance.playerController.TakeDamage(5f);
             }
 
             if (!(movement.x + movement.y).Equals(0))
