@@ -75,6 +75,7 @@ public class GridGenerator : MonoBehaviour
                 GameObject generatedBullet = Instantiate(bulletPrefab, new Vector2(x - xHalf, y - yHalf), Quaternion.identity) as GameObject;
                 generatedBullet.transform.parent = transform;
                 bulletGrid[x , y] = generatedBullet;
+                generatedBullet.SetActive(false);
                 //if (x == xHalf && y == yHalf)
                 //{
                 //    generatedNode.GetComponent<SpriteRenderer>().color = Color.magenta;
