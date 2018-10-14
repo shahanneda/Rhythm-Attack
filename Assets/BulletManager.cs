@@ -39,18 +39,16 @@ public class BulletManager : MonoBehaviour
         //bulletPattern1[5, 6] = 'r';
 
 
-
+        GameController.instance.songController.beat += Beat;
     }
 
     void Update()
     {
-        if (lastUpdateTime + timeBetweenFrames < Time.time)
+        /*if (lastUpdateTime + timeBetweenFrames < Time.time)
         {
             lastUpdateTime = Time.time;
             loadPatterns(firstPattern);
-            
-
-        }
+        }*/
     }
 
     public void LoadBulletPattern(ArrayLayout pattern)
@@ -73,14 +71,13 @@ public class BulletManager : MonoBehaviour
 
     private void loadPatterns(BulletPattern pattern)
     {
-     
         if (counter == 1)
         {
             counter = 2;
             LoadBulletPattern(pattern.Frame1);
             return;
         }
-         else if (counter == 2)
+        else if (counter == 2)
         {
             counter = 3;
             LoadBulletPattern(pattern.Frame2);
@@ -164,5 +161,11 @@ public class BulletManager : MonoBehaviour
             LoadBulletPattern(pattern.Frame15);
             return;
         }
+    }
+
+    private void Beat()
+    {
+        lastUpdateTime = Time.time;
+        loadPatterns(firstPattern);
     }
 }
