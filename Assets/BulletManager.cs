@@ -48,6 +48,7 @@ public class BulletManager : MonoBehaviour
         {
             lastUpdateTime = Time.time;
             loadPatterns(firstPattern);
+            
 
         }
     }
@@ -72,13 +73,14 @@ public class BulletManager : MonoBehaviour
 
     private void loadPatterns(BulletPattern pattern)
     {
+     
         if (counter == 1)
         {
             counter = 2;
             LoadBulletPattern(pattern.Frame1);
             return;
         }
-        else if (counter == 2)
+         else if (counter == 2)
         {
             counter = 3;
             LoadBulletPattern(pattern.Frame2);

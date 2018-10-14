@@ -2136,6 +2136,11 @@ Prefab:
       propertyPath: Frame12.rows.Array.data[2].row.Array.data[1]
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114542465152370112, guid: 966c90a550c2d4d9787a4bc9f1277510,
+        type: 2}
+      propertyPath: Frame1.rows.Array.data[0].row.Array.data[3]
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 966c90a550c2d4d9787a4bc9f1277510, type: 2}
   m_IsPrefabAsset: 0
