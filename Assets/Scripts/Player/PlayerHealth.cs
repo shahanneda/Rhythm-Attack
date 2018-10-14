@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -23,8 +24,12 @@ public class PlayerHealth : MonoBehaviour
 
     public void Decrease(float count)
     {
-        //TODO: Check if less than zero and do appropiate actions;
         Health -= count;
+
+        if (Health <= 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 
     public void Increase(float count)
