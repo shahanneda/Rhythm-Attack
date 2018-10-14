@@ -13,9 +13,9 @@ public class GridGenerator : MonoBehaviour
     private void Start()
     {
         GenerateGrid();
-        bulletGrid = new GameObject[16 , 16];
+
+        bulletGrid = new GameObject[16, 16];
         GenerateBulletGrid();
-     
     }
 
     public void GenerateGrid()
@@ -67,22 +67,20 @@ public class GridGenerator : MonoBehaviour
         int xHalf = Mathf.FloorToInt(size.x / 2f);
         int yHalf = Mathf.FloorToInt(size.y / 2f);
 
-
         for (int x = 0; x < size.x; x++)
         {
             for (int y = 0; y < size.y; y++)
             {
                 GameObject generatedBullet = Instantiate(bulletPrefab, new Vector2(x - xHalf, y - yHalf), Quaternion.identity) as GameObject;
                 generatedBullet.transform.parent = transform;
-                bulletGrid[x , y] = generatedBullet;
+                bulletGrid[x, y] = generatedBullet;
                 generatedBullet.SetActive(false);
+
                 //if (x == xHalf && y == yHalf)
                 //{
                 //    generatedNode.GetComponent<SpriteRenderer>().color = Color.magenta;
                 //}
             }
         }
-
-
     }
 }

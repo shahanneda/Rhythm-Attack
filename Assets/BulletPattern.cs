@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletPattern : MonoBehaviour {
+public class BulletPattern : MonoBehaviour
+{
     public string BulletType = "Normal";
 
     public ArrayLayout Frame1;
@@ -20,6 +21,4 @@ public class BulletPattern : MonoBehaviour {
     public ArrayLayout Frame13;
     public ArrayLayout Frame14;
     public ArrayLayout Frame15;
-
-
 }

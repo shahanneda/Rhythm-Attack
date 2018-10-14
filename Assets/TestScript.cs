@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TestScript : MonoBehaviour {
-
-	public ArrayLayout data;
+public class TestScript : MonoBehaviour
+{
+    public ArrayLayout data;
     private void Start()
     {
-        print( data.rows[1].row[1]);
+        print(data.rows[1].row[1]);
     }
 }
