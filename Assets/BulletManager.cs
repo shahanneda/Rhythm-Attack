@@ -20,23 +20,7 @@ public class BulletManager : MonoBehaviour {
      * and e are just empty, and each pattern would have like 15 of these.
      */
 
-    public char[,] bulletPattern1 = {
-        {'*','-','-','-','-','-','-','-','-','-','-','-','-','-','*'},
-        {'-','-','-','-','-','-','-','-','-','-','-','-','-','-','-'},
-        {'-','-','-','-','-','-','-','-','-','-','-','-','-','-','-'},
-        {'-','-','-','-','-','-','-','-','-','-','-','-','-','-','-'},
-        {'-','-','-','-','-','-','-','-','-','-','-','-','-','-','-'},
-        {'-','-','-','-','-','-','-','-','-','-','-','-','-','-','-'},
-        {'-','-','-','-','-','-','-','-','-','-','-','-','-','-','-'},
-        {'-','-','-','-','-','-','-','-','-','-','-','-','-','-','-'},
-        {'-','-','-','-','-','-','-','-','-','-','-','-','-','-','-'},
-        {'-','-','-','-','-','-','-','-','-','-','-','-','-','-','-'},
-        {'-','-','-','-','-','-','-','-','-','-','-','-','-','-','-'},
-        {'-','-','-','-','-','-','-','-','-','-','-','-','-','-','-'},
-        {'-','-','-','-','-','-','-','-','-','-','-','-','-','-','-'},
-        {'-','-','-','-','-','-','-','-','-','-','-','-','-','-','-'},
-        {'*','-','-','-','-','-','-','-','-','-','-','-','-','-','*'}
-        };
+    public ArrayLayout bulletPattern1;
 
     public char[,] bulletPattern2 = {
         {'*','*','-','-','-','-','-','-','-','-','-','-','-','*','*'},
@@ -111,35 +95,35 @@ public class BulletManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(lastUpdateTime + timeBetweenFrames < Time.time){
-            lastUpdateTime = Time.time;
-            
-            if(counter  == 1){
-                counter = 2;
-                LoadBulletPattern(bulletPattern1);
-                return;
-            }
-            if (counter ==2)
-            {
-                counter = 3;
-                LoadBulletPattern(bulletPattern2);
-                return;
-            }
-            if (counter == 3)
-            {
-                counter = 4;
-                LoadBulletPattern(bulletPattern3);
-                return;
-            }
-            if(counter == 4)
-            {
-                counter = 1;
-                LoadBulletPattern(bulletPattern4);
-                return;
-            }
+        //if(lastUpdateTime + timeBetweenFrames < Time.time){
+        //    lastUpdateTime = Time.time;
 
-        }
+        //    if(counter  == 1){
+        //        counter = 2;
+        //        LoadBulletPattern(bulletPattern1);
+        //        return;
+        //    }
+        //    if (counter ==2)
+        //    {
+        //        counter = 3;
+        //        LoadBulletPattern(bulletPattern2);
+        //        return;
+        //    }
+        //    if (counter == 3)
+        //    {
+        //        counter = 4;
+        //        LoadBulletPattern(bulletPattern3);
+        //        return;
+        //    }
+        //    if(counter == 4)
+        //    {
+        //        counter = 1;
+        //        LoadBulletPattern(bulletPattern4);
+        //        return;
+        //    }
 
+        //}
+        LoadBulletPattern(bulletPattern1);
         if(Input.GetKeyDown(KeyCode.B)){
             LoadBulletPattern(bulletPattern1);
         }
@@ -164,5 +148,25 @@ public class BulletManager : MonoBehaviour {
             }
         }
     }
-    
+
+    public void LoadBulletPattern(ArrayLayout pattern)
+    {
+        for (int x = 0; x < 15; x++)
+        {
+            for (int y = 0; y < 15; y++)
+            {
+                if (pattern.rows[x].row[y] == true)
+                {
+                    GameController.instance.gridGenerator.bulletGrid[x, y].gameObject.SetActive(true);
+                }
+                else
+                {
+                    GameController.instance.gridGenerator.bulletGrid[x, y].gameObject.SetActive(false);
+                }
+
+
+            }
+        }
+    }
+
 }
