@@ -41,10 +41,33 @@ public class BulletManager : MonoBehaviour {
 
         };
 
+    public char[,] bulletPattern2 = {
+        {'-','-','-','-','-','-','-','-','-','-','-','-','r','-','-'},
+        {'-','r','-','-','-','-','-','-','-','-','-','r','-','-','-'},
+        {'-','-','r','-','-','-','-','-','-','-','r','-','-','-','-'},
+        {'-','-','-','r','-','-','-','-','-','r','-','-','-','-','-'},
+        {'-','-','-','-','r','-','-','-','-','-','-','-','-','-','-'},
+        {'-','-','-','-','-','-','-','-','-','-','-','-','-','-','-'},
+        {'-','-','-','-','-','-','-','-','-','-','-','-','-','-','-'},
+        {'-','-','-','-','-','-','-','-','-','-','-','-','-','-','-'},
+        {'-','-','-','-','-','-','-','-','-','-','-','-','-','-','-'},
+        {'-','-','-','-','-','-','-','-','-','-','-','-','-','-','-'},
+        {'-','-','-','-','r','r','r','r','r','r','r','-','-','-','-'},
+        {'-','-','-','r','-','-','-','-','-','-','-','r','-','-','-'},
+        {'-','-','r','-','-','-','-','-','-','-','-','-','r','-','-'},
+        {'-','r','-','-','-','-','-','-','-','-','-','-','-','r','-'},
+        {'r','-','-','-','-','-','-','-','-','-','-','-','-','-','r'}
 
+
+
+        };
+    private float lastUpdateTime;
+    public float timeBetweenFrames = 0.5f;
+
+    private int counter = 0;
     // Use this for initialization
     void Start () {
-   
+        lastUpdateTime = Time.time;
       
         //for (int x = 0; x < 15 ; x++){
         //    for (int y = 0; y < 15; y++){
@@ -60,19 +83,35 @@ public class BulletManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(Input.GetKey(KeyCode.L)){
-            //GameController.instance.gridGenerator.bulletGrid[2, 2].gameObject.SetActive(false);
-            LoadBulletPattern();
-        }
-	}
+        if(lastUpdateTime + timeBetweenFrames < Time.time){
+            lastUpdateTime = Time.time;
+            counter++;
+            if(counter % 2 == 1){
+                LoadBulletPattern(bulletPattern1);
+            }else{
+                LoadBulletPattern(bulletPattern2);
+            }
 
-    public void LoadBulletPattern(){
+        }
+
+        if(Input.GetKeyDown(KeyCode.B)){
+            LoadBulletPattern(bulletPattern1);
+        }
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            LoadBulletPattern(bulletPattern2);
+        }
+    }
+
+    public void LoadBulletPattern(char[,] pattern){
         for (int x = 0; x < 15; x++)
         {
             for (int y = 0; y < 15; y++)
             {
-                if(bulletPattern1[x,y] == 'r'){
+                if(pattern[x,y] == 'r'){
                     GameController.instance.gridGenerator.bulletGrid[x, y].gameObject.SetActive(true);
+                }else{
+                    GameController.instance.gridGenerator.bulletGrid[x, y].gameObject.SetActive(false);
                 }
 
 
