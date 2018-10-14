@@ -12,13 +12,13 @@ public class CustPropertyDrawer : PropertyDrawer {
 		newposition.y += 18f;
 		SerializedProperty data = property.FindPropertyRelative("rows");
 		//data.rows[0][]
-		for(int j=0;j<16;j++){
+		for(int j=0;j<15;j++){
 			SerializedProperty row = data.GetArrayElementAtIndex(j).FindPropertyRelative("row");
 			newposition.height = 18f;
-			if(row.arraySize != 16)
-				row.arraySize = 16;
-			newposition.width = position.width/16;
-			for(int i=0;i<16;i++){
+			if(row.arraySize != 15)
+				row.arraySize = 15;
+			newposition.width = position.width/15;
+			for(int i=0;i<15;i++){
 				EditorGUI.PropertyField(newposition,row.GetArrayElementAtIndex(i),GUIContent.none);
 				newposition.x += newposition.width;
 			}
@@ -29,6 +29,6 @@ public class CustPropertyDrawer : PropertyDrawer {
 	}
 
 	public override float GetPropertyHeight(SerializedProperty property,GUIContent label){
-		return 18f * 17;
+		return 18f * 16;
 	}
 }

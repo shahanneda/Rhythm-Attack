@@ -11,3 +11,5 @@ public class ArrayLayout  {
 
 	public rowData[] rows = new rowData[16]; //Grid of 7x7
 }
+
+
