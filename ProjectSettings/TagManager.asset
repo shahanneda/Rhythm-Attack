@@ -7,6 +7,7 @@ TagManager:
   - HealthText
   - DashText
   - DamageOverlay
+  - Bullet
   layers:
   - Default
   - TransparentFX

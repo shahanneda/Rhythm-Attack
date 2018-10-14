@@ -38,6 +38,14 @@ public class PlayerController : MonoBehaviour
             AddDash();
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Bullet")
+        {
+            TakeDamage(10);
+        }
+    }
     //  USE  *ONLY* THESE  METHODS WHEN YOU WANT TO INTRACT WITH HEALTH!
     public void TakeDamage(float count)
     {

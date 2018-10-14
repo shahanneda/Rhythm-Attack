@@ -14,7 +14,6 @@ public class PlayerHealth : MonoBehaviour
         {
             return HealthOfPlayer;
         }
-
         set
         {
             HealthOfPlayer = value;
@@ -31,7 +30,7 @@ public class PlayerHealth : MonoBehaviour
     public void Increase(float count)
     {
         //TODO: Check if more than 100 and do appropiate actions;
-        Health -= count;
+        Health += count;
     }
 
     private void UpdateGUI()
