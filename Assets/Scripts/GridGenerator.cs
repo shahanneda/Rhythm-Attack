@@ -10,6 +10,7 @@ public class GridGenerator : MonoBehaviour
 
     public GameObject[,] bulletGrid;
     public GameObject bulletPrefab;
+
     private void Start()
     {
         GenerateGrid();
@@ -41,11 +42,6 @@ public class GridGenerator : MonoBehaviour
             {
                 Transform generatedNode = Instantiate(nodePrefab, new Vector2(x - xHalf, y - yHalf), Quaternion.identity).transform;
                 generatedNode.parent = transform;
-
-                if (x == xHalf && y == yHalf)
-                {
-                    generatedNode.GetComponent<SpriteRenderer>().color = Color.magenta;
-                }
             }
         }
 
@@ -75,11 +71,6 @@ public class GridGenerator : MonoBehaviour
                 generatedBullet.transform.parent = transform;
                 bulletGrid[x, y] = generatedBullet;
                 generatedBullet.SetActive(false);
-
-                //if (x == xHalf && y == yHalf)
-                //{
-                //    generatedNode.GetComponent<SpriteRenderer>().color = Color.magenta;
-                //}
             }
         }
     }

@@ -121,6 +121,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 169018141}
+  - component: {fileID: 169018142}
   m_Layer: 0
   m_Name: BulletGrid
   m_TagString: Untagged
@@ -135,12 +136,40 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 169018140}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.602575, y: 5.528801, z: -0.16445477}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &169018142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 169018140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c124fa24b737034cbf683c9e666dfda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patterns:
+  - {fileID: 2800000, guid: 8b7160f5ce263b644a3b14aae06ce2b9, type: 3}
+  - {fileID: 2800000, guid: 57527c4ea255edf4493d4e5279abb7e3, type: 3}
+  - {fileID: 2800000, guid: 032c311a57ae6e34686bbe9f4179b0d0, type: 3}
+  - {fileID: 2800000, guid: 15de5ea14da589946ae28aefb8deca03, type: 3}
+  - {fileID: 2800000, guid: e642940a040121e4399133699ef0e929, type: 3}
+  - {fileID: 2800000, guid: 8e5564778e2753d41a43af838ccc934f, type: 3}
+  - {fileID: 2800000, guid: 5668168f8938fd34a8f0dd6f588f5fe8, type: 3}
+  - {fileID: 2800000, guid: 2ce0c60e2688a75419e89d9477885e1c, type: 3}
+  - {fileID: 2800000, guid: 108a246975898de45977907230318e3a, type: 3}
+  - {fileID: 2800000, guid: 47131eae7b8918644b1ed2c96c25a652, type: 3}
+  - {fileID: 2800000, guid: 1ee848e5a741a8440b5455df74b92b6d, type: 3}
+  - {fileID: 2800000, guid: 2edbab2a1b1c8ca4d9d4180c82d88aa2, type: 3}
+  - {fileID: 2800000, guid: 7e44ac3840ec217469e89715056987d6, type: 3}
+  colors:
+  - color: {r: 1, g: 0, b: 0, a: 1}
+    bullet: {fileID: 1001587582991292, guid: a5a33785e7c4c4f74887f6fa6f4a5b2f, type: 2}
 --- !u!114 &216241703 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114542465152370112, guid: 966c90a550c2d4d9787a4bc9f1277510,
@@ -2596,7 +2625,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &891650473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2978,7 +3007,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11422e58311798b428433249efbff1a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: {x: 15, y: 15}
+  size: {x: 13, y: 13}
   nodePrefab: {fileID: 1765513592968542, guid: 01c92604e574dd74c81568754bdc6a46, type: 2}
   bulletPrefab: {fileID: 1001587582991292, guid: a5a33785e7c4c4f74887f6fa6f4a5b2f,
     type: 2}
