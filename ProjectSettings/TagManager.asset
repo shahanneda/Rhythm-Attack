@@ -8,6 +8,7 @@ TagManager:
   - DashText
   - DamageOverlay
   - Bullet
+  - SongTitle
   layers:
   - Default
   - TransparentFX

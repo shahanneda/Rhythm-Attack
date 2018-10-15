@@ -8,6 +8,7 @@ public class GUIController : MonoBehaviour
     private Text healthText;
     private Animator damageOverlay;
     private Text dashText;
+    private Text songTitleText;
 
     void Start()
     {
@@ -27,6 +28,16 @@ public class GUIController : MonoBehaviour
         if (dashText == null)
         {
             throw new MissingReferenceException("Please add DashText with tag to scene!");
+        }
+
+        songTitleText = GameObject.FindWithTag("SongTitle").GetComponent<Text>();
+        if (songTitleText == null)
+        {
+            throw new MissingReferenceException("Please add SongTitleText with tag to scene!");
+        }
+        else
+        {
+            songTitleText.text = GameController.instance.songController.song.name;
         }
     }
 
