@@ -12,13 +12,13 @@ public class PlayerController : MonoBehaviour
     private int dashes = 3;
 
     private float lastReffilTime;
-    private float timeBetween = 0.3f;
-
+    private float timeBetween;
   
 
     void Start()
     {
         lastReffilTime = Time.time;
+        timeBetween = GameController.instance.songController.secondsBetweenBeats;
 
         playerMovement = GetComponent<PlayerMovement>();
         if (playerMovement == null)

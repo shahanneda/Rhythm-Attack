@@ -12,8 +12,8 @@ public class SongController : MonoBehaviour
     private AudioSource audioSource;
 
     private float beatTimer;
-    private float secondsBetweenBeats;
-    public int   beatCounter = 0;
+    public float secondsBetweenBeats;
+    public int beatCounter = 0;
 
     private void Start()
     {
