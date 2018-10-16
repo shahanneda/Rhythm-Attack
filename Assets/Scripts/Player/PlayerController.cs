@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
 
     private float lastReffilTime;
     private float timeBetween;
-  
 
     void Start()
     {
@@ -42,9 +41,7 @@ public class PlayerController : MonoBehaviour
             lastReffilTime = Time.time;
 
         }
-
     }
-      
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -75,7 +72,6 @@ public class PlayerController : MonoBehaviour
             dashes = 0;
             return false;
         }
-
 
         GameController.instance.guiController.SetDashText(dashes.ToString());
         return true;
