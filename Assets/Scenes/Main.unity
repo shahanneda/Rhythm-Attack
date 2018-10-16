@@ -2260,6 +2260,41 @@ Prefab:
       propertyPath: Frame1.rows.Array.data[0].row.Array.data[3]
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114542465152370112, guid: 966c90a550c2d4d9787a4bc9f1277510,
+        type: 2}
+      propertyPath: Frame1.rows.Array.data[3].row.Array.data[3]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114542465152370112, guid: 966c90a550c2d4d9787a4bc9f1277510,
+        type: 2}
+      propertyPath: Frame1.rows.Array.data[1].row.Array.data[8]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114542465152370112, guid: 966c90a550c2d4d9787a4bc9f1277510,
+        type: 2}
+      propertyPath: Frame2.rows.Array.data[2].row.Array.data[9]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114542465152370112, guid: 966c90a550c2d4d9787a4bc9f1277510,
+        type: 2}
+      propertyPath: Frame2.rows.Array.data[3].row.Array.data[8]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114542465152370112, guid: 966c90a550c2d4d9787a4bc9f1277510,
+        type: 2}
+      propertyPath: Frame2.rows.Array.data[3].row.Array.data[10]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114542465152370112, guid: 966c90a550c2d4d9787a4bc9f1277510,
+        type: 2}
+      propertyPath: Frame2.rows.Array.data[4].row.Array.data[7]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114542465152370112, guid: 966c90a550c2d4d9787a4bc9f1277510,
+        type: 2}
+      propertyPath: Frame2.rows.Array.data[4].row.Array.data[10]
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 966c90a550c2d4d9787a4bc9f1277510, type: 2}
   m_IsPrefabAsset: 0
@@ -2434,6 +2469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   song: {fileID: 11400000, guid: ba609698f1ae54b47a6e80831a80f948, type: 2}
+  beatCounter: 0
 --- !u!82 &522981999
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2679,6 +2715,21 @@ Prefab:
         type: 2}
       propertyPath: transitionSpeed
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 61036437906310960, guid: 7fcc7b2746316d542b87030520d2faaf,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 61036437906310960, guid: 7fcc7b2746316d542b87030520d2faaf,
+        type: 2}
+      propertyPath: m_UsedByEffector
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 61036437906310960, guid: 7fcc7b2746316d542b87030520d2faaf,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
