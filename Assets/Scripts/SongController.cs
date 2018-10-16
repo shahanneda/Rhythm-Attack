@@ -11,8 +11,9 @@ public class SongController : MonoBehaviour
 
     private AudioSource audioSource;
 
-    private float beatCounter;
-    private float secondsBetweenBeats;
+    private float beatTimer;
+    public float secondsBetweenBeats;
+    public int beatCounter = 0;
 
     private void Start()
     {
@@ -30,16 +31,18 @@ public class SongController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        beatCounter -= Time.fixedDeltaTime;
+        beatTimer -= Time.fixedDeltaTime;
 
-        if (beatCounter < 0)
+        if (beatTimer < 0)
         {
             beat.Invoke();
+
         }
     }
 
     public void BeatCount()
     {
-        beatCounter = secondsBetweenBeats;
+        beatTimer = secondsBetweenBeats;
+        beatCounter++;
     }
 }

@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 public class GUIController : MonoBehaviour
 {
-    private Text healthText;
+    private Slider healthText;
     private Animator damageOverlay;
-    private Text dashText;
+    private Slider dashText;
     private Text songTitleText;
 
     void Start()
     {
-        healthText = GameObject.FindWithTag("HealthText").GetComponent<Text>();
+        healthText = GameObject.FindWithTag("HealthText").GetComponent<Slider>();
         if (healthText == null)
         {
             throw new MissingReferenceException("Please add HealthText with tag to scene!");
@@ -24,7 +24,7 @@ public class GUIController : MonoBehaviour
             throw new MissingReferenceException("Please add DamageOverlay with tag to scene!");
         }
 
-        dashText = GameObject.FindWithTag("DashText").GetComponent<Text>();
+        dashText = GameObject.FindWithTag("DashText").GetComponent<Slider>();
         if (dashText == null)
         {
             throw new MissingReferenceException("Please add DashText with tag to scene!");
@@ -43,12 +43,12 @@ public class GUIController : MonoBehaviour
 
     public void SetHealthText(string text)
     {
-        healthText.text = text;
+        healthText.value = int.Parse(text);
     }
 
     public void SetDashText(string text)
     {
-        dashText.text = text;
+        dashText.value = int.Parse(text);
     }
 
     public void DamageOverlay()

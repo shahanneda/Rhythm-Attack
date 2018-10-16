@@ -34,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (!(movement.x + movement.y).Equals(0))
                 {
+
                     if (GameController.instance.playerController.UseDash() == true)
                     {
                         movement = new Vector2(movement.x * 2, movement.y * 2);

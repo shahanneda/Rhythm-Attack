@@ -11,11 +11,14 @@ public class PlayerController : MonoBehaviour
 
     private int dashes = 3;
 
-    private float nextDashTime;
+    private float lastReffilTime;
+    private float timeBetween;
+  
 
     void Start()
     {
-        nextDashTime = Time.time;
+        lastReffilTime = Time.time;
+        timeBetween = GameController.instance.songController.secondsBetweenBeats;
 
         playerMovement = GetComponent<PlayerMovement>();
         if (playerMovement == null)
@@ -32,12 +35,16 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Time.time - 5 > nextDashTime)
+        //print(GameController.instance.songController.beatCounter % GameController.instance.songController.song.beatsPerBar );
+        if (GameController.instance.songController.beatCounter % GameController.instance.songController.song.beatsPerBar == 0 && lastReffilTime + timeBetween < Time.time)
         {
-            nextDashTime = Time.time + 5;
             AddDash();
+            lastReffilTime = Time.time;
+
         }
+
     }
+      
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -69,7 +76,7 @@ public class PlayerController : MonoBehaviour
             return false;
         }
 
-        nextDashTime = Time.time;
+
         GameController.instance.guiController.SetDashText(dashes.ToString());
         return true;
     }
