@@ -1192,7 +1192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c124fa24b737034cbf683c9e666dfda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patterns: {fileID: 2800000, guid: e05182ea21e2a436b99d91f2dbd69de5, type: 3}
+  patterns: {fileID: 2800000, guid: 15b85512c644bda4a9cfa3c4f8f380e5, type: 3}
   colors:
   - color: {r: 1, g: 0, b: 0, a: 1}
     bullet: {fileID: 1001587582991292, guid: a5a33785e7c4c4f74887f6fa6f4a5b2f, type: 2}
