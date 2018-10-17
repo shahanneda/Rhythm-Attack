@@ -19,6 +19,9 @@ public class ImageToBulletPattern : MonoBehaviour
         size = GameController.instance.gridGenerator.size;
         InvokeRepeating("LoadPattern", 0, bulletSpeed);
 
+        foreach(ColorToBullet colortobullet in colors){
+            GameController.instance.gridGenerator.GenerateBulletGrid(colortobullet.bullet);
+        }
         //GameController.instance.songController.beat += LoadPattern;
     }
 
@@ -50,12 +53,12 @@ public class ImageToBulletPattern : MonoBehaviour
             currentPatternIndex = 0;
         }
     }
-
+    
     private GameObject GetBulletFromColor(Color color)
     {
         foreach (ColorToBullet colorToBullet in colors)
         {
-            if (color.IsSimlerTo(colorToBullet.color))
+            if (color.IsSimlarTo(colorToBullet.color,25))
             {
                 return colorToBullet.bullet;
             }
@@ -85,9 +88,9 @@ public class ColorToBullet
 
 static class Extension
 {
-    public static bool IsSimlerTo(this Color me, Color other)
+    public static bool IsSimlarTo(this Color me, Color other, int closnessValue)
     {
-        float closnessValue = 25;
+
         if(me.r + closnessValue > other.r && me.r- closnessValue < other.r){
             if (me.b + closnessValue > other.b && me.b - closnessValue < other.b)
             {
