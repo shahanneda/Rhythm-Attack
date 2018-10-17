@@ -41,7 +41,7 @@ public class GridGenerator : MonoBehaviour
             for (int y = 0; y < size.y; y++)
             {
                 Transform generatedNode = Instantiate(nodePrefab, new Vector2(x - xHalf, y - yHalf), Quaternion.identity).transform;
-                generatedNode.parent = transform;
+                generatedNode.parent = transform.GetChild(0);
             }
         }
 
@@ -68,7 +68,7 @@ public class GridGenerator : MonoBehaviour
             for (int y = 0; y < size.y; y++)
             {
                 GameObject generatedBullet = Instantiate(bulletPrefab, new Vector2(x - xHalf, y - yHalf), Quaternion.identity) as GameObject;
-                generatedBullet.transform.parent = transform;
+                generatedBullet.transform.parent = transform.GetChild(1).GetChild(0);
                 bulletGrid[x, y] = generatedBullet;
                 generatedBullet.SetActive(false);
             }
