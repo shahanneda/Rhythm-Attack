@@ -55,7 +55,7 @@ public class ImageToBulletPattern : MonoBehaviour
     {
         foreach (ColorToBullet colorToBullet in colors)
         {
-            if (color.Equals(colorToBullet.color))
+            if (color.IsSimlerTo(colorToBullet.color))
             {
                 return colorToBullet.bullet;
             }
@@ -80,5 +80,23 @@ public class ColorToBullet
     {
         this.color = color;
         this.bullet = bullet;
+    }
+}
+
+static class Extension
+{
+    public static bool IsSimlerTo(this Color me, Color other)
+    {
+        float closnessValue = 25;
+        if(me.r + closnessValue < other.r && me.r- closnessValue > other.r){
+            if (me.b + closnessValue < other.b && me.b - closnessValue > other.b)
+            {
+                if (me.g + closnessValue < other.g && me.g - closnessValue > other.g)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }
