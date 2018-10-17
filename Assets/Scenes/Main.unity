@@ -1196,6 +1196,8 @@ MonoBehaviour:
   colors:
   - color: {r: 1, g: 0, b: 0, a: 1}
     bullet: {fileID: 1001587582991292, guid: a5a33785e7c4c4f74887f6fa6f4a5b2f, type: 2}
+  - color: {r: 0, g: 0.23921569, b: 1, a: 1}
+    bullet: {fileID: 1933119935928286, guid: 2f30bcfa2f12f44c5926ceba3c0579b8, type: 2}
   bulletSpeed: 0.15
 --- !u!1 &1628268492
 GameObject:
