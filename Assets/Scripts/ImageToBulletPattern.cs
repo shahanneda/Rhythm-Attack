@@ -17,12 +17,10 @@ public class ImageToBulletPattern : MonoBehaviour
     private void Start()
     {
         size = GameController.instance.gridGenerator.size;
-        InvokeRepeating("LoadPattern", 0,bulletSpeed);
+        InvokeRepeating("LoadPattern", 0, bulletSpeed);
 
         //GameController.instance.songController.beat += LoadPattern;
     }
-
-    
 
     private void LoadPattern()
     {
