@@ -157,6 +157,7 @@ MonoBehaviour:
   colors:
   - color: {r: 1, g: 0, b: 0, a: 1}
     bullet: {fileID: 1001587582991292, guid: a5a33785e7c4c4f74887f6fa6f4a5b2f, type: 2}
+  bulletSpeed: 0.15
 --- !u!1 &180798053
 GameObject:
   m_ObjectHideFlags: 0
