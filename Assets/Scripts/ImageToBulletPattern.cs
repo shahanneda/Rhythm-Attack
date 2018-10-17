@@ -88,10 +88,10 @@ static class Extension
     public static bool IsSimlerTo(this Color me, Color other)
     {
         float closnessValue = 25;
-        if(me.r + closnessValue < other.r && me.r- closnessValue > other.r){
-            if (me.b + closnessValue < other.b && me.b - closnessValue > other.b)
+        if(me.r + closnessValue > other.r && me.r- closnessValue < other.r){
+            if (me.b + closnessValue > other.b && me.b - closnessValue < other.b)
             {
-                if (me.g + closnessValue < other.g && me.g - closnessValue > other.g)
+                if (me.g + closnessValue > other.g && me.g - closnessValue < other.g)
                 {
                     return true;
                 }
