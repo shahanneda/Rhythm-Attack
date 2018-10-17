@@ -113,51 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &169018140
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 169018141}
-  - component: {fileID: 169018142}
-  m_Layer: 0
-  m_Name: BulletGrid
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &169018141
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 169018140}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &169018142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 169018140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c124fa24b737034cbf683c9e666dfda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  patterns: {fileID: 2800000, guid: 15b85512c644bda4a9cfa3c4f8f380e5, type: 3}
-  colors:
-  - color: {r: 1, g: 0, b: 0, a: 1}
-    bullet: {fileID: 1001587582991292, guid: a5a33785e7c4c4f74887f6fa6f4a5b2f, type: 2}
-  bulletSpeed: 0.15
 --- !u!1 &180798053
 GameObject:
   m_ObjectHideFlags: 0
@@ -1052,7 +1007,7 @@ GameObject:
   - component: {fileID: 1312939968}
   - component: {fileID: 1312939967}
   m_Layer: 0
-  m_Name: Gui Controller
+  m_Name: GUI Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1160,6 +1115,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1496027280}
   - component: {fileID: 1496027281}
+  - component: {fileID: 1496027282}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -1195,6 +1151,22 @@ MonoBehaviour:
   nodePrefab: {fileID: 1765513592968542, guid: 01c92604e574dd74c81568754bdc6a46, type: 2}
   bulletPrefab: {fileID: 1001587582991292, guid: a5a33785e7c4c4f74887f6fa6f4a5b2f,
     type: 2}
+--- !u!114 &1496027282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1496027279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c124fa24b737034cbf683c9e666dfda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patterns: {fileID: 2800000, guid: 15b85512c644bda4a9cfa3c4f8f380e5, type: 3}
+  colors:
+  - color: {r: 1, g: 0, b: 0, a: 1}
+    bullet: {fileID: 1001587582991292, guid: a5a33785e7c4c4f74887f6fa6f4a5b2f, type: 2}
+  bulletSpeed: 0.15
 --- !u!1 &1628694560
 GameObject:
   m_ObjectHideFlags: 0
