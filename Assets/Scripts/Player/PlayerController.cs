@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     private float lastReffilTime;
     private float timeBetween;
 
+    private int beatsSinceLastDash;
+
     void Start()
     {
         lastReffilTime = Time.time;
@@ -30,17 +32,19 @@ public class PlayerController : MonoBehaviour
         {
             throw new MissingReferenceException("Please add playerHealth to player!!");
         }
+
+        GameController.instance.songController.beat += DashRefill;
     }
 
     void Update()
     {
         //print(GameController.instance.songController.beatCounter % GameController.instance.songController.song.beatsPerBar );
-        if (GameController.instance.songController.beatCounter % GameController.instance.songController.song.beatsPerBar == 0 && lastReffilTime + timeBetween < Time.time)
+        /*if (GameController.instance.songController.beatCounter % GameController.instance.songController.song.beatsPerBar == 0 && lastReffilTime + timeBetween < Time.time)
         {
             AddDash();
             lastReffilTime = Time.time;
 
-        }
+        }*/
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -48,6 +52,19 @@ public class PlayerController : MonoBehaviour
         if (collision.tag == "Bullet")
         {
             TakeDamage(10);
+        }
+    }
+
+    private void DashRefill()
+    {
+        if (beatsSinceLastDash == GameController.instance.songController.song.beatsPerBar)
+        {
+            beatsSinceLastDash = 0;
+            AddDash();
+        }
+        else
+        {
+            beatsSinceLastDash++;
         }
     }
 
@@ -66,6 +83,7 @@ public class PlayerController : MonoBehaviour
     public bool UseDash()
     {
         dashes--;
+        beatsSinceLastDash = 0;
 
         if (dashes < 0)
         {
