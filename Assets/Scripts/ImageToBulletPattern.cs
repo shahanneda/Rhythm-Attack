@@ -4,19 +4,25 @@ using UnityEngine;
 
 public class ImageToBulletPattern : MonoBehaviour
 {
-    public Texture2D[] patterns;
+    public Texture2D patterns;
     public ColorToBullet[] colors;
 
-    public float bulletSpeed = 0.1f;
-
     private int currentPatternIndex;
+
     private Vector2 size;
+
+
+    public float bulletSpeed = 0.1f;
 
     private void Start()
     {
         size = GameController.instance.gridGenerator.size;
-        InvokeRepeating("LoadPattern", 0, bulletSpeed);
+        InvokeRepeating("LoadPattern", 0,bulletSpeed);
+
+        //GameController.instance.songController.beat += LoadPattern;
     }
+
+    
 
     private void LoadPattern()
     {
@@ -24,7 +30,7 @@ public class ImageToBulletPattern : MonoBehaviour
         {
             for (int y = 0; y < size.y; y++)
             {
-                Color currentColor = patterns[currentPatternIndex].GetPixel(x, y);
+                Color currentColor = patterns.GetPixel(x + currentPatternIndex * (int)size.x, y);
 
                 if (currentColor.a > 0)
                 {
@@ -41,7 +47,7 @@ public class ImageToBulletPattern : MonoBehaviour
         }
 
         currentPatternIndex++;
-        if (currentPatternIndex >= patterns.Length)
+        if (currentPatternIndex >= 13)
         {
             currentPatternIndex = 0;
         }
