@@ -7,19 +7,20 @@ public class ImageToBulletPattern : MonoBehaviour
     public Texture2D patterns;
     public ColorToBullet[] colors;
 
-    private int currentPatternIndex;
-
-    private Vector2 size;
-
-
     public float bulletSpeed = 0.1f;
+
+    private int currentPatternIndex;
+    private Vector2 size;
 
     private void Start()
     {
         size = GameController.instance.gridGenerator.size;
         InvokeRepeating("LoadPattern", 0, bulletSpeed);
 
-        //GameController.instance.songController.beat += LoadPattern;
+        foreach (ColorToBullet colortobullet in colors)
+        {
+            GameController.instance.gridGenerator.GenerateBulletGrid(colortobullet.bullet);
+        }
     }
 
     private void LoadPattern()
@@ -55,7 +56,7 @@ public class ImageToBulletPattern : MonoBehaviour
     {
         foreach (ColorToBullet colorToBullet in colors)
         {
-            if (color.IsSimlerTo(colorToBullet.color))
+            if (color.IsSimlarTo(colorToBullet.color, 25))
             {
                 return colorToBullet.bullet;
             }
@@ -85,16 +86,18 @@ public class ColorToBullet
 
 static class Extension
 {
-    public static bool IsSimlerTo(this Color me, Color other)
+    public static bool IsSimlarTo(this Color me, Color other, int closnessValue)
     {
-        float closnessValue = 25;
         if (me.r + closnessValue > other.r && me.r - closnessValue < other.r)
         {
-            if (me.b + closnessValue > other.b && me.b - closnessValue < other.b)
+            if (me.r + closnessValue > other.r && me.r - closnessValue < other.r)
             {
-                if (me.g + closnessValue > other.g && me.g - closnessValue < other.g)
+                if (me.b + closnessValue > other.b && me.b - closnessValue < other.b)
                 {
-                    return true;
+                    if (me.g + closnessValue > other.g && me.g - closnessValue < other.g)
+                    {
+                        return true;
+                    }
                 }
             }
         }

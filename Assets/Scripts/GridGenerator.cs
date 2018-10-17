@@ -9,14 +9,15 @@ public class GridGenerator : MonoBehaviour
     public GameObject nodePrefab;
 
     public GameObject[,] bulletGrid;
-    public GameObject bulletPrefab;
+    public GameObject[,] bulletBlue;
+    public GameObject[,] bulletOther;
 
     private void Start()
     {
         GenerateGrid();
 
-        bulletGrid = new GameObject[16, 16];
-        GenerateBulletGrid();
+        bulletGrid = new GameObject[(int)size.x, (int)size.y];
+        bulletBlue = new GameObject[(int)size.x, (int)size.y];
     }
 
     public void GenerateGrid()
@@ -48,7 +49,7 @@ public class GridGenerator : MonoBehaviour
         Camera.main.orthographicSize = 0.635f * ((size.x > size.y) ? size.x : size.y);
     }
 
-    public void GenerateBulletGrid()
+    public void GenerateBulletGrid(GameObject bulletPrefab)
     {
         if (size.x % 2 == 0)
         {
@@ -70,6 +71,7 @@ public class GridGenerator : MonoBehaviour
                 GameObject generatedBullet = Instantiate(bulletPrefab, new Vector2(x - xHalf, y - yHalf), Quaternion.identity) as GameObject;
                 generatedBullet.transform.parent = transform.GetChild(1).GetChild(0);
                 bulletGrid[x, y] = generatedBullet;
+
                 generatedBullet.SetActive(false);
             }
         }
