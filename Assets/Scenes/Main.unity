@@ -676,7 +676,7 @@ Prefab:
     - target: {fileID: 61036437906310960, guid: 7fcc7b2746316d542b87030520d2faaf,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
@@ -1179,8 +1179,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: {x: 13, y: 13}
   nodePrefab: {fileID: 1765513592968542, guid: 01c92604e574dd74c81568754bdc6a46, type: 2}
-  bulletPrefab: {fileID: 1001587582991292, guid: a5a33785e7c4c4f74887f6fa6f4a5b2f,
-    type: 2}
 --- !u!114 &1496027282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1196,8 +1194,6 @@ MonoBehaviour:
   colors:
   - color: {r: 1, g: 0, b: 0, a: 1}
     bullet: {fileID: 1001587582991292, guid: a5a33785e7c4c4f74887f6fa6f4a5b2f, type: 2}
-  - color: {r: 0, g: 0.23921569, b: 1, a: 1}
-    bullet: {fileID: 1933119935928286, guid: 2f30bcfa2f12f44c5926ceba3c0579b8, type: 2}
   bulletSpeed: 0.15
 --- !u!1 &1628268492
 GameObject:
