@@ -5,15 +5,14 @@ using UnityEngine;
 public class GridGenerator : MonoBehaviour
 {
     public Vector2 size;
+    public int xHalf;
+    public int yHalf;
 
     public GameObject nodePrefab;
 
     public GameObject[,] bulletGrid;
     public GameObject[,] bulletBlue;
     public GameObject[,] bulletOther;
-
-    private int xHalf;
-    private int yHalf;
 
     private void Start()
     {
