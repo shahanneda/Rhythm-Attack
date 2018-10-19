@@ -59,6 +59,5 @@ public class SongController : MonoBehaviour
     {
         beatTimer = secondsBetweenBeats;
         beatCounter++;
-        print("hi");
     }
 }
