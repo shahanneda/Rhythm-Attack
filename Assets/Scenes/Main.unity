@@ -1178,6 +1178,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: {x: 13, y: 13}
+  xHalf: 0
+  yHalf: 0
   nodePrefab: {fileID: 1765513592968542, guid: 01c92604e574dd74c81568754bdc6a46, type: 2}
 --- !u!114 &1496027282
 MonoBehaviour:
@@ -1454,96 +1456,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!1001 &1846287167
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4644424046275748, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4644424046275748, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4644424046275748, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4644424046275748, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4644424046275748, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4644424046275748, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4644424046275748, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4644424046275748, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 114900454158589228, guid: 7fcc7b2746316d542b87030520d2faaf,
-        type: 2}
-      propertyPath: transitionSpeed
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 61036437906310960, guid: 7fcc7b2746316d542b87030520d2faaf,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 61036437906310960, guid: 7fcc7b2746316d542b87030520d2faaf,
-        type: 2}
-      propertyPath: m_UsedByEffector
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 61036437906310960, guid: 7fcc7b2746316d542b87030520d2faaf,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1377178003237798, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
-      propertyPath: m_Name
-      value: Player (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114790818745033324, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
-    - {fileID: 114900454158589228, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
-    - {fileID: 114998683080125522, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
-    - {fileID: 114303273260752178, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
-    - {fileID: 61036437906310960, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
-    - {fileID: 50407219216009308, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
-  m_SourcePrefab: {fileID: 100100000, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
-  m_IsPrefabAsset: 0
---- !u!1 &1846287168 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1377178003237798, guid: 7fcc7b2746316d542b87030520d2faaf,
-    type: 2}
-  m_PrefabInternal: {fileID: 1846287167}
---- !u!114 &1846287169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1846287168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b246265e08c235147b84a6657dd2d66a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletType: Hi
-  direction: {x: 1, y: 0}
 --- !u!1 &1930156354
 GameObject:
   m_ObjectHideFlags: 0

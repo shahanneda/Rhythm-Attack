@@ -15,6 +15,8 @@ public class SongController : MonoBehaviour
     public float secondsBetweenBeats;
     public int beatCounter = 0;
 
+    private bool timing;
+
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -22,21 +24,34 @@ public class SongController : MonoBehaviour
         if (audioSource != null)
         {
             audioSource.clip = song.audio;
-            audioSource.Play();
+            //audioSource.Play();
         }
 
         beat += BeatCount;
         secondsBetweenBeats = 60f / song.tempo;
+
+        StartCoroutine("Wait");
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(20);
+
+        audioSource.Play();
+        GameController.instance.playerController.playerMovement.freeMove = false;
+        timing = true;
     }
 
     private void FixedUpdate()
     {
-        beatTimer -= Time.fixedDeltaTime;
-
-        if (beatTimer < 0)
+        if (timing)
         {
-            beat.Invoke();
+            beatTimer -= Time.fixedDeltaTime;
 
+            if (beatTimer < 0)
+            {
+                beat.Invoke();
+            }
         }
     }
 
@@ -44,5 +59,6 @@ public class SongController : MonoBehaviour
     {
         beatTimer = secondsBetweenBeats;
         beatCounter++;
+        print("hi");
     }
 }
