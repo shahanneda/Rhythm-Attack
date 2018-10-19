@@ -12,6 +12,9 @@ public class GridGenerator : MonoBehaviour
     public GameObject[,] bulletBlue;
     public GameObject[,] bulletOther;
 
+    private int xHalf;
+    private int yHalf;
+
     private void Start()
     {
         GenerateGrid();
@@ -32,8 +35,8 @@ public class GridGenerator : MonoBehaviour
             size.y++;
         }
 
-        int xHalf = Mathf.FloorToInt(size.x / 2f);
-        int yHalf = Mathf.FloorToInt(size.y / 2f);
+        xHalf = Mathf.FloorToInt(size.x / 2f);
+        yHalf = Mathf.FloorToInt(size.y / 2f);
 
         GameController.instance.playerController.playerMovement.SetBounds(new Vector2(xHalf, yHalf));
 
@@ -75,5 +78,10 @@ public class GridGenerator : MonoBehaviour
                 generatedBullet.SetActive(false);
             }
         }
+    }
+
+    public Vector2 GetPositionFromGrid(Vector2 positionOnGrid)
+    {
+        return positionOnGrid - new Vector2(xHalf, yHalf);
     }
 }
