@@ -1178,6 +1178,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: {x: 13, y: 13}
+  xHalf: 0
+  yHalf: 0
   nodePrefab: {fileID: 1765513592968542, guid: 01c92604e574dd74c81568754bdc6a46, type: 2}
 --- !u!114 &1496027282
 MonoBehaviour:
@@ -1542,8 +1544,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b246265e08c235147b84a6657dd2d66a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletType: Hi
-  direction: {x: 1, y: 0}
+  bulletStats:
+    bulletType: Red
+    direction: {x: 0, y: 0}
 --- !u!1 &1930156354
 GameObject:
   m_ObjectHideFlags: 0

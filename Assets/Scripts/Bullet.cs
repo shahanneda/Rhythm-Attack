@@ -31,7 +31,7 @@ public class Bullet : MonoBehaviour
         Instantiate(bullet, position, Quaternion.identity).GetComponent<BulletStats>().Set(bulletStats);
     }
 }
-
+[System.Serializable]
 public class BulletStats
 {
     public string bulletType;
