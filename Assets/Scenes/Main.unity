@@ -387,6 +387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   song: {fileID: 11400000, guid: e8e6667e5f0eb4f72ab51b80069fe57b, type: 2}
+  song: {fileID: 11400000, guid: ba609698f1ae54b47a6e80831a80f948, type: 2}
   secondsBetweenBeats: 0
   beatCounter: 0
 --- !u!82 &522981999
