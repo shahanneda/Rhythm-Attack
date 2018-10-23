@@ -387,7 +387,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+<<<<<<< HEAD
   song: {fileID: 11400000, guid: e8e6667e5f0eb4f72ab51b80069fe57b, type: 2}
+=======
+  song: {fileID: 11400000, guid: ba609698f1ae54b47a6e80831a80f948, type: 2}
+>>>>>>> parent of 91bab55... Merge branch 'free-move'
 =======
   song: {fileID: 11400000, guid: ba609698f1ae54b47a6e80831a80f948, type: 2}
 >>>>>>> parent of 91bab55... Merge branch 'free-move'
@@ -1460,7 +1464,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-<<<<<<< HEAD
 --- !u!1001 &1846287167
 Prefab:
   m_ObjectHideFlags: 0
@@ -1552,8 +1555,11 @@ MonoBehaviour:
   bulletStats:
     bulletType: Red
     direction: {x: 0, y: 0}
+<<<<<<< HEAD
 =======
 >>>>>>> cb43675c5768ac725b53a59e4b4f9cea495da0ac
+=======
+>>>>>>> parent of 91bab55... Merge branch 'free-move'
 --- !u!1 &1930156354
 GameObject:
   m_ObjectHideFlags: 0
