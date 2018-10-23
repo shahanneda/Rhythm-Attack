@@ -1551,6 +1551,7 @@ MonoBehaviour:
   bulletStats:
     bulletType: Red
     direction: {x: 0, y: 0}
+>>>>>>> cb43675c5768ac725b53a59e4b4f9cea495da0ac
 --- !u!1 &1930156354
 GameObject:
   m_ObjectHideFlags: 0
