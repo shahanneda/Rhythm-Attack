@@ -84,3 +84,40 @@ public class GridGenerator : MonoBehaviour
         return positionOnGrid - new Vector2(xHalf, yHalf);
     }
 }
+
+[System.Serializable]
+public class Level
+{
+    public string name = "New Level";
+    public Vector2 size = Vector2.one * 13f;
+    public AudioClip song;
+    public int bpm;
+    public int amountOfFrames;
+
+    public Frame[] frames = new Frame[0];
+
+    public Level()
+    {
+
+    }
+
+    public Level(string name, Vector2 size, AudioClip song, int bpm, Frame[] frames)
+    {
+        this.name = name;
+        this.size = size;
+        this.song = song;
+        this.bpm = bpm;
+        this.frames = frames;
+    }
+}
+
+[System.Serializable]
+public class Frame
+{
+    public List<BulletStats> bullets = new List<BulletStats>();
+
+    public Frame()
+    {
+
+    }
+}

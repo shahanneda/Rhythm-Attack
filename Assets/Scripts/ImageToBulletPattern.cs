@@ -15,7 +15,7 @@ public class ImageToBulletPattern : MonoBehaviour
     private void Start()
     {
         size = GameController.instance.gridGenerator.size;
-        InvokeRepeating("LoadPattern", 0, bulletSpeed);
+        InvokeRepeating("LoadPattern", 20, bulletSpeed);
 
         foreach (ColorToBullet colortobullet in colors)
         {
