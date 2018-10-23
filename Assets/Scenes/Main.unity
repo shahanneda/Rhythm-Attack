@@ -1457,7 +1457,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-<<<<<<< HEAD
 --- !u!1001 &1846287167
 Prefab:
   m_ObjectHideFlags: 0
@@ -1549,8 +1548,6 @@ MonoBehaviour:
   bulletStats:
     bulletType: Red
     direction: {x: 0, y: 0}
-=======
->>>>>>> free-move
 --- !u!1 &1930156354
 GameObject:
   m_ObjectHideFlags: 0
