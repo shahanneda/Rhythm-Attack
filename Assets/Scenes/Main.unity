@@ -285,7 +285,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0.049987793, y: -0.020019531}
+  m_AnchoredPosition: {x: 0.050048828, y: -0.020019531}
   m_SizeDelta: {x: 170.2, y: 151.13}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &445532792
@@ -386,15 +386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22144237510096e4abf19eba1063c66e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-<<<<<<< HEAD
   song: {fileID: 11400000, guid: e8e6667e5f0eb4f72ab51b80069fe57b, type: 2}
-=======
-  song: {fileID: 11400000, guid: ba609698f1ae54b47a6e80831a80f948, type: 2}
->>>>>>> parent of 91bab55... Merge branch 'free-move'
-=======
-  song: {fileID: 11400000, guid: ba609698f1ae54b47a6e80831a80f948, type: 2}
->>>>>>> parent of 91bab55... Merge branch 'free-move'
   secondsBetweenBeats: 0
   beatCounter: 0
 --- !u!82 &522981999
@@ -1464,102 +1456,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!1001 &1846287167
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4644424046275748, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4644424046275748, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4644424046275748, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4644424046275748, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4644424046275748, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4644424046275748, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4644424046275748, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4644424046275748, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 114900454158589228, guid: 7fcc7b2746316d542b87030520d2faaf,
-        type: 2}
-      propertyPath: transitionSpeed
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 61036437906310960, guid: 7fcc7b2746316d542b87030520d2faaf,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 61036437906310960, guid: 7fcc7b2746316d542b87030520d2faaf,
-        type: 2}
-      propertyPath: m_UsedByEffector
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 61036437906310960, guid: 7fcc7b2746316d542b87030520d2faaf,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1377178003237798, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
-      propertyPath: m_Name
-      value: Player (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114790818745033324, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
-    - {fileID: 114900454158589228, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
-    - {fileID: 114998683080125522, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
-    - {fileID: 114303273260752178, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
-    - {fileID: 61036437906310960, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
-    - {fileID: 50407219216009308, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
-  m_SourcePrefab: {fileID: 100100000, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
-  m_IsPrefabAsset: 0
---- !u!1 &1846287168 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1377178003237798, guid: 7fcc7b2746316d542b87030520d2faaf,
-    type: 2}
-  m_PrefabInternal: {fileID: 1846287167}
---- !u!114 &1846287169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1846287168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b246265e08c235147b84a6657dd2d66a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletStats:
-    bulletType: Red
-    direction: {x: 0, y: 0}
-<<<<<<< HEAD
-=======
->>>>>>> cb43675c5768ac725b53a59e4b4f9cea495da0ac
-=======
->>>>>>> parent of 91bab55... Merge branch 'free-move'
 --- !u!1 &1930156354
 GameObject:
   m_ObjectHideFlags: 0
