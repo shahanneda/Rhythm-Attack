@@ -6,6 +6,7 @@ public class GameController : MonoBehaviour
 {
     public static GameController instance;
 
+    public string jsonPath;
     public Level level;
 
     public PlayerController playerController;
@@ -17,7 +18,7 @@ public class GameController : MonoBehaviour
     private void OnEnable()
     {
         instance = this;
-        level = JSONBulletManager.LoadFromJSON("D:/13.json");
+        level = JSONBulletManager.LoadFromJSON(jsonPath);
     }
 
     private void Start()
