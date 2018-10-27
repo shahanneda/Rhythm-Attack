@@ -387,8 +387,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   song: {fileID: 11400000, guid: e8e6667e5f0eb4f72ab51b80069fe57b, type: 2}
-  secondsBetweenBeats: 0
   beatCounter: 0
+  secondsBetweenBeats: 0
 --- !u!82 &522981999
 AudioSource:
   m_ObjectHideFlags: 0
@@ -555,6 +555,7 @@ GameObject:
   m_Component:
   - component: {fileID: 537782230}
   - component: {fileID: 537782231}
+  - component: {fileID: 537782232}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -586,11 +587,121 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ae39db3d3df8db4696c37f59ce26e52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level:
+    name: 13
+    size: {x: 13, y: 13}
+    song: {fileID: 0}
+    bpm: 0
+    amountOfFrames: 2
+    frames:
+    - bullets:
+      - bulletType: Red
+        position: {x: 8, y: 7}
+        direction: {x: 1, y: 0}
+      - bulletType: Red
+        position: {x: 8, y: 6}
+        direction: {x: 1, y: 0}
+      - bulletType: Red
+        position: {x: 8, y: 5}
+        direction: {x: 1, y: 0}
+      - bulletType: Red
+        position: {x: 8, y: 8}
+        direction: {x: 1, y: 1}
+      - bulletType: Red
+        position: {x: 8, y: 4}
+        direction: {x: 1, y: -1}
+      - bulletType: Red
+        position: {x: 7, y: 4}
+        direction: {x: 0, y: -1}
+      - bulletType: Red
+        position: {x: 6, y: 4}
+        direction: {x: 0, y: -1}
+      - bulletType: Red
+        position: {x: 5, y: 4}
+        direction: {x: 0, y: -1}
+      - bulletType: Red
+        position: {x: 4, y: 4}
+        direction: {x: -1, y: -1}
+      - bulletType: Red
+        position: {x: 4, y: 5}
+        direction: {x: -1, y: 0}
+      - bulletType: Red
+        position: {x: 4, y: 6}
+        direction: {x: -1, y: 0}
+      - bulletType: Red
+        position: {x: 4, y: 7}
+        direction: {x: -1, y: 0}
+      - bulletType: Red
+        position: {x: 4, y: 8}
+        direction: {x: -1, y: 1}
+      - bulletType: Red
+        position: {x: 5, y: 8}
+        direction: {x: 0, y: 1}
+      - bulletType: Red
+        position: {x: 6, y: 8}
+        direction: {x: 0, y: 1}
+      - bulletType: Red
+        position: {x: 7, y: 8}
+        direction: {x: 0, y: 1}
+    - bullets:
+      - bulletType: Blue
+        position: {x: 6, y: 8}
+        direction: {x: 0, y: 1}
+      - bulletType: Blue
+        position: {x: 6, y: 4}
+        direction: {x: 0, y: -1}
+      - bulletType: Blue
+        position: {x: 8, y: 6}
+        direction: {x: 1, y: 0}
+      - bulletType: Blue
+        position: {x: 4, y: 6}
+        direction: {x: -1, y: 0}
+      - bulletType: Blue
+        position: {x: 4, y: 7}
+        direction: {x: -1, y: 0}
+      - bulletType: Red
+        position: {x: 4, y: 7}
+        direction: {x: -1, y: 0}
+      - bulletType: Red
+        position: {x: 4, y: 5}
+        direction: {x: -1, y: 0}
+      - bulletType: Red
+        position: {x: 5, y: 4}
+        direction: {x: -1, y: 0}
+      - bulletType: Red
+        position: {x: 7, y: 4}
+        direction: {x: 0, y: -1}
+      - bulletType: Red
+        position: {x: 5, y: 4}
+        direction: {x: 0, y: -1}
+      - bulletType: Red
+        position: {x: 8, y: 5}
+        direction: {x: 1, y: 0}
+      - bulletType: Red
+        position: {x: 8, y: 7}
+        direction: {x: 1, y: 0}
+      - bulletType: Red
+        position: {x: 7, y: 8}
+        direction: {x: 0, y: 1}
+      - bulletType: Red
+        position: {x: 5, y: 8}
+        direction: {x: 0, y: 1}
   playerController: {fileID: 924349094}
   songController: {fileID: 522981998}
   guiController: {fileID: 1312939967}
   bulletManager: {fileID: 0}
   gridGenerator: {fileID: 1496027281}
+--- !u!114 &537782232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 537782229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e061770cdec2d1443bfbbc6b117247d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &822605864
 GameObject:
   m_ObjectHideFlags: 0
@@ -1144,6 +1255,7 @@ GameObject:
   - component: {fileID: 1496027280}
   - component: {fileID: 1496027281}
   - component: {fileID: 1496027282}
+  - component: {fileID: 1496027283}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -1187,7 +1299,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1496027279}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c124fa24b737034cbf683c9e666dfda, type: 3}
   m_Name: 
@@ -1197,6 +1309,24 @@ MonoBehaviour:
   - color: {r: 1, g: 0, b: 0, a: 1}
     bullet: {fileID: 1001587582991292, guid: a5a33785e7c4c4f74887f6fa6f4a5b2f, type: 2}
   bulletSpeed: 0.15
+--- !u!114 &1496027283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1496027279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6174fe1861fd5542a98340d08b8c56c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletTypeToGameObjects:
+  - bulletType: Red
+    bulletObject: {fileID: 1001587582991292, guid: a5a33785e7c4c4f74887f6fa6f4a5b2f,
+      type: 2}
+  - bulletType: Blue
+    bulletObject: {fileID: 1001587582991292, guid: b8763a62330148e4e9dd4a9b04581624,
+      type: 2}
 --- !u!1 &1628268492
 GameObject:
   m_ObjectHideFlags: 0

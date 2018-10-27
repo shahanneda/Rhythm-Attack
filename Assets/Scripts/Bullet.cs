@@ -19,22 +19,19 @@ public class Bullet : MonoBehaviour
     {
         transform.position += new Vector3(bulletStats.direction.x, bulletStats.direction.y, 0);
 
-        if (transform.position.x >= gridGenerator.size.x - gridGenerator.xHalf || transform.position.y >= gridGenerator.size.y - gridGenerator.yHalf)
+        if (transform.position.x >= gridGenerator.size.x - gridGenerator.xHalf || transform.position.y >= gridGenerator.size.y - gridGenerator.yHalf || transform.position.x <= (gridGenerator.size.x - gridGenerator.xHalf) * -1 || transform.position.y <= (gridGenerator.size.y - gridGenerator.yHalf) * -1)
         {
             GameController.instance.songController.beat -= Move;
             Destroy(gameObject);
         }
     }
-
-    public static void SpawnBullet(GameObject bullet, Vector2 position, BulletStats bulletStats)
-    {
-        Instantiate(bullet, position, Quaternion.identity).GetComponent<BulletStats>().Set(bulletStats);
-    }
 }
+
 [System.Serializable]
 public class BulletStats
 {
     public string bulletType;
+    public Vector2 position;
     public Vector2 direction;
 
     public BulletStats(string bulletType, Vector2 direction)
@@ -54,4 +51,10 @@ public class BulletStats
         bulletType = bulletStats.bulletType;
         direction = bulletStats.direction;
     }
+}
+
+[System.Serializable]
+public class Frame
+{
+    public List<BulletStats> bullets;
 }

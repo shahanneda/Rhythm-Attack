@@ -9,11 +9,14 @@ public class SongController : MonoBehaviour
     public delegate void Beat();
     public Beat beat;
 
+    public int beatCounter = 0;
+
+    [HideInInspector]
+    public float secondsBetweenBeats;
+
     private AudioSource audioSource;
 
     private float beatTimer;
-    public float secondsBetweenBeats;
-    public int beatCounter = 0;
 
     private void Start()
     {
@@ -36,7 +39,6 @@ public class SongController : MonoBehaviour
         if (beatTimer < 0)
         {
             beat.Invoke();
-
         }
     }
 

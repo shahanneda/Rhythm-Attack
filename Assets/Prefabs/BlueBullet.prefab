@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61509708977571890}
   - component: {fileID: 114709102913249084}
   m_Layer: 0
-  m_Name: BasicBullet
+  m_Name: BlueBullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,7 +118,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 94
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
