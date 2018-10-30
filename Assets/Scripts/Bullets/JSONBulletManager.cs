@@ -9,4 +9,9 @@ public class JSONBulletManager : MonoBehaviour
     {
         return JsonUtility.FromJson<Level>(File.ReadAllText(path));
     }
+
+    public static Level LoadFromJSON(TextAsset textAsset)
+    {
+        return JsonUtility.FromJson<Level>(textAsset.text);
+    }
 }

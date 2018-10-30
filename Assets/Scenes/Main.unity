@@ -587,6 +587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ae39db3d3df8db4696c37f59ce26e52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelJson: {fileID: 4900000, guid: 009e192c824804a4581df092189912fa, type: 3}
   level:
     name: 13
     size: {x: 13, y: 13}
