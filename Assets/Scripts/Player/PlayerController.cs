@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
 
     private int beatsSinceLastDash;
 
+    private bool playerActedThisBeat;
+
     void Start()
     {
         lastReffilTime = Time.time;
@@ -34,6 +36,7 @@ public class PlayerController : MonoBehaviour
         }
 
         GameController.instance.songController.beat += DashRefill;
+        GameController.instance.songController.beat += CheckPlayerActedThisBeat;
     }
 
     void Update()
@@ -66,6 +69,16 @@ public class PlayerController : MonoBehaviour
         {
             beatsSinceLastDash++;
         }
+    }
+
+    private void CheckPlayerActedThisBeat()
+    {
+        if (!playerActedThisBeat)
+        {
+            TakeDamage(5);
+        }
+
+        playerActedThisBeat = false;
     }
 
     //  USE  *ONLY* THESE  METHODS WHEN YOU WANT TO INTRACT WITH HEALTH!
@@ -107,5 +120,10 @@ public class PlayerController : MonoBehaviour
 
         GameController.instance.guiController.SetDashText(dashes.ToString());
         return true;
+    }
+
+    public void PlayerActedThisBeat()
+    {
+        playerActedThisBeat = true;
     }
 }

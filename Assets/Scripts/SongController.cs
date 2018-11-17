@@ -8,6 +8,7 @@ public class SongController : MonoBehaviour
 
     public delegate void Beat();
     public Beat beat;
+    public Beat preBeat;
 
     public int beatCounter = 0;
 
@@ -32,13 +33,18 @@ public class SongController : MonoBehaviour
         secondsBetweenBeats = 60f / song.tempo;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        beatTimer -= Time.fixedDeltaTime;
+        beatTimer -= Time.deltaTime;
 
         if (beatTimer < 0)
         {
             beat.Invoke();
+        }
+
+        if (beatTimer < 0.1f)
+        {
+            preBeat.Invoke();
         }
     }
 

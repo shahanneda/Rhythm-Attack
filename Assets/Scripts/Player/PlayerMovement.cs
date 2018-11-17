@@ -5,16 +5,22 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public bool autoPlayer;
+    public float transitionSpeed = 0.1f;
 
     private Vector2 moveBounds;
     private Vector2 movement;
-    public float transitionSpeed = 0.1f;
+
     private Vector2 toLocation;
+
+    private PlayerController playerController;
 
     private void Start()
     {
-        GameController.instance.songController.beat += CheckPlayerMovement;
+        GameController.instance.songController.preBeat += CheckPlayerMovement;
+
+        playerController = FindObjectOfType<PlayerController>();
     }
+
     private void FixedUpdate()
     {
         transform.position = Vector3.Lerp(transform.position, toLocation, transitionSpeed);
@@ -28,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            movement = new Vector2(Input.GetKey(KeyCode.D) ? 1 : Input.GetKey(KeyCode.A) ? -1 : 0, Input.GetKey(KeyCode.W) ? 1 : Input.GetKey(KeyCode.S) ? -1 : 0);
+            movement = new Vector2(Input.GetKeyDown(KeyCode.D) ? 1 : Input.GetKeyDown(KeyCode.A) ? -1 : 0, Input.GetKeyDown(KeyCode.W) ? 1 : Input.GetKeyDown(KeyCode.S) ? -1 : 0);
 
             if (Input.GetKey(KeyCode.LeftShift))
             {
@@ -44,12 +50,13 @@ public class PlayerMovement : MonoBehaviour
 
             if (movement.x.Equals(0) && movement.y.Equals(0))
             {
-                GameController.instance.playerController.TakeDamage(5f);
+                //GameController.instance.playerController.TakeDamage(5f);
             }
 
             if (!(movement.x + movement.y).Equals(0))
             {
                 MovePlayer(movement);
+                playerController.PlayerActedThisBeat();
             }
         }
     }
