@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4036688281953762}
   - component: {fileID: 212927757634320990}
   - component: {fileID: 61509708977571890}
-  - component: {fileID: 114709102913249084}
+  - component: {fileID: 114891694828042214}
   m_Layer: 0
-  m_Name: BlueBullet
+  m_Name: GreenBullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,7 +67,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.2}
   m_EdgeRadius: 0
---- !u!114 &114709102913249084
+--- !u!114 &114891694828042214
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -75,11 +75,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1001587582991292}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b246265e08c235147b84a6657dd2d66a, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ab5b6be38e95754883ab2c383f6df8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulletStats:
-    bulletType: 
+    type: 
     position: {x: 0, y: 0}
     direction: {x: 0, y: 0}
 --- !u!212 &212927757634320990
@@ -116,9 +116,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 94
+  m_SortingOrder: 1
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0, g: 0, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

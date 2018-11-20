@@ -587,7 +587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ae39db3d3df8db4696c37f59ce26e52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelJson: {fileID: 4900000, guid: 009e192c824804a4581df092189912fa, type: 3}
+  levelJson: {fileID: 4900000, guid: 3a9b1e3cd9bdba64bb8633cd81a77a2d, type: 3}
   level:
     name: 13
     size: {x: 13, y: 13}
@@ -596,95 +596,95 @@ MonoBehaviour:
     amountOfFrames: 2
     frames:
     - bullets:
-      - bulletType: Red
+      - type: 
         position: {x: 8, y: 7}
         direction: {x: 1, y: 0}
-      - bulletType: Red
+      - type: 
         position: {x: 8, y: 6}
         direction: {x: 1, y: 0}
-      - bulletType: Red
+      - type: 
         position: {x: 8, y: 5}
         direction: {x: 1, y: 0}
-      - bulletType: Red
+      - type: 
         position: {x: 8, y: 8}
         direction: {x: 1, y: 1}
-      - bulletType: Red
+      - type: 
         position: {x: 8, y: 4}
         direction: {x: 1, y: -1}
-      - bulletType: Red
+      - type: 
         position: {x: 7, y: 4}
         direction: {x: 0, y: -1}
-      - bulletType: Red
+      - type: 
         position: {x: 6, y: 4}
         direction: {x: 0, y: -1}
-      - bulletType: Red
+      - type: 
         position: {x: 5, y: 4}
         direction: {x: 0, y: -1}
-      - bulletType: Red
+      - type: 
         position: {x: 4, y: 4}
         direction: {x: -1, y: -1}
-      - bulletType: Red
+      - type: 
         position: {x: 4, y: 5}
         direction: {x: -1, y: 0}
-      - bulletType: Red
+      - type: 
         position: {x: 4, y: 6}
         direction: {x: -1, y: 0}
-      - bulletType: Red
+      - type: 
         position: {x: 4, y: 7}
         direction: {x: -1, y: 0}
-      - bulletType: Red
+      - type: 
         position: {x: 4, y: 8}
         direction: {x: -1, y: 1}
-      - bulletType: Red
+      - type: 
         position: {x: 5, y: 8}
         direction: {x: 0, y: 1}
-      - bulletType: Red
+      - type: 
         position: {x: 6, y: 8}
         direction: {x: 0, y: 1}
-      - bulletType: Red
+      - type: 
         position: {x: 7, y: 8}
         direction: {x: 0, y: 1}
     - bullets:
-      - bulletType: Blue
+      - type: 
         position: {x: 6, y: 8}
         direction: {x: 0, y: 1}
-      - bulletType: Blue
+      - type: 
         position: {x: 6, y: 4}
         direction: {x: 0, y: -1}
-      - bulletType: Blue
+      - type: 
         position: {x: 8, y: 6}
         direction: {x: 1, y: 0}
-      - bulletType: Blue
+      - type: 
         position: {x: 4, y: 6}
         direction: {x: -1, y: 0}
-      - bulletType: Blue
+      - type: 
         position: {x: 4, y: 7}
         direction: {x: -1, y: 0}
-      - bulletType: Red
+      - type: 
         position: {x: 4, y: 7}
         direction: {x: -1, y: 0}
-      - bulletType: Red
+      - type: 
         position: {x: 4, y: 5}
         direction: {x: -1, y: 0}
-      - bulletType: Red
+      - type: 
         position: {x: 5, y: 4}
         direction: {x: -1, y: 0}
-      - bulletType: Red
+      - type: 
         position: {x: 7, y: 4}
         direction: {x: 0, y: -1}
-      - bulletType: Red
+      - type: 
         position: {x: 5, y: 4}
         direction: {x: 0, y: -1}
-      - bulletType: Red
+      - type: 
         position: {x: 8, y: 5}
         direction: {x: 1, y: 0}
-      - bulletType: Red
+      - type: 
         position: {x: 8, y: 7}
         direction: {x: 1, y: 0}
-      - bulletType: Red
+      - type: 
         position: {x: 7, y: 8}
         direction: {x: 0, y: 1}
-      - bulletType: Red
+      - type: 
         position: {x: 5, y: 8}
         direction: {x: 0, y: 1}
   playerController: {fileID: 924349094}
@@ -769,26 +769,6 @@ Prefab:
     - target: {fileID: 4644424046275748, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114900454158589228, guid: 7fcc7b2746316d542b87030520d2faaf,
-        type: 2}
-      propertyPath: transitionSpeed
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 61036437906310960, guid: 7fcc7b2746316d542b87030520d2faaf,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 61036437906310960, guid: 7fcc7b2746316d542b87030520d2faaf,
-        type: 2}
-      propertyPath: m_UsedByEffector
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 61036437906310960, guid: 7fcc7b2746316d542b87030520d2faaf,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
@@ -1327,6 +1307,12 @@ MonoBehaviour:
       type: 2}
   - bulletType: Blue
     bulletObject: {fileID: 1001587582991292, guid: b8763a62330148e4e9dd4a9b04581624,
+      type: 2}
+  - bulletType: Green
+    bulletObject: {fileID: 1001587582991292, guid: e7f5298da55124145bf8117f018157ea,
+      type: 2}
+  - bulletType: RedLaser
+    bulletObject: {fileID: 1109876108463758, guid: f746052e27308f0498eb6392ae22ca97,
       type: 2}
 --- !u!1 &1628268492
 GameObject:

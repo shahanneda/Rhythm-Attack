@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
 
     private int beatsSinceLastDash;
 
-    private bool playerActedThisBeat;
+    public bool playerActedThisBeat;
 
     void Start()
     {

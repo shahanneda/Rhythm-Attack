@@ -39,26 +39,48 @@ public class Bullet : MonoBehaviour
 [System.Serializable]
 public class BulletStats
 {
-    public string bulletType;
+    public string type;
     public Vector2 position;
     public Vector2 direction;
 
-    public BulletStats(string bulletType, Vector2 direction)
+    public void Set(string type, Vector2 direction)
     {
-        this.bulletType = bulletType;
-        this.direction = direction;
-    }
-
-    public void Set(string bulletType, Vector2 direction)
-    {
-        this.bulletType = bulletType;
+        this.type = type;
         this.direction = direction;
     }
 
     public void Set(BulletStats bulletStats)
     {
-        bulletType = bulletStats.bulletType;
+        type = bulletStats.type;
         direction = bulletStats.direction;
+    }
+}
+
+[System.Serializable]
+public class LaserStats : BulletStats
+{
+    public LaserStats()
+    {
+
+    }
+
+    public LaserStats(string type, Vector2 position, Vector2 direction)
+    {
+        this.type = type;
+        this.position = position;
+        this.direction = direction;
+    }
+
+    public new void Set(string type, Vector2 direction)
+    {
+        this.type = type;
+        this.direction = direction;
+    }
+
+    public void Set(LaserStats laserStats)
+    {
+        type = laserStats.type;
+        direction = laserStats.direction;
     }
 }
 

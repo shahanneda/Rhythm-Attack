@@ -28,35 +28,38 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckPlayerMovement()
     {
-        if (autoPlayer)
+        if (!playerController.playerActedThisBeat)
         {
-            MovePlayer(new Vector2(Random.Range(0, 2) * 2 - 1, Random.Range(0, 2) * 2 - 1));
-        }
-        else
-        {
-            movement = new Vector2(Input.GetKeyDown(KeyCode.D) ? 1 : Input.GetKeyDown(KeyCode.A) ? -1 : 0, Input.GetKeyDown(KeyCode.W) ? 1 : Input.GetKeyDown(KeyCode.S) ? -1 : 0);
-
-            if (Input.GetKey(KeyCode.LeftShift))
+            if (autoPlayer)
             {
-                if (!(movement.x + movement.y).Equals(0))
-                {
+                MovePlayer(new Vector2(Random.Range(0, 2) * 2 - 1, Random.Range(0, 2) * 2 - 1));
+            }
+            else
+            {
+                movement = new Vector2(Input.GetKey(KeyCode.D) ? 1 : Input.GetKey(KeyCode.A) ? -1 : 0, Input.GetKey(KeyCode.W) ? 1 : Input.GetKey(KeyCode.S) ? -1 : 0);
 
-                    if (GameController.instance.playerController.UseDash() == true)
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    if (!(movement.x + movement.y).Equals(0))
                     {
-                        movement = new Vector2(movement.x * 2, movement.y * 2);
+
+                        if (GameController.instance.playerController.UseDash() == true)
+                        {
+                            movement = new Vector2(movement.x * 2, movement.y * 2);
+                        }
                     }
                 }
-            }
 
-            if (movement.x.Equals(0) && movement.y.Equals(0))
-            {
-                //GameController.instance.playerController.TakeDamage(5f);
-            }
+                if (movement.x.Equals(0) && movement.y.Equals(0))
+                {
+                    //GameController.instance.playerController.TakeDamage(5f);
+                }
 
-            if (!(movement.x + movement.y).Equals(0))
-            {
-                MovePlayer(movement);
-                playerController.PlayerActedThisBeat();
+                if (!(movement.x + movement.y).Equals(0))
+                {
+                    MovePlayer(movement);
+                    playerController.PlayerActedThisBeat();
+                }
             }
         }
     }
