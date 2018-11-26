@@ -63,11 +63,28 @@ public class BulletSpawner : MonoBehaviour
 
         if (laserStats.direction.x != 0 && laserStats.direction.y == 0)
         {
-            amountOfNodes = (int)(GameController.instance.gridGenerator.size.x - laserStats.position.x);
+            if (laserStats.direction.x < 0)
+            {
+                int distFromHalf = (int)(GameController.instance.gridGenerator.xHalf - laserStats.position.x);
+                amountOfNodes = (int)(GameController.instance.gridGenerator.size.x - (distFromHalf + GameController.instance.gridGenerator.xHalf));
+            }
+            else
+            {
+                amountOfNodes = (int)(GameController.instance.gridGenerator.size.x - laserStats.position.x);
+                print("Hi");
+            }
         }
         else if (laserStats.direction.x == 0 && laserStats.direction.y != 0)
         {
-            amountOfNodes = (int)(GameController.instance.gridGenerator.size.y - laserStats.position.y);
+            if (laserStats.direction.y < 0)
+            {
+                int distFromHalf = (int)(GameController.instance.gridGenerator.yHalf - laserStats.position.y);
+                amountOfNodes = (int)(GameController.instance.gridGenerator.size.y - (distFromHalf + GameController.instance.gridGenerator.yHalf));
+            }
+            else
+            {
+                amountOfNodes = (int)(GameController.instance.gridGenerator.size.y - laserStats.position.y);
+            }
         }
         else
         {
