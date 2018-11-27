@@ -44,7 +44,9 @@ public class BulletSpawner : MonoBehaviour
         }
 
         foreach (BulletStats bulletStats in level.frames[currentFrame].bullets)
+            
         {
+           
             if (bulletStats.type.Contains("Laser"))
             {
                 SpawnLaser(new LaserStats(bulletStats.type, bulletStats.position, bulletStats.direction));
