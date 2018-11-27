@@ -37,6 +37,8 @@ public class PlayerController : MonoBehaviour
 
         GameController.instance.songController.beat += DashRefill;
         GameController.instance.songController.beat += CheckPlayerActedThisBeat;
+
+        GameController.instance.songController.preBeat += CheckAttack;
     }
 
     void Update()
@@ -79,6 +81,20 @@ public class PlayerController : MonoBehaviour
         }
 
         playerActedThisBeat = false;
+    }
+
+    private void Attack() {
+        if(!playerActedThisBeat){
+            //Attack
+
+            PlayerActedThisBeat();
+        }
+    }
+
+    private void CheckAttack() {
+        if(Input.GetKeyDown(KeyCode.Space)) {
+            Attack();
+        }
     }
 
     //  USE  *ONLY* THESE  METHODS WHEN YOU WANT TO INTRACT WITH HEALTH!

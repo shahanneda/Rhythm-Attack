@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                movement = new Vector2(Input.GetKey(KeyCode.D) ? 1 : Input.GetKey(KeyCode.A) ? -1 : 0, Input.GetKey(KeyCode.W) ? 1 : Input.GetKey(KeyCode.S) ? -1 : 0);
+                movement = new Vector2(Input.GetKeyDown(KeyCode.D) ? 1 : Input.GetKeyDown(KeyCode.A) ? -1 : 0, Input.GetKeyDown(KeyCode.W) ? 1 : Input.GetKeyDown(KeyCode.S) ? -1 : 0);
 
                 if (Input.GetKey(KeyCode.LeftShift))
                 {
