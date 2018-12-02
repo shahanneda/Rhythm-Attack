@@ -384,6 +384,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1995920770282816, guid: 12643d94a2ca8475a99e456344089eb8, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12643d94a2ca8475a99e456344089eb8, type: 2}
   m_IsPrefabAsset: 0
@@ -1316,6 +1320,10 @@ Prefab:
       propertyPath: m_Name
       value: Battery (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1995920770282816, guid: 12643d94a2ca8475a99e456344089eb8, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12643d94a2ca8475a99e456344089eb8, type: 2}
   m_IsPrefabAsset: 0
@@ -1398,14 +1406,56 @@ MonoBehaviour:
   - bulletType: Red
     bulletObject: {fileID: 1001587582991292, guid: a5a33785e7c4c4f74887f6fa6f4a5b2f,
       type: 2}
+  - bulletType: Yellow
+    bulletObject: {fileID: 1001587582991292, guid: b8763a62330148e4e9dd4a9b04581624,
+      type: 2}
+  - bulletType: Orange
+    bulletObject: {fileID: 1001587582991292, guid: e7f5298da55124145bf8117f018157ea,
+      type: 2}
   - bulletType: Blue
     bulletObject: {fileID: 1001587582991292, guid: b8763a62330148e4e9dd4a9b04581624,
       type: 2}
   - bulletType: Green
     bulletObject: {fileID: 1001587582991292, guid: e7f5298da55124145bf8117f018157ea,
       type: 2}
+  - bulletType: Purple
+    bulletObject: {fileID: 1001587582991292, guid: a5a33785e7c4c4f74887f6fa6f4a5b2f,
+      type: 2}
   - bulletType: RedLaser
     bulletObject: {fileID: 1109876108463758, guid: f746052e27308f0498eb6392ae22ca97,
+      type: 2}
+  - bulletType: YellowLaser
+    bulletObject: {fileID: 1109876108463758, guid: f746052e27308f0498eb6392ae22ca97,
+      type: 2}
+  - bulletType: OrangeLaser
+    bulletObject: {fileID: 1109876108463758, guid: f746052e27308f0498eb6392ae22ca97,
+      type: 2}
+  - bulletType: BlueLaser
+    bulletObject: {fileID: 1109876108463758, guid: f746052e27308f0498eb6392ae22ca97,
+      type: 2}
+  - bulletType: GreenLaser
+    bulletObject: {fileID: 1109876108463758, guid: f746052e27308f0498eb6392ae22ca97,
+      type: 2}
+  - bulletType: PurpleLaser
+    bulletObject: {fileID: 1109876108463758, guid: f746052e27308f0498eb6392ae22ca97,
+      type: 2}
+  - bulletType: RedBattery
+    bulletObject: {fileID: 1995920770282816, guid: 12643d94a2ca8475a99e456344089eb8,
+      type: 2}
+  - bulletType: YellowBattery
+    bulletObject: {fileID: 1995920770282816, guid: 12643d94a2ca8475a99e456344089eb8,
+      type: 2}
+  - bulletType: OrangeBattery
+    bulletObject: {fileID: 1995920770282816, guid: 12643d94a2ca8475a99e456344089eb8,
+      type: 2}
+  - bulletType: BlueBattery
+    bulletObject: {fileID: 1995920770282816, guid: 12643d94a2ca8475a99e456344089eb8,
+      type: 2}
+  - bulletType: GreenBattery
+    bulletObject: {fileID: 1995920770282816, guid: 12643d94a2ca8475a99e456344089eb8,
+      type: 2}
+  - bulletType: PurpleBattery
+    bulletObject: {fileID: 1995920770282816, guid: 12643d94a2ca8475a99e456344089eb8,
       type: 2}
 --- !u!1001 &1525285011
 Prefab:
@@ -1449,6 +1499,10 @@ Prefab:
     - target: {fileID: 1995920770282816, guid: 12643d94a2ca8475a99e456344089eb8, type: 2}
       propertyPath: m_Name
       value: Battery (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995920770282816, guid: 12643d94a2ca8475a99e456344089eb8, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12643d94a2ca8475a99e456344089eb8, type: 2}
@@ -1557,6 +1611,10 @@ Prefab:
     - target: {fileID: 1995920770282816, guid: 12643d94a2ca8475a99e456344089eb8, type: 2}
       propertyPath: m_Name
       value: Battery (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995920770282816, guid: 12643d94a2ca8475a99e456344089eb8, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12643d94a2ca8475a99e456344089eb8, type: 2}
