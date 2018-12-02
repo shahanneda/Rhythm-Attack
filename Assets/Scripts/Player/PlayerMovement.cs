@@ -36,7 +36,22 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                movement = new Vector2(Input.GetKeyDown(KeyCode.D) ? 1 : Input.GetKeyDown(KeyCode.A) ? -1 : 0, Input.GetKeyDown(KeyCode.W) ? 1 : Input.GetKeyDown(KeyCode.S) ? -1 : 0);
+                if (Input.GetKeyDown(KeyCode.D))
+                {
+                    movement = Vector2.right;
+                }
+                else if (Input.GetKeyDown(KeyCode.A))
+                {
+                    movement = Vector2.left;
+                }
+                else if (Input.GetKeyDown(KeyCode.W))
+                {
+                    movement = Vector2.up;
+                }
+                else if (Input.GetKeyDown(KeyCode.S))
+                {
+                    movement = Vector2.down;
+                }
 
                 if (Input.GetKey(KeyCode.LeftShift))
                 {
@@ -62,6 +77,8 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
+
+        movement = Vector2.zero;
     }
 
     public void MovePlayer(Vector2 move)
