@@ -35,6 +35,30 @@ public class BulletSpawner : MonoBehaviour
 
     public void SpawnBullets()
     {
+        foreach (BulletStats bulletStats in level.frames[currentFrame].bullets)
+        {
+            if (bulletStats.type == "None")
+            {
+                return;
+            }
+
+            if (bulletStats.type.Contains("Laser"))
+            {
+                SpawnLaser(new LaserStats(bulletStats.type, bulletStats.position, bulletStats.direction));
+            }
+            else if (bulletStats.type.Contains("Battery"))
+            {
+                if (firstIteration)
+                {
+                    Instantiate(GetBulletTypeFromGameObject(bulletStats.type), GameController.instance.gridGenerator.GetPositionFromGrid(bulletStats.position), Quaternion.identity);
+                }
+            }
+            else
+            {
+                Instantiate(GetBulletTypeFromGameObject(bulletStats.type), GameController.instance.gridGenerator.GetPositionFromGrid(bulletStats.position), Quaternion.identity).GetComponent<Bullet>().bulletStats = bulletStats;
+            }
+        }
+
         if (currentFrame == level.amountOfFrames - 1)
         {
             currentFrame = 0;
@@ -43,22 +67,6 @@ public class BulletSpawner : MonoBehaviour
         else
         {
             currentFrame++;
-        }
-
-        foreach (BulletStats bulletStats in level.frames[currentFrame].bullets)
-        {
-            if (bulletStats.type.Contains("Laser"))
-            {
-                SpawnLaser(new LaserStats(bulletStats.type, bulletStats.position, bulletStats.direction));
-            }
-            else if (firstIteration && bulletStats.type.Contains("Battery"))
-            {
-                Instantiate(GetBulletTypeFromGameObject(bulletStats.type), GameController.instance.gridGenerator.GetPositionFromGrid(bulletStats.position), Quaternion.identity);
-            }
-            else
-            {
-                Instantiate(GetBulletTypeFromGameObject(bulletStats.type), GameController.instance.gridGenerator.GetPositionFromGrid(bulletStats.position), Quaternion.identity).GetComponent<Bullet>().bulletStats = bulletStats;
-            }
         }
     }
 
@@ -77,7 +85,6 @@ public class BulletSpawner : MonoBehaviour
             else
             {
                 amountOfNodes = (int)(GameController.instance.gridGenerator.size.x - laserStats.position.x);
-                print("Hi");
             }
         }
         else if (laserStats.direction.x == 0 && laserStats.direction.y != 0)
