@@ -13,17 +13,18 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 toLocation;
 
     private PlayerController playerController;
+    private SongController songController;
 
     private void Start()
     {
-        GameController.instance.songController.preBeat += CheckPlayerMovement;
-
         playerController = FindObjectOfType<PlayerController>();
+        songController = FindObjectOfType<SongController>();
     }
 
     private void FixedUpdate()
     {
         transform.position = Vector3.Lerp(transform.position, toLocation, transitionSpeed);
+        CheckPlayerMovement();
     }
 
     private void CheckPlayerMovement()
@@ -53,6 +54,8 @@ public class PlayerMovement : MonoBehaviour
                     movement = Vector2.down;
                 }
 
+
+
                 if (Input.GetKey(KeyCode.LeftShift))
                 {
                     if (!(movement.x + movement.y).Equals(0))
@@ -65,15 +68,15 @@ public class PlayerMovement : MonoBehaviour
                     }
                 }
 
-                if (movement.x.Equals(0) && movement.y.Equals(0))
-                {
-                    //GameController.instance.playerController.TakeDamage(5f);
-                }
-
-                if (!(movement.x + movement.y).Equals(0))
+                if (!movement.Equals(Vector2.zero))
                 {
                     MovePlayer(movement);
                     playerController.PlayerActedThisBeat();
+
+                    if (!songController.currentlyInBeat)
+                    {
+                        GameController.instance.playerController.TakeDamage(5f);
+                    }
                 }
             }
         }

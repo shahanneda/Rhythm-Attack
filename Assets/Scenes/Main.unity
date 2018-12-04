@@ -435,6 +435,7 @@ MonoBehaviour:
   song: {fileID: 11400000, guid: 2b52e343023ba487dad82797f8076d0f, type: 2}
   beatCounter: 0
   secondsBetweenBeats: 0
+  currentlyInBeat: 0
 --- !u!82 &522981999
 AudioSource:
   m_ObjectHideFlags: 0
@@ -820,6 +821,11 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114900454158589228, guid: 7fcc7b2746316d542b87030520d2faaf,
+        type: 2}
+      propertyPath: autoPlayer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}

@@ -15,6 +15,8 @@ public class SongController : MonoBehaviour
     [HideInInspector]
     public float secondsBetweenBeats;
 
+    public bool currentlyInBeat;
+
     private AudioSource audioSource;
 
     private float beatTimer;
@@ -37,14 +39,15 @@ public class SongController : MonoBehaviour
     {
         beatTimer -= Time.deltaTime;
 
-        if (beatTimer < 0)
-        {
-            beat.Invoke();
-        }
-
         if (beatTimer < 0.1f)
         {
+            currentlyInBeat = true;
             preBeat.Invoke();
+        }
+        if (beatTimer < 0)
+        {
+            currentlyInBeat = true;
+            beat.Invoke();
         }
     }
 
@@ -52,5 +55,6 @@ public class SongController : MonoBehaviour
     {
         beatTimer = secondsBetweenBeats;
         beatCounter++;
+        currentlyInBeat = false;
     }
 }
