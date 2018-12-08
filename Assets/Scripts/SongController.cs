@@ -9,6 +9,7 @@ public class SongController : MonoBehaviour
     public delegate void Beat();
     public Beat beat;
     public Beat preBeat;
+    public Beat postBeat;
 
     public int beatCounter = 0;
 
@@ -20,6 +21,7 @@ public class SongController : MonoBehaviour
     private AudioSource audioSource;
 
     private float beatTimer;
+    private float lateBeatTimer;
 
     private void Start()
     {
@@ -32,14 +34,16 @@ public class SongController : MonoBehaviour
         }
 
         beat += BeatCount;
+        postBeat += LateBeatCount;
         secondsBetweenBeats = 60f / song.tempo;
     }
 
     private void Update()
     {
         beatTimer -= Time.deltaTime;
+        lateBeatTimer -= Time.deltaTime;
 
-        if (beatTimer < 0.1f)
+        if (beatTimer < 0.2f)
         {
             currentlyInBeat = true;
             preBeat.Invoke();
@@ -49,12 +53,22 @@ public class SongController : MonoBehaviour
             currentlyInBeat = true;
             beat.Invoke();
         }
+
+        if (lateBeatTimer < -0.2f)
+        {
+            postBeat.Invoke();
+        }
+    }
+
+    private void LateBeatCount()
+    {
+        currentlyInBeat = false;
+        lateBeatTimer = beatTimer;
     }
 
     public void BeatCount()
     {
         beatTimer = secondsBetweenBeats;
         beatCounter++;
-        currentlyInBeat = false;
     }
 }
