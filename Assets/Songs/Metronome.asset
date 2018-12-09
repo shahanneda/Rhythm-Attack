@@ -13,4 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audio: {fileID: 8300000, guid: 002c8cb1a6fdd4a4d90f5d1438e60e21, type: 3}
   name: TEMP 144 Beats
-  tempo: 144
+  tempo: 36
+  beatsPerBar: 4

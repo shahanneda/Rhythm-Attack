@@ -37,8 +37,6 @@ public class PlayerController : MonoBehaviour
 
         GameController.instance.songController.beat += DashRefill;
         GameController.instance.songController.beat += CheckPlayerActedThisBeat;
-
-        GameController.instance.songController.preBeat += CheckAttack;
     }
 
     void Update()
@@ -50,6 +48,8 @@ public class PlayerController : MonoBehaviour
             lastReffilTime = Time.time;
 
         }*/
+
+        CheckAttack();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -83,16 +83,22 @@ public class PlayerController : MonoBehaviour
         playerActedThisBeat = false;
     }
 
-    private void Attack() {
-        if(!playerActedThisBeat){
-            //Attack
+    private void Attack()
+    {
+        //Attack
 
-            PlayerActedThisBeat();
+        if (!GameController.instance.songController.currentlyInBeat)
+        {
+            TakeDamage(5);
         }
+
+        PlayerActedThisBeat();
     }
 
-    private void CheckAttack() {
-        if(Input.GetKeyDown(KeyCode.Space)) {
+    private void CheckAttack()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
             Attack();
         }
     }

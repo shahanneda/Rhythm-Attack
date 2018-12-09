@@ -29,54 +29,48 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckPlayerMovement()
     {
-        if (!playerController.playerActedThisBeat)
+        if (autoPlayer)
         {
-            if (autoPlayer)
+            MovePlayer(new Vector2(Random.Range(0, 2) * 2 - 1, Random.Range(0, 2) * 2 - 1));
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.D))
             {
-                MovePlayer(new Vector2(Random.Range(0, 2) * 2 - 1, Random.Range(0, 2) * 2 - 1));
+                movement = Vector2.right;
             }
-            else
+            else if (Input.GetKeyDown(KeyCode.A))
             {
-                if (Input.GetKeyDown(KeyCode.D))
-                {
-                    movement = Vector2.right;
-                }
-                else if (Input.GetKeyDown(KeyCode.A))
-                {
-                    movement = Vector2.left;
-                }
-                else if (Input.GetKeyDown(KeyCode.W))
-                {
-                    movement = Vector2.up;
-                }
-                else if (Input.GetKeyDown(KeyCode.S))
-                {
-                    movement = Vector2.down;
-                }
+                movement = Vector2.left;
+            }
+            else if (Input.GetKeyDown(KeyCode.W))
+            {
+                movement = Vector2.up;
+            }
+            else if (Input.GetKeyDown(KeyCode.S))
+            {
+                movement = Vector2.down;
+            }
 
-
-
-                if (Input.GetKey(KeyCode.LeftShift))
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                if (!(movement.x + movement.y).Equals(0))
                 {
-                    if (!(movement.x + movement.y).Equals(0))
+                    if (GameController.instance.playerController.UseDash() == true)
                     {
-
-                        if (GameController.instance.playerController.UseDash() == true)
-                        {
-                            movement = new Vector2(movement.x * 2, movement.y * 2);
-                        }
+                        movement = new Vector2(movement.x * 2, movement.y * 2);
                     }
                 }
+            }
 
-                if (!movement.Equals(Vector2.zero))
+            if (!movement.Equals(Vector2.zero))
+            {
+                MovePlayer(movement);
+                playerController.PlayerActedThisBeat();
+
+                if (!songController.currentlyInBeat)
                 {
-                    MovePlayer(movement);
-                    playerController.PlayerActedThisBeat();
-
-                    if (!songController.currentlyInBeat)
-                    {
-                        GameController.instance.playerController.TakeDamage(5f);
-                    }
+                    GameController.instance.playerController.TakeDamage(5f);
                 }
             }
         }

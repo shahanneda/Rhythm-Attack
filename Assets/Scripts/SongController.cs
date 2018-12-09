@@ -46,7 +46,7 @@ public class SongController : MonoBehaviour
         if (beatTimer < 0.2f)
         {
             currentlyInBeat = true;
-            preBeat.Invoke();
+            //preBeat.Invoke();
         }
         if (beatTimer < 0)
         {

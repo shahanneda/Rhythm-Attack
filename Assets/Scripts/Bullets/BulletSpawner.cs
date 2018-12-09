@@ -8,7 +8,7 @@ public class BulletSpawner : MonoBehaviour
 
     private Level level;
 
-    private int currentFrame = 0;
+    public int currentFrame = 0;
     private bool firstIteration = true;
 
     private void Start()
@@ -59,15 +59,7 @@ public class BulletSpawner : MonoBehaviour
             }
         }
 
-        if (currentFrame == level.amountOfFrames - 1)
-        {
-            currentFrame = 0;
-            firstIteration = false;
-        }
-        else
-        {
-            currentFrame++;
-        }
+        currentFrame++;
     }
 
     public void SpawnLaser(LaserStats laserStats)
