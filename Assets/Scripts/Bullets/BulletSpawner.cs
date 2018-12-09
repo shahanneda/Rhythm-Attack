@@ -8,7 +8,7 @@ public class BulletSpawner : MonoBehaviour
 
     private Level level;
 
-    public int currentFrame = 0;
+    private int currentFrame = -1;
     private bool firstIteration = true;
 
     private void Start()
@@ -35,6 +35,7 @@ public class BulletSpawner : MonoBehaviour
 
     public void SpawnBullets()
     {
+        currentFrame++;
         foreach (BulletStats bulletStats in level.frames[currentFrame].bullets)
         {
             if (bulletStats.type == "None")
@@ -58,8 +59,6 @@ public class BulletSpawner : MonoBehaviour
                 Instantiate(GetBulletTypeFromGameObject(bulletStats.type), GameController.instance.gridGenerator.GetPositionFromGrid(bulletStats.position), Quaternion.identity).GetComponent<Bullet>().bulletStats = bulletStats;
             }
         }
-
-        currentFrame++;
     }
 
     public void SpawnLaser(LaserStats laserStats)
