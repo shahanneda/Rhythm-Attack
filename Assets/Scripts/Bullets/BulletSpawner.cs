@@ -36,6 +36,12 @@ public class BulletSpawner : MonoBehaviour
     public void SpawnBullets()
     {
         currentFrame++;
+
+        if (currentFrame >= level.amountOfFrames)
+        {
+            currentFrame = 0;
+        }
+
         foreach (BulletStats bulletStats in level.frames[currentFrame].bullets)
         {
             if (bulletStats.type == "None")
