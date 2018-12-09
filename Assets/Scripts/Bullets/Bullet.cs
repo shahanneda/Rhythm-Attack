@@ -43,13 +43,18 @@ public class BulletStats
     public Vector2 position;
     public Vector2 direction;
 
-    public void Set(string type, Vector2 direction)
+    public BulletStats()
+    {
+
+    }
+
+    public BulletStats(string type, Vector2 direction)
     {
         this.type = type;
         this.direction = direction;
     }
 
-    public void Set(BulletStats bulletStats)
+    public BulletStats(BulletStats bulletStats)
     {
         type = bulletStats.type;
         direction = bulletStats.direction;
@@ -69,18 +74,6 @@ public class LaserStats : BulletStats
         this.type = type;
         this.position = position;
         this.direction = direction;
-    }
-
-    public new void Set(string type, Vector2 direction)
-    {
-        this.type = type;
-        this.direction = direction;
-    }
-
-    public void Set(LaserStats laserStats)
-    {
-        type = laserStats.type;
-        direction = laserStats.direction;
     }
 }
 
