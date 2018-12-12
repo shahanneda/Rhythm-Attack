@@ -23,7 +23,7 @@ public class SongController : MonoBehaviour
     private float beatTimer;
     private float lateBeatTimer;
 
-    private int beatsUntilStart;
+    private float beatsUntilStart;
 
     private void Start()
     {
