@@ -23,6 +23,8 @@ public class SongController : MonoBehaviour
     private float beatTimer;
     private float lateBeatTimer;
 
+    private int beatsUntilStart;
+
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -33,9 +35,8 @@ public class SongController : MonoBehaviour
             audioSource.Play();
         }
 
-        beat += BeatCount;
-        postBeat += LateBeatCount;
         secondsBetweenBeats = 60f / song.tempo;
+        beatsUntilStart = song.barsUntilStart * song.beatsPerBar;
     }
 
     private void Update()
@@ -46,17 +47,36 @@ public class SongController : MonoBehaviour
         if (beatTimer < 0.2f)
         {
             currentlyInBeat = true;
-            //preBeat.Invoke();
+
+            if (preBeat != null)
+            {
+                preBeat.Invoke();
+            }
         }
         if (beatTimer < 0)
         {
             currentlyInBeat = true;
-            beat.Invoke();
+            BeatCount();
+
+            if (beat != null)
+            {
+                beat.Invoke();
+            }
         }
 
         if (lateBeatTimer < -0.2f)
         {
-            postBeat.Invoke();
+            LateBeatCount();
+
+            if (postBeat != null)
+            {
+                postBeat.Invoke();
+            }
+        }
+
+        if (beatCounter > beatsUntilStart)
+        {
+            PlayerController.instance.ToggleLock(false);
         }
     }
 

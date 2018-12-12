@@ -16,8 +16,6 @@ public class BulletSpawner : MonoBehaviour
         GameController.instance.songController.beat += SpawnBullets;
 
         level = GameController.instance.level;
-
-        SpawnLaser(new LaserStats("RedLaser", Vector2.zero, Vector2.up));
     }
 
     public GameObject GetBulletTypeFromGameObject(string type)
@@ -40,6 +38,7 @@ public class BulletSpawner : MonoBehaviour
         if (currentFrame >= level.amountOfFrames)
         {
             currentFrame = 0;
+            firstIteration = false;
         }
 
         foreach (BulletStats bulletStats in level.frames[currentFrame].bullets)

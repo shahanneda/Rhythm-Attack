@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController instance;
+
     [HideInInspector]
     public PlayerMovement playerMovement;
-
     private PlayerHealth playerHealth;
 
     private int dashes = 3;
@@ -16,7 +17,14 @@ public class PlayerController : MonoBehaviour
 
     private int beatsSinceLastDash;
 
-    public bool playerActedThisBeat;
+    private bool playerActedThisBeat;
+
+    private bool locked = true;
+
+    private void OnEnable()
+    {
+        instance = this;
+    }
 
     void Start()
     {
@@ -106,8 +114,11 @@ public class PlayerController : MonoBehaviour
     //  USE  *ONLY* THESE  METHODS WHEN YOU WANT TO INTRACT WITH HEALTH!
     public void TakeDamage(float count)
     {
-        playerHealth.Decrease(count);
-        GameController.instance.guiController.DamageOverlay();
+        if (!locked)
+        {
+            playerHealth.Decrease(count);
+            GameController.instance.guiController.DamageOverlay();
+        }
     }
 
     public void AddHealth(float count)
@@ -147,5 +158,13 @@ public class PlayerController : MonoBehaviour
     public void PlayerActedThisBeat()
     {
         playerActedThisBeat = true;
+    }
+
+    public void ToggleLock(bool locked)
+    {
+        this.locked = locked;
+
+        playerMovement.ToggleLock(locked);
+        playerHealth.ToggleLock(locked);
     }
 }

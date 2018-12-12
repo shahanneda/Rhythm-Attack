@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     private PlayerController playerController;
     private SongController songController;
 
+    private bool locked = true;
+
     private void Start()
     {
         playerController = FindObjectOfType<PlayerController>();
@@ -29,53 +31,56 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckPlayerMovement()
     {
-        if (autoPlayer)
+        if (!locked)
         {
-            MovePlayer(new Vector2(Random.Range(0, 2) * 2 - 1, Random.Range(0, 2) * 2 - 1));
-        }
-        else
-        {
-            if (Input.GetKeyDown(KeyCode.D))
+            if (autoPlayer)
             {
-                movement = Vector2.right;
+                MovePlayer(new Vector2(Random.Range(0, 2) * 2 - 1, Random.Range(0, 2) * 2 - 1));
             }
-            else if (Input.GetKeyDown(KeyCode.A))
+            else
             {
-                movement = Vector2.left;
-            }
-            else if (Input.GetKeyDown(KeyCode.W))
-            {
-                movement = Vector2.up;
-            }
-            else if (Input.GetKeyDown(KeyCode.S))
-            {
-                movement = Vector2.down;
-            }
-
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                if (!(movement.x + movement.y).Equals(0))
+                if (Input.GetKeyDown(KeyCode.D))
                 {
-                    if (GameController.instance.playerController.UseDash() == true)
+                    movement = Vector2.right;
+                }
+                else if (Input.GetKeyDown(KeyCode.A))
+                {
+                    movement = Vector2.left;
+                }
+                else if (Input.GetKeyDown(KeyCode.W))
+                {
+                    movement = Vector2.up;
+                }
+                else if (Input.GetKeyDown(KeyCode.S))
+                {
+                    movement = Vector2.down;
+                }
+
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    if (!(movement.x + movement.y).Equals(0))
                     {
-                        movement = new Vector2(movement.x * 2, movement.y * 2);
+                        if (GameController.instance.playerController.UseDash() == true)
+                        {
+                            movement = new Vector2(movement.x * 2, movement.y * 2);
+                        }
+                    }
+                }
+
+                if (!movement.Equals(Vector2.zero))
+                {
+                    MovePlayer(movement);
+                    playerController.PlayerActedThisBeat();
+
+                    if (!songController.currentlyInBeat)
+                    {
+                        GameController.instance.playerController.TakeDamage(5f);
                     }
                 }
             }
 
-            if (!movement.Equals(Vector2.zero))
-            {
-                MovePlayer(movement);
-                playerController.PlayerActedThisBeat();
-
-                if (!songController.currentlyInBeat)
-                {
-                    GameController.instance.playerController.TakeDamage(5f);
-                }
-            }
+            movement = Vector2.zero;
         }
-
-        movement = Vector2.zero;
     }
 
     public void MovePlayer(Vector2 move)
@@ -98,5 +103,10 @@ public class PlayerMovement : MonoBehaviour
     public void SetBounds(Vector2 newBounds)
     {
         moveBounds = newBounds;
+    }
+
+    public void ToggleLock(bool locked)
+    {
+        this.locked = locked;
     }
 }

@@ -7,4 +7,5 @@ public class Song : ScriptableObject
     public new string name = "New Song";
     public int tempo;
     public int beatsPerBar = 4;
+    public int barsUntilStart = 8;
 }
