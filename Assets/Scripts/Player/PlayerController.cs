@@ -11,10 +11,6 @@ public class PlayerController : MonoBehaviour
     private PlayerHealth playerHealth;
 
     private int dashes = 3;
-
-    private float lastReffilTime;
-    private float timeBetween;
-
     private int beatsSinceLastDash;
 
     private bool playerActedThisBeat;
@@ -28,9 +24,6 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        lastReffilTime = Time.time;
-        timeBetween = GameController.instance.songController.secondsBetweenBeats;
-
         playerMovement = GetComponent<PlayerMovement>();
         if (playerMovement == null)
         {
@@ -49,14 +42,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        //print(GameController.instance.songController.beatCounter % GameController.instance.songController.song.beatsPerBar );
-        /*if (GameController.instance.songController.beatCounter % GameController.instance.songController.song.beatsPerBar == 0 && lastReffilTime + timeBetween < Time.time)
-        {
-            AddDash();
-            lastReffilTime = Time.time;
-
-        }*/
-
         CheckAttack();
     }
 
