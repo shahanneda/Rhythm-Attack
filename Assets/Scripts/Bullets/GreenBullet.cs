@@ -7,6 +7,8 @@ public class GreenBullet : Bullet
     private GameController gameController;
     private PlayerMovement playerMovement;
 
+    private int beatsAlive;
+
     private void Awake()
     {
         gameController = GameController.instance;
@@ -15,7 +17,7 @@ public class GreenBullet : Bullet
         gameController.songController.beat += FollowPlayer;
     }
 
-    private void FollowPlayer()
+    public void FollowPlayer()
     {
         Vector2 direction = playerMovement.transform.position - transform.position;
 
@@ -38,5 +40,13 @@ public class GreenBullet : Bullet
         }
 
         bulletStats.direction = direction;
+        beatsAlive++;
+
+        if (beatsAlive > bulletStats.specialtyNumber)
+        {
+            gameController.songController.beat -= Move;
+            gameController.songController.beat -= FollowPlayer;
+            Destroy(gameObject);
+        }
     }
 }

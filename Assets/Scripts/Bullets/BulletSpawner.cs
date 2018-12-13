@@ -35,10 +35,20 @@ public class BulletSpawner : MonoBehaviour
     {
         currentFrame++;
 
+        int greenBulletsInCurrentFrame = 0;
+
         if (currentFrame >= level.amountOfFrames)
         {
             currentFrame = 0;
             firstIteration = false;
+        }
+
+        foreach (BulletStats bulletStats in level.frames[currentFrame].bullets)
+        {
+            if (bulletStats.type == "Green")
+            {
+                greenBulletsInCurrentFrame++;
+            }
         }
 
         foreach (BulletStats bulletStats in level.frames[currentFrame].bullets)

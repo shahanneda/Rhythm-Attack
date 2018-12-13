@@ -634,7 +634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ae39db3d3df8db4696c37f59ce26e52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelJson: {fileID: 4900000, guid: 84825bed379620b499072481bd66da30, type: 3}
+  levelJson: {fileID: 4900000, guid: f44709dd40add6f4083d41ff531239a8, type: 3}
   level:
     name: 13
     size: {x: 13, y: 13}
@@ -646,94 +646,124 @@ MonoBehaviour:
       - type: 
         position: {x: 8, y: 7}
         direction: {x: 1, y: 0}
+        specialtyNumber: 4
       - type: 
         position: {x: 8, y: 6}
         direction: {x: 1, y: 0}
+        specialtyNumber: 4
       - type: 
         position: {x: 8, y: 5}
         direction: {x: 1, y: 0}
+        specialtyNumber: 4
       - type: 
         position: {x: 8, y: 8}
         direction: {x: 1, y: 1}
+        specialtyNumber: 4
       - type: 
         position: {x: 8, y: 4}
         direction: {x: 1, y: -1}
+        specialtyNumber: 4
       - type: 
         position: {x: 7, y: 4}
         direction: {x: 0, y: -1}
+        specialtyNumber: 4
       - type: 
         position: {x: 6, y: 4}
         direction: {x: 0, y: -1}
+        specialtyNumber: 4
       - type: 
         position: {x: 5, y: 4}
         direction: {x: 0, y: -1}
+        specialtyNumber: 4
       - type: 
         position: {x: 4, y: 4}
         direction: {x: -1, y: -1}
+        specialtyNumber: 4
       - type: 
         position: {x: 4, y: 5}
         direction: {x: -1, y: 0}
+        specialtyNumber: 4
       - type: 
         position: {x: 4, y: 6}
         direction: {x: -1, y: 0}
+        specialtyNumber: 4
       - type: 
         position: {x: 4, y: 7}
         direction: {x: -1, y: 0}
+        specialtyNumber: 4
       - type: 
         position: {x: 4, y: 8}
         direction: {x: -1, y: 1}
+        specialtyNumber: 4
       - type: 
         position: {x: 5, y: 8}
         direction: {x: 0, y: 1}
+        specialtyNumber: 4
       - type: 
         position: {x: 6, y: 8}
         direction: {x: 0, y: 1}
+        specialtyNumber: 4
       - type: 
         position: {x: 7, y: 8}
         direction: {x: 0, y: 1}
+        specialtyNumber: 4
     - bullets:
       - type: 
         position: {x: 6, y: 8}
         direction: {x: 0, y: 1}
+        specialtyNumber: 4
       - type: 
         position: {x: 6, y: 4}
         direction: {x: 0, y: -1}
+        specialtyNumber: 4
       - type: 
         position: {x: 8, y: 6}
         direction: {x: 1, y: 0}
+        specialtyNumber: 4
       - type: 
         position: {x: 4, y: 6}
         direction: {x: -1, y: 0}
+        specialtyNumber: 4
       - type: 
         position: {x: 4, y: 7}
         direction: {x: -1, y: 0}
+        specialtyNumber: 4
       - type: 
         position: {x: 4, y: 7}
         direction: {x: -1, y: 0}
+        specialtyNumber: 4
       - type: 
         position: {x: 4, y: 5}
         direction: {x: -1, y: 0}
+        specialtyNumber: 4
       - type: 
         position: {x: 5, y: 4}
         direction: {x: -1, y: 0}
+        specialtyNumber: 4
       - type: 
         position: {x: 7, y: 4}
         direction: {x: 0, y: -1}
+        specialtyNumber: 4
       - type: 
         position: {x: 5, y: 4}
         direction: {x: 0, y: -1}
+        specialtyNumber: 4
       - type: 
         position: {x: 8, y: 5}
         direction: {x: 1, y: 0}
+        specialtyNumber: 4
       - type: 
         position: {x: 8, y: 7}
         direction: {x: 1, y: 0}
+        specialtyNumber: 4
       - type: 
         position: {x: 7, y: 8}
         direction: {x: 0, y: 1}
+        specialtyNumber: 4
       - type: 
         position: {x: 5, y: 8}
         direction: {x: 0, y: 1}
+        specialtyNumber: 4
   playerController: {fileID: 924349094}
   songController: {fileID: 522981998}
   guiController: {fileID: 1312939967}
@@ -1446,6 +1476,7 @@ MonoBehaviour:
   - bulletType: PurpleBattery
     bulletObject: {fileID: 1995920770282816, guid: 12643d94a2ca8475a99e456344089eb8,
       type: 2}
+  greenBulletsInPrevFrame: 0
 --- !u!1001 &1525285011
 Prefab:
   m_ObjectHideFlags: 0

@@ -65,6 +65,14 @@ public class PlayerController : MonoBehaviour
         if (collision.tag == "Bullet")
         {
             TakeDamage(10);
+
+            GreenBullet greenBullet = collision.GetComponent<GreenBullet>();
+            if (greenBullet != null)
+            {
+                GameController.instance.songController.beat -= greenBullet.FollowPlayer;
+            }
+
+            Destroy(collision.gameObject);
         }
     }
 

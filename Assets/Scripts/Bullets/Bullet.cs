@@ -30,8 +30,15 @@ public class Bullet : MonoBehaviour
 
         if (newPos.x >= gridGenerator.size.x - gridGenerator.xHalf || newPos.y >= gridGenerator.size.y - gridGenerator.yHalf || newPos.x <= (gridGenerator.size.x - gridGenerator.xHalf) * -1 || newPos.y <= (gridGenerator.size.y - gridGenerator.yHalf) * -1)
         {
-            GameController.instance.songController.beat -= Move;
-            Destroy(gameObject);
+            try
+            {
+                GameController.instance.songController.beat -= Move;
+                Destroy(gameObject);
+            }
+            catch
+            {
+                return;
+            }
         }
     }
 }
@@ -42,6 +49,7 @@ public class BulletStats
     public string type;
     public Vector2 position;
     public Vector2 direction;
+    public float specialtyNumber = 4;
 
     public BulletStats()
     {
@@ -54,10 +62,26 @@ public class BulletStats
         this.direction = direction;
     }
 
+    public BulletStats(string type, Vector2 direction, float specialtyNumber)
+    {
+        this.type = type;
+        this.direction = direction;
+        this.specialtyNumber = specialtyNumber;
+    }
+
     public BulletStats(BulletStats bulletStats)
     {
         type = bulletStats.type;
         direction = bulletStats.direction;
+
+        try
+        {
+            specialtyNumber = bulletStats.specialtyNumber;
+        }
+        catch
+        {
+            return;
+        }
     }
 }
 
