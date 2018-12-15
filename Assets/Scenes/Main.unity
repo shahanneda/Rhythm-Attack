@@ -767,7 +767,6 @@ MonoBehaviour:
   playerController: {fileID: 924349094}
   songController: {fileID: 522981998}
   guiController: {fileID: 1312939967}
-  bulletManager: {fileID: 0}
   gridGenerator: {fileID: 1496027281}
 --- !u!114 &537782232
 MonoBehaviour:

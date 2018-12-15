@@ -13,9 +13,9 @@ public class Bullet : MonoBehaviour
     public void Start()
     {
         newPos = transform.position;
+        transform.rotation = BulletStats.DirectionToRotation(bulletStats.direction);
 
         GameController.instance.songController.beat += Move;
-
         gridGenerator = GameController.instance.gridGenerator;
     }
 
@@ -82,6 +82,50 @@ public class BulletStats
         {
             return;
         }
+    }
+
+    public static Quaternion DirectionToRotation(Vector2 direction)
+    {
+        int directionIndex = 0;
+
+        if (direction == Vector2.up)
+        {
+            directionIndex = 1;
+        }
+        else if (direction == Vector2.one)
+        {
+            directionIndex = 2;
+        }
+        else if (direction == Vector2.right)
+        {
+            directionIndex = 3;
+        }
+        else if (direction == new Vector2(1, -1))
+        {
+            directionIndex = 4;
+        }
+        else if (direction == Vector2.down)
+        {
+            directionIndex = 5;
+        }
+        else if (direction == -Vector2.one)
+        {
+            directionIndex = 6;
+        }
+        else if (direction == Vector2.left)
+        {
+            directionIndex = 7;
+        }
+        else if (direction == new Vector2(-1, 1))
+        {
+            directionIndex = 8;
+        }
+        else
+        {
+            directionIndex = -1;
+        }
+
+        return Quaternion.AngleAxis((directionIndex - 1) * -45, Vector3.forward);
     }
 }
 
