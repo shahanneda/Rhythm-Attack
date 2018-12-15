@@ -113,26 +113,13 @@ public class BulletSpawner : MonoBehaviour
         for (int i = 0; i < amountOfNodes; i++)
         {
             Vector2 position = (laserStats.direction * i) + laserStats.position;
-            bool spawnLaser = false;
 
-            /*if (!(position.x > 2 && position.x < 10 && position.y > 2 && position.x < 10))
+            if (position == new Vector2(2, 2) || position == new Vector2(10, 2) || position == new Vector2(2, 10) || position == new Vector2(10, 10))
             {
                 return;
             }
-            else */
-            if (((position.x == 2 || position.x == 10) && position.y > 2 && position.y < 10) || ((position.y == 2 || position.y == 10) && position.x > 2 && position.x < 10))
-            {
-                spawnLaser = true;
-            }
-            else if (position.x > 2 && position.x < 10 && position.y > 2 && position.y < 10)
-            {
-                spawnLaser = true;
-            }
 
-            if (spawnLaser)
-            {
-                Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, Quaternion.identity);
-            }
+            Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, Quaternion.identity);
         }
     }
 }
