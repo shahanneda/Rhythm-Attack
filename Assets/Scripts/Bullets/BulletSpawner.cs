@@ -114,7 +114,7 @@ public class BulletSpawner : MonoBehaviour
         {
             Vector2 position = (laserStats.direction * i) + laserStats.position;
 
-            if (position.x > 1 && position.x < 11 && position.y > 1 && position.y < 11)
+            if (((position.x == 2 || position.x == 10) && position.y > 2 && position.y < 10) || ((position.y == 2 || position.y == 10) && position.x > 2 && position.x < 10))
             {
                 Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, Quaternion.identity);
             }
