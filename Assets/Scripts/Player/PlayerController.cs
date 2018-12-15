@@ -57,7 +57,10 @@ public class PlayerController : MonoBehaviour
                 GameController.instance.songController.beat -= greenBullet.FollowPlayer;
             }
 
-            Destroy(collision.gameObject);
+            if (collision.GetComponent<Laser>() == null)
+            {
+                Destroy(collision.gameObject);
+            }
         }
     }
 
