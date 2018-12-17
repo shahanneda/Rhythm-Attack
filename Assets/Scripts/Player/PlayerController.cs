@@ -96,6 +96,12 @@ public class PlayerController : MonoBehaviour
             TakeDamage(5);
         }
 
+        Battery battery = FindObjectOfType<BulletSpawner>().GetBatteryAtPosition(transform.position + new Vector3(playerMovement.lastDirectionMoved.x, playerMovement.lastDirectionMoved.y, transform.position.z));
+        if (battery != null)
+        {
+            battery.OnAttack();
+        }
+
         PlayerActedThisBeat();
     }
 

@@ -15,8 +15,8 @@ public class Battery : MonoBehaviour
         Health--;
         if (Health <= 0)
         {
+            FindObjectOfType<BulletSpawner>().batteries.Remove(this);
             Destroy(gameObject);
         }
-
     }
 }

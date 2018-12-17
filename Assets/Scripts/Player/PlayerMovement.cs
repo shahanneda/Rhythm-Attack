@@ -19,10 +19,13 @@ public class PlayerMovement : MonoBehaviour
 
     private bool locked = true;
 
+    private BulletSpawner bulletSpawner;
+
     private void Start()
     {
         playerController = FindObjectOfType<PlayerController>();
         songController = FindObjectOfType<SongController>();
+        bulletSpawner = FindObjectOfType<BulletSpawner>();
     }
 
     private void FixedUpdate()
@@ -88,10 +91,14 @@ public class PlayerMovement : MonoBehaviour
     public void MovePlayer(Vector2 move)
     {
         Vector3 newPosition = new Vector3(Mathf.Round(transform.position.x) + move.x, Mathf.Round(transform.position.y) + move.y, 0);
-        if (newPosition.x >= -moveBounds.x && newPosition.x <= moveBounds.x && newPosition.y >= -moveBounds.y && newPosition.y <= moveBounds.y)
+
+        if (bulletSpawner.GetBatteryAtPosition(newPosition) == null)
         {
-            toLocation = newPosition;
-            lastDirectionMoved = move;
+            if (newPosition.x >= -moveBounds.x && newPosition.x <= moveBounds.x && newPosition.y >= -moveBounds.y && newPosition.y <= moveBounds.y)
+            {
+                toLocation = newPosition;
+                lastDirectionMoved = move;
+            }
         }
     }
 

@@ -5,13 +5,12 @@ using UnityEngine;
 public class BulletSpawner : MonoBehaviour
 {
     public BulletTypeToGameObject[] bulletTypeToGameObjects;
+    public List<Battery> batteries = new List<Battery>();
 
     private Level level;
 
     private int currentFrame = -1;
     private bool firstIteration = true;
-
-    private Battery[] batteries = new Battery[4];
 
     private void Start()
     {
@@ -58,7 +57,7 @@ public class BulletSpawner : MonoBehaviour
             {
                 if (firstIteration)
                 {
-                    batteries[currentFrame] = Instantiate(GetBulletTypeFromGameObject(bulletStats.type), GameController.instance.gridGenerator.GetPositionFromGrid(bulletStats.position), Quaternion.identity).GetComponent<Battery>();
+                    batteries.Add(Instantiate(GetBulletTypeFromGameObject(bulletStats.type), GameController.instance.gridGenerator.GetPositionFromGrid(bulletStats.position), Quaternion.identity).GetComponent<Battery>());
                 }
             }
             else
