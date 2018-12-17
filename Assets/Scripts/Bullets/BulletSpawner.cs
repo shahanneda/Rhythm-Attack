@@ -11,6 +11,8 @@ public class BulletSpawner : MonoBehaviour
     private int currentFrame = -1;
     private bool firstIteration = true;
 
+    private Battery[] batteries = new Battery[4];
+
     private void Start()
     {
         GameController.instance.songController.beat += SpawnBullets;
@@ -35,20 +37,10 @@ public class BulletSpawner : MonoBehaviour
     {
         currentFrame++;
 
-        int greenBulletsInCurrentFrame = 0;
-
         if (currentFrame >= level.amountOfFrames)
         {
             currentFrame = 0;
             firstIteration = false;
-        }
-
-        foreach (BulletStats bulletStats in level.frames[currentFrame].bullets)
-        {
-            if (bulletStats.type == "Green")
-            {
-                greenBulletsInCurrentFrame++;
-            }
         }
 
         foreach (BulletStats bulletStats in level.frames[currentFrame].bullets)
@@ -66,7 +58,7 @@ public class BulletSpawner : MonoBehaviour
             {
                 if (firstIteration)
                 {
-                    Instantiate(GetBulletTypeFromGameObject(bulletStats.type), GameController.instance.gridGenerator.GetPositionFromGrid(bulletStats.position), Quaternion.identity);
+                    batteries[currentFrame] = Instantiate(GetBulletTypeFromGameObject(bulletStats.type), GameController.instance.gridGenerator.GetPositionFromGrid(bulletStats.position), Quaternion.identity).GetComponent<Battery>();
                 }
             }
             else
@@ -121,6 +113,19 @@ public class BulletSpawner : MonoBehaviour
 
             Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, Quaternion.identity);
         }
+    }
+
+    public Battery GetBatteryAtPosition(Vector2 position)
+    {
+        foreach (Battery battery in batteries)
+        {
+            if (battery.transform.position == new Vector3(position.x, position.y, battery.transform.position.z))
+            {
+                return battery;
+            }
+        }
+
+        return null;
     }
 }
 
