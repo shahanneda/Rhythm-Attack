@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
     public bool autoPlayer;
     public float transitionSpeed = 0.1f;
 
+    public Vector2 lastDirectionMoved;
+
     private Vector2 moveBounds;
     private Vector2 movement;
 
@@ -89,6 +91,7 @@ public class PlayerMovement : MonoBehaviour
         if (newPosition.x >= -moveBounds.x && newPosition.x <= moveBounds.x && newPosition.y >= -moveBounds.y && newPosition.y <= moveBounds.y)
         {
             toLocation = newPosition;
+            lastDirectionMoved = move;
         }
     }
 
