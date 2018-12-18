@@ -52,15 +52,27 @@ public class PlayerController : MonoBehaviour
             TakeDamage(10);
 
             GreenBullet greenBullet = collision.GetComponent<GreenBullet>();
+            BlueBullet blueBullet = collision.GetComponent<BlueBullet>();
+
             if (greenBullet != null)
             {
                 GameController.instance.songController.beat -= greenBullet.FollowPlayer;
+            }
+            if (blueBullet != null)
+            {
+                GameController.instance.songController.beat -= blueBullet.CheckSplit;
             }
 
             if (collision.GetComponent<Laser>() == null)
             {
                 Destroy(collision.gameObject);
             }
+        }
+
+        if (collision.tag == "BlueBullet")
+        {
+            TakeDamage(5);
+            Destroy(collision.gameObject);
         }
     }
 

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4432701323169254}
   - component: {fileID: 212335559489869870}
   - component: {fileID: 61901953227270836}
-  - component: {fileID: 114107893586295760}
+  - component: {fileID: 114093943365943356}
   m_Layer: 0
   m_Name: BlueBulletSmall
   m_TagString: BlueBullet
@@ -67,7 +67,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.2}
   m_EdgeRadius: 0
---- !u!114 &114107893586295760
+--- !u!114 &114093943365943356
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -75,7 +75,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1104269833442224}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccbb7858efe4e1742925695ada9049c4, type: 3}
+  m_Script: {fileID: 11500000, guid: b246265e08c235147b84a6657dd2d66a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulletStats:
@@ -83,7 +83,6 @@ MonoBehaviour:
     position: {x: 0, y: 0}
     direction: {x: 0, y: 0}
     specialtyNumber: 4
-  smallBullet: {fileID: 0}
 --- !u!212 &212335559489869870
 SpriteRenderer:
   m_ObjectHideFlags: 1

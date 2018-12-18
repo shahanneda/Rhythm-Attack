@@ -8,26 +8,26 @@ public class BlueBullet : Bullet
 
     private int beatsPassed = 0;
 
-    private  void OnEnable()
+    private void OnEnable()
     {
         GameController.instance.songController.beat += CheckSplit;
     }
 
-    private void CheckSplit()
+    private void Split()
+    {
+        GameController.instance.songController.beat -= CheckSplit;
+        Instantiate(smallBullet, transform.position, transform.rotation).GetComponent<Bullet>().bulletStats.direction = bulletStats.direction;
+        Instantiate(smallBullet, transform.position, Quaternion.Inverse(transform.rotation)).GetComponent<Bullet>().bulletStats.direction = -bulletStats.direction;
+        Destroy(gameObject);
+    }
+
+    public void CheckSplit()
     {
         beatsPassed++;
 
         if (beatsPassed >= bulletStats.specialtyNumber)
         {
-            GameController.instance.songController.beat -= CheckSplit;
             Split();
         }
-    }
-
-    private void Split()
-    {
-        Instantiate(smallBullet, transform.position, transform.rotation).GetComponent<Bullet>().bulletStats.direction = bulletStats.direction;
-        Instantiate(smallBullet, transform.position, Quaternion.Inverse(transform.rotation)).GetComponent<Bullet>().bulletStats.direction = -bulletStats.direction;
-        Destroy(gameObject);
     }
 }
