@@ -9,6 +9,7 @@ TagManager:
   - DamageOverlay
   - Bullet
   - SongTitle
+  - BlueBullet
   layers:
   - Default
   - TransparentFX

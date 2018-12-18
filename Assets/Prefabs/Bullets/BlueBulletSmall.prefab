@@ -9,45 +9,45 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1001587582991292}
+  m_RootGameObject: {fileID: 1104269833442224}
   m_IsPrefabAsset: 1
---- !u!1 &1001587582991292
+--- !u!1 &1104269833442224
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4036688281953762}
-  - component: {fileID: 212927757634320990}
-  - component: {fileID: 61509708977571890}
-  - component: {fileID: 114466600798088108}
+  - component: {fileID: 4432701323169254}
+  - component: {fileID: 212335559489869870}
+  - component: {fileID: 61901953227270836}
+  - component: {fileID: 114107893586295760}
   m_Layer: 0
-  m_Name: BlueBullet
-  m_TagString: Bullet
+  m_Name: BlueBulletSmall
+  m_TagString: BlueBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!4 &4036688281953762
+--- !u!4 &4432701323169254
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1001587582991292}
+  m_GameObject: {fileID: 1104269833442224}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61509708977571890
+--- !u!61 &61901953227270836
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1001587582991292}
+  m_GameObject: {fileID: 1104269833442224}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -67,12 +67,12 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.2}
   m_EdgeRadius: 0
---- !u!114 &114466600798088108
+--- !u!114 &114107893586295760
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1001587582991292}
+  m_GameObject: {fileID: 1104269833442224}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ccbb7858efe4e1742925695ada9049c4, type: 3}
@@ -83,14 +83,13 @@ MonoBehaviour:
     position: {x: 0, y: 0}
     direction: {x: 0, y: 0}
     specialtyNumber: 4
-  smallBullet: {fileID: 1104269833442224, guid: 06182c5535745084192e200908e07b51,
-    type: 2}
---- !u!212 &212927757634320990
+  smallBullet: {fileID: 0}
+--- !u!212 &212335559489869870
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1001587582991292}
+  m_GameObject: {fileID: 1104269833442224}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
