@@ -53,6 +53,7 @@ public class PlayerController : MonoBehaviour
 
             GreenBullet greenBullet = collision.GetComponent<GreenBullet>();
             BlueBullet blueBullet = collision.GetComponent<BlueBullet>();
+            SwitchBullet switchBullet = collision.GetComponent<SwitchBullet>();
 
             if (greenBullet != null)
             {
@@ -61,6 +62,10 @@ public class PlayerController : MonoBehaviour
             if (blueBullet != null)
             {
                 GameController.instance.songController.beat -= blueBullet.CheckSplit;
+            }
+            if (switchBullet != null)
+            {
+                GameController.instance.songController.beat -= switchBullet.CheckSwitch;
             }
 
             if (collision.GetComponent<Laser>() == null)

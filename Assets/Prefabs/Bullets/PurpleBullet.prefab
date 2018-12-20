@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4908779659101516}
   - component: {fileID: 212053942296565862}
   - component: {fileID: 61666746564060858}
-  - component: {fileID: 114566155429236882}
+  - component: {fileID: 114764101733470830}
   m_Layer: 0
   m_Name: PurpleBullet
   m_TagString: Bullet
@@ -58,7 +58,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.2, y: 0.2}
+    oldSize: {x: 0.18, y: 0.18}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -67,7 +67,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.2}
   m_EdgeRadius: 0
---- !u!114 &114566155429236882
+--- !u!114 &114764101733470830
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -75,13 +75,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1161608631663378}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b246265e08c235147b84a6657dd2d66a, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b12002c680f5d44f86a83de226171cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulletStats:
     type: 
     position: {x: 0, y: 0}
     direction: {x: 0, y: 0}
+    specialtyNumber: 4
+  nextBullet: {fileID: 1084537440110868, guid: 02e8c8a0414e20d4f9214c92f969386a, type: 2}
 --- !u!212 &212053942296565862
 SpriteRenderer:
   m_ObjectHideFlags: 1
