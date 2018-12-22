@@ -387,6 +387,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   song: {fileID: 11400000, guid: 0bf2c1d9d524e9146ae2874201c5f784, type: 2}
+  songsAvaliable:
+  - {fileID: 11400000, guid: 2b52e343023ba487dad82797f8076d0f, type: 2}
+  - {fileID: 11400000, guid: 0bf2c1d9d524e9146ae2874201c5f784, type: 2}
   beatCounter: 0
   secondsBetweenBeats: 0
   currentlyInBeat: 0

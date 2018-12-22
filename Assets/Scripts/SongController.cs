@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class SongController : MonoBehaviour
 {
-    public Song song;
+    [HideInInspector] public Song song;
+
+    public Song[] songsAvaliable;
 
     public delegate void Beat();
     public Beat beat;
@@ -28,6 +30,7 @@ public class SongController : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        PickSong();
 
         if (audioSource != null)
         {
@@ -84,6 +87,12 @@ public class SongController : MonoBehaviour
     {
         currentlyInBeat = false;
         lateBeatTimer = beatTimer;
+    }
+
+    private void PickSong()
+    {
+        int songIndex = Random.Range(0, songsAvaliable.Length);
+        song = songsAvaliable[songIndex];
     }
 
     public void BeatCount()
