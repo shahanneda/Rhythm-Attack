@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private int beatsSinceLastDash;
 
     private bool playerActedThisBeat;
+    public bool PlayerActedThisBeat { get { return playerActedThisBeat; } set { playerActedThisBeat = value; } }
 
     private bool locked = true;
 
@@ -119,7 +120,7 @@ public class PlayerController : MonoBehaviour
             battery.OnAttack();
         }
 
-        PlayerActedThisBeat();
+        PlayerActedThisBeat = true;
     }
 
     private void CheckAttack()
@@ -172,11 +173,6 @@ public class PlayerController : MonoBehaviour
 
         GameController.instance.guiController.SetDashText(dashes.ToString());
         return true;
-    }
-
-    public void PlayerActedThisBeat()
-    {
-        playerActedThisBeat = true;
     }
 
     public void ToggleLock(bool locked)

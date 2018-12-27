@@ -75,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
                 if (!movement.Equals(Vector2.zero))
                 {
                     MovePlayer(movement);
-                    playerController.PlayerActedThisBeat();
+                    playerController.PlayerActedThisBeat = true;
 
                     if (!songController.currentlyInBeat)
                     {

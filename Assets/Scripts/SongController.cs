@@ -47,7 +47,7 @@ public class SongController : MonoBehaviour
         beatTimer -= Time.deltaTime;
         lateBeatTimer -= Time.deltaTime;
 
-        if (beatTimer < 0.2f)
+        if (beatTimer < 0.125f)
         {
             currentlyInBeat = true;
 
@@ -67,7 +67,7 @@ public class SongController : MonoBehaviour
             }
         }
 
-        if (lateBeatTimer < -0.2f)
+        if (lateBeatTimer < -0.125f)
         {
             LateBeatCount();
 
@@ -87,6 +87,7 @@ public class SongController : MonoBehaviour
     {
         currentlyInBeat = false;
         lateBeatTimer = beatTimer;
+        PlayerController.instance.PlayerActedThisBeat = false;
     }
 
     private void PickSong()
