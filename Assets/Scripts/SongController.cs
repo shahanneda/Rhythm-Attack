@@ -56,6 +56,7 @@ public class SongController : MonoBehaviour
                 preBeat.Invoke();
             }
         }
+
         if (beatTimer < 0)
         {
             currentlyInBeat = true;

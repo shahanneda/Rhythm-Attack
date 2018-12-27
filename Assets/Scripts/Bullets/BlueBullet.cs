@@ -15,10 +15,13 @@ public class BlueBullet : Bullet
 
     private void Split()
     {
-        GameController.instance.songController.beat -= CheckSplit;
-        Instantiate(smallBullet, transform.position, transform.rotation).GetComponent<Bullet>().bulletStats.direction = bulletStats.direction;
-        Instantiate(smallBullet, transform.position, Quaternion.Inverse(transform.rotation)).GetComponent<Bullet>().bulletStats.direction = -bulletStats.direction;
-        Destroy(gameObject);
+        if (this != null)
+        {
+            GameController.instance.songController.beat -= CheckSplit;
+            Instantiate(smallBullet, transform.position, transform.rotation).GetComponent<Bullet>().bulletStats.direction = bulletStats.direction;
+            Instantiate(smallBullet, transform.position, Quaternion.Inverse(transform.rotation)).GetComponent<Bullet>().bulletStats.direction = -bulletStats.direction;
+            Destroy(gameObject);
+        }
     }
 
     public void CheckSplit()

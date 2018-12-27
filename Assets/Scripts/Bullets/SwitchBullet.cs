@@ -15,13 +15,16 @@ public class SwitchBullet : Bullet
 
     private void Switch()
     {
-        GameController.instance.songController.beat -= CheckSwitch;
+        if (this != null)
+        {
+            GameController.instance.songController.beat -= CheckSwitch;
 
-        Bullet newBullet = Instantiate(nextBullet, transform.position, Quaternion.Inverse(transform.rotation)).GetComponent<Bullet>();
-        newBullet.bulletStats.direction = -bulletStats.direction;
-        newBullet.bulletStats.specialtyNumber = bulletStats.specialtyNumber;
+            Bullet newBullet = Instantiate(nextBullet, transform.position, Quaternion.Inverse(transform.rotation)).GetComponent<Bullet>();
+            newBullet.bulletStats.direction = -bulletStats.direction;
+            newBullet.bulletStats.specialtyNumber = bulletStats.specialtyNumber;
 
-        Destroy(gameObject);
+            Destroy(gameObject);
+        }
     }
 
     public void CheckSwitch()
