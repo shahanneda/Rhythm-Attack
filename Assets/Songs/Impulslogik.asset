@@ -15,4 +15,4 @@ MonoBehaviour:
   name: Impulslogik
   tempo: 151
   beatsPerBar: 4
-  barsUntilStart: 8
+  barsUntilStart: 7.75

@@ -20,6 +20,8 @@ public class SongController : MonoBehaviour
 
     public bool currentlyInBeat;
 
+    public Animator beatAnim;
+
     private AudioSource audioSource;
 
     private float beatTimer;
@@ -61,6 +63,7 @@ public class SongController : MonoBehaviour
         {
             currentlyInBeat = true;
             BeatCount();
+            BeatAnim();
 
             if (beat != null)
             {
@@ -95,6 +98,11 @@ public class SongController : MonoBehaviour
     {
         int songIndex = Random.Range(0, songsAvaliable.Length);
         song = songsAvaliable[songIndex];
+    }
+
+    private void BeatAnim()
+    {
+        beatAnim.Play("Beat");
     }
 
     public void BeatCount()
