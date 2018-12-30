@@ -21,6 +21,7 @@ public class SongController : MonoBehaviour
     public bool currentlyInBeat;
 
     public Animator beatAnim;
+    public GameObject beatTick;
 
     private AudioSource audioSource;
 
@@ -29,7 +30,7 @@ public class SongController : MonoBehaviour
 
     private float beatsUntilStart;
 
-    private void Start()
+    private void OnEnable()
     {
         audioSource = GetComponent<AudioSource>();
         PickSong();
@@ -49,7 +50,7 @@ public class SongController : MonoBehaviour
         beatTimer -= Time.deltaTime;
         lateBeatTimer -= Time.deltaTime;
 
-        if (beatTimer < 0.125f)
+        if (beatTimer < 0.225f)
         {
             currentlyInBeat = true;
 
@@ -65,13 +66,18 @@ public class SongController : MonoBehaviour
             BeatCount();
             BeatAnim();
 
+            Instantiate(beatTick, GameObject.Find("BeatCounter").transform).GetComponent<BeatTick>().direction = 1;
+            Transform leftBeatTick = Instantiate(beatTick, GameObject.Find("BeatCounter").transform).transform;
+            leftBeatTick.GetComponent<BeatTick>().direction = -1;
+            leftBeatTick.position = new Vector2(Screen.width, leftBeatTick.position.y);
+
             if (beat != null)
             {
                 beat.Invoke();
             }
         }
 
-        if (lateBeatTimer < -0.125f)
+        if (lateBeatTimer < -0.225f)
         {
             LateBeatCount();
 
