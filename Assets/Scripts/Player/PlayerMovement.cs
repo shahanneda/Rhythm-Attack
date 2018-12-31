@@ -75,12 +75,12 @@ public class PlayerMovement : MonoBehaviour
 
                 if (!movement.Equals(Vector2.zero))
                 {
-                    if (!started)
+                    if (!started && movement.Equals(Vector2.up))
                     {
                         FindObjectOfType<SongController>().StartSong();
+                        started = true;
                     }
 
-                    started = true;
                     MovePlayer(movement);
                     playerController.PlayerActedThisBeat = true;
 
