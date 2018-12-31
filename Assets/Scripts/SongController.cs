@@ -30,66 +30,62 @@ public class SongController : MonoBehaviour
 
     private float beatsUntilStart;
 
+    private bool started;
+
     private void OnEnable()
     {
         audioSource = GetComponent<AudioSource>();
         PickSong();
-
-        if (audioSource != null)
-        {
-            audioSource.clip = song.audio;
-            audioSource.Play();
-        }
-
-        secondsBetweenBeats = 60f / song.tempo;
-        beatsUntilStart = song.barsUntilStart * song.beatsPerBar;
     }
 
     private void Update()
     {
-        beatTimer -= Time.deltaTime;
-        lateBeatTimer -= Time.deltaTime;
-
-        if (beatTimer < 0.225f)
+        if (started)
         {
-            currentlyInBeat = true;
+            beatTimer -= Time.deltaTime;
+            lateBeatTimer -= Time.deltaTime;
 
-            if (preBeat != null)
+            if (beatTimer < 0.225f)
             {
-                preBeat.Invoke();
+                currentlyInBeat = true;
+
+                if (preBeat != null)
+                {
+                    preBeat.Invoke();
+                }
             }
-        }
 
-        if (beatTimer < 0)
-        {
-            currentlyInBeat = true;
-            BeatCount();
-            BeatAnim();
-
-            Instantiate(beatTick, GameObject.Find("BeatCounter").transform).GetComponent<BeatTick>().direction = 1;
-            Transform leftBeatTick = Instantiate(beatTick, GameObject.Find("BeatCounter").transform).transform;
-            leftBeatTick.GetComponent<BeatTick>().direction = -1;
-            leftBeatTick.position = new Vector2(Screen.width, leftBeatTick.position.y);
-
-            if (beat != null)
+            if (beatTimer < 0)
             {
-                beat.Invoke();
+                currentlyInBeat = true;
+                BeatCount();
+                BeatAnim();
+
+                Instantiate(beatTick, GameObject.Find("BeatCounter").transform).GetComponent<BeatTick>().direction = 1;
+                Transform leftBeatTick = Instantiate(beatTick, GameObject.Find("BeatCounter").transform).transform;
+                leftBeatTick.GetComponent<BeatTick>().direction = -1;
+                leftBeatTick.position = new Vector2(Screen.width, leftBeatTick.position.y);
+
+                if (beat != null)
+                {
+                    beat.Invoke();
+                }
             }
-        }
 
-        if (lateBeatTimer < -0.225f)
-        {
-            LateBeatCount();
-
-            if (postBeat != null)
+            if (lateBeatTimer < -0.225f)
             {
-                postBeat.Invoke();
-            }
-        }
+                LateBeatCount();
 
-        if (beatCounter > beatsUntilStart)
-        {
-            PlayerController.instance.ToggleLock(false);
+                if (postBeat != null)
+                {
+                    postBeat.Invoke();
+                }
+            }
+
+            if (beatCounter > beatsUntilStart)
+            {
+                PlayerController.instance.ToggleLock(false);
+            }
         }
     }
 
@@ -109,6 +105,20 @@ public class SongController : MonoBehaviour
     private void BeatAnim()
     {
         beatAnim.Play("Beat");
+    }
+
+    public void StartSong()
+    {
+        started = true;
+
+        if (audioSource != null)
+        {
+            audioSource.clip = song.audio;
+            audioSource.Play();
+        }
+
+        secondsBetweenBeats = 60f / song.tempo;
+        beatsUntilStart = song.barsUntilStart * song.beatsPerBar;
     }
 
     public void BeatCount()

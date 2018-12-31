@@ -12,14 +12,15 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveBounds;
     private Vector2 movement;
 
-    private Vector2 toLocation = Vector2.down * 6;
+    private Vector2 toLocation = Vector2.down * 7;
 
     private PlayerController playerController;
     private SongController songController;
 
-    private bool locked = true;
+    public bool locked = false;
 
     private BulletSpawner bulletSpawner;
+    private bool started;
 
     private void Start()
     {
@@ -36,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckPlayerMovement()
     {
-        if (!locked)
+        if (!locked || !started)
         {
             if (autoPlayer)
             {
@@ -74,6 +75,12 @@ public class PlayerMovement : MonoBehaviour
 
                 if (!movement.Equals(Vector2.zero))
                 {
+                    if (!started)
+                    {
+                        FindObjectOfType<SongController>().StartSong();
+                    }
+
+                    started = true;
                     MovePlayer(movement);
                     playerController.PlayerActedThisBeat = true;
 
