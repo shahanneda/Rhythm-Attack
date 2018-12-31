@@ -779,7 +779,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4644424046275748, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 4644424046275748, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
       propertyPath: m_LocalPosition.z
@@ -804,16 +804,6 @@ Prefab:
     - target: {fileID: 4644424046275748, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 61036437906310960, guid: 7fcc7b2746316d542b87030520d2faaf,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114900454158589228, guid: 7fcc7b2746316d542b87030520d2faaf,
-        type: 2}
-      propertyPath: autoPlayer
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fcc7b2746316d542b87030520d2faaf, type: 2}

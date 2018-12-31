@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveBounds;
     private Vector2 movement;
 
-    private Vector2 toLocation;
+    private Vector2 toLocation = Vector2.down * 6;
 
     private PlayerController playerController;
     private SongController songController;
