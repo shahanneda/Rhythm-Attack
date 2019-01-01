@@ -48,7 +48,7 @@ public class GridGenerator : MonoBehaviour
             }
         }
 
-        Camera.main.orthographicSize = 0.635f * ((size.x > size.y) ? size.x : size.y);
+        //Camera.main.orthographicSize = 0.635f * ((size.x > size.y) ? size.x : size.y);
     }
 
     public void GenerateBulletGrid(GameObject bulletPrefab)

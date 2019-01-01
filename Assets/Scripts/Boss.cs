@@ -14,7 +14,14 @@ public class Boss : MonoBehaviour
         set
         {
             started = value;
-            GetComponent<Animator>().SetBool("started", true);
+            animator.SetBool("started", true);
         }
+    }
+
+    private Animator animator;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
     }
 }
