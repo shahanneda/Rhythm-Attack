@@ -79,6 +79,8 @@ public class PlayerMovement : MonoBehaviour
                     {
                         FindObjectOfType<SongController>().StartSong();
                         started = true;
+                        FindObjectOfType<Boss>().Started = true;
+                        locked = true;
                     }
 
                     MovePlayer(movement);
