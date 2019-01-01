@@ -22,10 +22,9 @@ GameObject:
   - component: {fileID: 212451862834135124}
   - component: {fileID: 61777323986863166}
   - component: {fileID: 50926452187183492}
-  - component: {fileID: 114386980150888202}
   m_Layer: 0
   m_Name: RedLaser
-  m_TagString: Bullet
+  m_TagString: Laser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88,17 +87,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114386980150888202
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1109876108463758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddd53bcd611d4f64a8c559980f862a29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &212451862834135124
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -12,6 +12,8 @@ public class BulletSpawner : MonoBehaviour
     private int currentFrame = -1;
     private bool firstIteration = true;
 
+    private List<GameObject> spawnedLasers = new List<GameObject>();
+
     private void Start()
     {
         GameController.instance.songController.beat += SpawnBullets;
@@ -41,6 +43,12 @@ public class BulletSpawner : MonoBehaviour
             currentFrame = 0;
             firstIteration = false;
         }
+
+        foreach (GameObject laser in spawnedLasers)
+        {
+            Destroy(laser);
+        }
+        spawnedLasers = new List<GameObject>();
 
         foreach (BulletStats bulletStats in level.frames[currentFrame].bullets)
         {
@@ -110,7 +118,7 @@ public class BulletSpawner : MonoBehaviour
                 return;
             }
 
-            Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, Quaternion.identity);
+            spawnedLasers.Add(Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, Quaternion.identity));
         }
     }
 

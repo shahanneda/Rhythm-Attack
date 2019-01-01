@@ -11,6 +11,7 @@ TagManager:
   - SongTitle
   - BlueBullet
   - Boss
+  - Laser
   layers:
   - Default
   - TransparentFX

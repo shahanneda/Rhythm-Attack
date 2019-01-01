@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Bullet")
+        if (collision.tag == "Bullet" || collision.tag == "Laser")
         {
             TakeDamage(10);
 
@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
                 GameController.instance.songController.beat -= switchBullet.CheckSwitch;
             }
 
-            if (collision.GetComponent<Laser>() == null)
+            if (collision.tag != "Laser")
             {
                 Destroy(collision.gameObject);
             }
