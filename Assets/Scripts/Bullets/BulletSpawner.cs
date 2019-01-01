@@ -106,7 +106,17 @@ public class BulletSpawner : MonoBehaviour
         }
         else
         {
-            amountOfNodes = Mathf.CeilToInt(Mathf.Sqrt(Mathf.Pow(GameController.instance.gridGenerator.size.x - laserStats.position.x, 2) + Mathf.Pow(GameController.instance.gridGenerator.size.y - laserStats.position.y, 2)));
+            for (int i = 0; i < 13; i++)
+            {
+                Vector2 position = (laserStats.direction * i) + laserStats.position;
+
+                if (position == new Vector2(2, 2) || position == new Vector2(10, 2) || position == new Vector2(2, 10) || position == new Vector2(10, 10) || position.x < 0 || position.x >= 13 || position.y < 0 || position.y >= 13)
+                {
+                    return;
+                }
+
+                spawnedLasers.Add(Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, Quaternion.identity));
+            }
         }
 
         for (int i = 0; i < amountOfNodes; i++)
