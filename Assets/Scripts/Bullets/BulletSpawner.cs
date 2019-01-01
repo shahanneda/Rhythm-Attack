@@ -51,7 +51,7 @@ public class BulletSpawner : MonoBehaviour
 
             if (bulletStats.type.Contains("Laser"))
             {
-                SpawnLaser(new LaserStats(bulletStats.type, bulletStats.position, bulletStats.direction));
+                SpawnLaser(new BulletStats(bulletStats.type, bulletStats.position, bulletStats.direction));
             }
             else if (bulletStats.type.Contains("Battery"))
             {
@@ -67,7 +67,7 @@ public class BulletSpawner : MonoBehaviour
         }
     }
 
-    public void SpawnLaser(LaserStats laserStats)
+    public void SpawnLaser(BulletStats laserStats)
     {
         GameObject prefab = GetBulletTypeFromGameObject(laserStats.type);
         int amountOfNodes = 0;

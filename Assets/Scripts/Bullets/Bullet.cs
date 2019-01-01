@@ -56,6 +56,13 @@ public class BulletStats
 
     }
 
+    public BulletStats(string type, Vector2 position, Vector2 direction)
+    {
+        this.type = type;
+        this.position = position;
+        this.direction = direction;
+    }
+
     public BulletStats(string type, Vector2 direction)
     {
         this.type = type;
@@ -126,22 +133,6 @@ public class BulletStats
         }
 
         return Quaternion.AngleAxis((directionIndex - 1) * -45, Vector3.forward);
-    }
-}
-
-[System.Serializable]
-public class LaserStats : BulletStats
-{
-    public LaserStats()
-    {
-
-    }
-
-    public LaserStats(string type, Vector2 position, Vector2 direction)
-    {
-        this.type = type;
-        this.position = position;
-        this.direction = direction;
     }
 }
 
