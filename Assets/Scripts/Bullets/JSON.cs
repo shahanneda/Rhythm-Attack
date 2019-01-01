@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class JSONBulletManager : MonoBehaviour
+public class JSON : MonoBehaviour
 {
     public static Level LoadFromJSON(string path)
     {

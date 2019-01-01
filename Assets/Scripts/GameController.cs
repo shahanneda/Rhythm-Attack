@@ -20,7 +20,7 @@ public class GameController : MonoBehaviour
 
         PatternLoader.instance.LoadPattern();
 
-        level = JSONBulletManager.LoadFromJSON(levelJson);
+        level = JSON.LoadFromJSON(levelJson);
     }
 
     private void Start()
