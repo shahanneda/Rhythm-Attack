@@ -134,6 +134,18 @@ public class BulletSpawner : MonoBehaviour
 
         return null;
     }
+
+    public static bool GetBossAtPosition(Vector2 position)
+    {
+        if (position.x >= -1 && position.x <= 1 && position.y >= -1 && position.y <= 1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
 
 [System.Serializable]

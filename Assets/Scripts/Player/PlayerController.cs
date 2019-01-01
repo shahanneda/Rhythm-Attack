@@ -132,11 +132,11 @@ public class PlayerController : MonoBehaviour
     }
 
     //  USE  *ONLY* THESE  METHODS WHEN YOU WANT TO INTRACT WITH HEALTH!
-    public void TakeDamage(float count)
+    public void TakeDamage(float damage)
     {
         if (!locked)
         {
-            playerHealth.Decrease(count);
+            playerHealth.Decrease(damage);
             GameController.instance.guiController.DamageOverlay();
         }
     }

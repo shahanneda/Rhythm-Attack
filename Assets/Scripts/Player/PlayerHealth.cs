@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
     //use this healthOfPlayer sparingly as it dosen't update the gui;
-    private float HealthOfPlayer = 100;
+    private float health = 100;
 
     private bool locked = true;
 
@@ -15,11 +15,11 @@ public class PlayerHealth : MonoBehaviour
     {
         get
         {
-            return HealthOfPlayer;
+            return health;
         }
         set
         {
-            HealthOfPlayer = value;
+            health = value;
             UpdateGUI();
         }
     }
