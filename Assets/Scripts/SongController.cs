@@ -16,7 +16,7 @@ public class SongController : MonoBehaviour
     public int beatCounter = 0;
 
     [HideInInspector]
-    public float secondsBetweenBeats;
+    public double secondsBetweenBeats;
 
     public bool currentlyInBeat;
 
@@ -25,12 +25,14 @@ public class SongController : MonoBehaviour
 
     private AudioSource audioSource;
 
-    private float beatTimer;
-    private float lateBeatTimer;
+    private double beatTimer;
+    private double lateBeatTimer;
 
     private float beatsUntilStart;
 
     private bool started;
+
+    private string currentPhase = "Intro";
 
     private void OnEnable()
     {
@@ -38,7 +40,7 @@ public class SongController : MonoBehaviour
         PickSong();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (started)
         {
@@ -113,7 +115,7 @@ public class SongController : MonoBehaviour
 
         if (audioSource != null)
         {
-            audioSource.clip = song.intro;
+            audioSource.clip = GetClipFromPhase(song, currentPhase);
             audioSource.Play();
         }
 
@@ -125,5 +127,41 @@ public class SongController : MonoBehaviour
     {
         beatTimer = secondsBetweenBeats;
         beatCounter++;
+    }
+
+    public static AudioClip GetClipFromPhase(Song song, string phase)
+    {
+        if (phase == "Intro")
+        {
+            return song.intro;
+        }
+        else if (phase == "Main")
+        {
+            return song.main;
+        }
+        else if (phase == "Transition")
+        {
+            return song.transition;
+        }
+        else if (phase == "Hyper")
+        {
+            return song.hyper;
+        }
+        else if (phase == "Cooldown")
+        {
+            return song.cooldown;
+        }
+        else if (phase == "ChargeUp")
+        {
+            return song.chargeUp;
+        }
+        else if (phase == "Outro")
+        {
+            return song.outro;
+        }
+        else
+        {
+            return null;
+        }
     }
 }

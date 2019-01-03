@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
         bulletSpawner = FindObjectOfType<BulletSpawner>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         transform.position = Vector3.Lerp(transform.position, toLocation, transitionSpeed);
         CheckPlayerMovement();

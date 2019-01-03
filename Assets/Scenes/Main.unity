@@ -388,8 +388,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   song: {fileID: 11400000, guid: 0bf2c1d9d524e9146ae2874201c5f784, type: 2}
   songsAvaliable:
-  - {fileID: 11400000, guid: 2b52e343023ba487dad82797f8076d0f, type: 2}
-  - {fileID: 11400000, guid: 0bf2c1d9d524e9146ae2874201c5f784, type: 2}
   - {fileID: 11400000, guid: ff1003430762bf7409869945a2558d4a, type: 2}
   beatCounter: 0
   secondsBetweenBeats: 0
@@ -1395,6 +1393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0a14af33175bc34ea8a7be157c9b0ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lasersFromBoss: []
 --- !u!1 &1496027279
 GameObject:
   m_ObjectHideFlags: 0

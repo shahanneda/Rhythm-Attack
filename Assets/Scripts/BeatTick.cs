@@ -12,7 +12,7 @@ public class BeatTick : MonoBehaviour
     private void Start()
     {
         screenX = Screen.width / 2;
-        speed = screenX / FindObjectOfType<SongController>().secondsBetweenBeats * direction;
+        speed = screenX / (float)FindObjectOfType<SongController>().secondsBetweenBeats * direction;
     }
 
     private void Update()

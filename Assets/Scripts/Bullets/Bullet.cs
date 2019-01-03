@@ -19,7 +19,7 @@ public class Bullet : MonoBehaviour
         gridGenerator = GameController.instance.gridGenerator;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         transform.position = Vector3.Lerp(transform.position, newPos, Time.deltaTime * 25f);
     }
