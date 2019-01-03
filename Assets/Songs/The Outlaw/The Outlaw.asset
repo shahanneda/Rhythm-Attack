@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71ddd88b712a5e3428210f2bc1ce46b6, type: 3}
+  m_Name: The Outlaw
+  m_EditorClassIdentifier: 
+  name: The Outlaw
+  intro: {fileID: 8300000, guid: c1e5796a2e5b00845a58e1f0788d6772, type: 3}
+  introBars: 17
+  main: {fileID: 8300000, guid: d442adc1ff42bbc4ba4c04574f377085, type: 3}
+  mainBars: 32
+  transition: {fileID: 8300000, guid: 27aa96c895d675145a9fbac8319836f9, type: 3}
+  transitionBars: 8
+  hyper: {fileID: 8300000, guid: 297a22839838cc844b4734c772f9d87b, type: 3}
+  hyperBars: 16
+  cooldown: {fileID: 8300000, guid: ac6f99dc068afe549ae719ad31708d69, type: 3}
+  cooldownBars: 8
+  chargeUp: {fileID: 8300000, guid: 0ea24fe7c85e5294988d5955d015505f, type: 3}
+  chargeUpBars: 8
+  outro: {fileID: 8300000, guid: 702f4576763479847a6141a56b8acef8, type: 3}
+  outroBars: 16.5
+  tempo: 150
+  beatsPerBar: 4

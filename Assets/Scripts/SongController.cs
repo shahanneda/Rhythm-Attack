@@ -113,12 +113,12 @@ public class SongController : MonoBehaviour
 
         if (audioSource != null)
         {
-            audioSource.clip = song.audio;
+            audioSource.clip = song.intro;
             audioSource.Play();
         }
 
         secondsBetweenBeats = 60f / song.tempo;
-        beatsUntilStart = song.barsUntilStart * song.beatsPerBar;
+        beatsUntilStart = song.introBars * song.beatsPerBar;
     }
 
     public void BeatCount()
