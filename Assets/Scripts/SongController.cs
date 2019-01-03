@@ -16,7 +16,7 @@ public class SongController : MonoBehaviour
     public int beatCounter = 0;
 
     [HideInInspector]
-    public double secondsBetweenBeats;
+    public double currentSecondsBetweenBeats;
 
     public bool currentlyInBeat;
 
@@ -24,9 +24,6 @@ public class SongController : MonoBehaviour
     public GameObject beatTick;
 
     private AudioSource audioSource;
-
-    private double beatTimer;
-    private double lateBeatTimer;
 
     private float beatsUntilStart;
 
@@ -44,10 +41,7 @@ public class SongController : MonoBehaviour
     {
         if (started)
         {
-            beatTimer -= Time.deltaTime;
-            lateBeatTimer -= Time.deltaTime;
-
-            if (beatTimer < 0.225f)
+            if (audioSource.time >= currentSecondsBetweenBeats * (beatCounter + 1) - 0.225f)
             {
                 currentlyInBeat = true;
 
@@ -57,7 +51,7 @@ public class SongController : MonoBehaviour
                 }
             }
 
-            if (beatTimer < 0)
+            if (audioSource.time >= currentSecondsBetweenBeats * beatCounter)
             {
                 currentlyInBeat = true;
                 BeatCount();
@@ -74,7 +68,7 @@ public class SongController : MonoBehaviour
                 }
             }
 
-            if (lateBeatTimer < -0.225f)
+            if (audioSource.time >= currentSecondsBetweenBeats * (beatCounter - 1) + 0.225f)
             {
                 LateBeatCount();
 
@@ -94,7 +88,6 @@ public class SongController : MonoBehaviour
     private void LateBeatCount()
     {
         currentlyInBeat = false;
-        lateBeatTimer = beatTimer;
         PlayerController.instance.PlayerActedThisBeat = false;
     }
 
@@ -119,13 +112,12 @@ public class SongController : MonoBehaviour
             audioSource.Play();
         }
 
-        secondsBetweenBeats = 60f / song.tempo;
+        currentSecondsBetweenBeats = 60f / song.tempo;
         beatsUntilStart = song.introBars * song.beatsPerBar;
     }
 
     public void BeatCount()
     {
-        beatTimer = secondsBetweenBeats;
         beatCounter++;
     }
 

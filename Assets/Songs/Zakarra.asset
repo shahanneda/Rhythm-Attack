@@ -11,8 +11,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71ddd88b712a5e3428210f2bc1ce46b6, type: 3}
   m_Name: Zakarra
   m_EditorClassIdentifier: 
-  audio: {fileID: 8300000, guid: 55e74139a3a1d4268a705d9be3827750, type: 3}
   name: Zakarra Mainstream Memory
+  intro: {fileID: 8300000, guid: 55e74139a3a1d4268a705d9be3827750, type: 3}
+  introBars: 8
+  main: {fileID: 0}
+  mainBars: 8
+  transition: {fileID: 0}
+  transitionBars: 8
+  hyper: {fileID: 0}
+  hyperBars: 8
+  cooldown: {fileID: 0}
+  cooldownBars: 8
+  chargeUp: {fileID: 0}
+  chargeUpBars: 8
+  outro: {fileID: 0}
+  outroBars: 8
   tempo: 143
   beatsPerBar: 4
-  barsUntilStart: 8
