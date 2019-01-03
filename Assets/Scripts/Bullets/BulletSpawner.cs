@@ -14,11 +14,14 @@ public class BulletSpawner : MonoBehaviour
 
     private List<GameObject> spawnedLasers = new List<GameObject>();
 
+    private Boss boss;
+
     private void Start()
     {
         GameController.instance.songController.beat += SpawnBullets;
 
         level = GameController.instance.level;
+        boss = FindObjectOfType<Boss>();
     }
 
     public GameObject GetBulletTypeFromGameObject(string type)
@@ -114,6 +117,10 @@ public class BulletSpawner : MonoBehaviour
                 {
                     return;
                 }
+                else if (position == new Vector2(4, 6) || position == new Vector2(6, 8) || position == new Vector2(8, 6) || position == new Vector2(6, 4))
+                {
+                    boss.LasersFromBoss.Add(position);
+                }
 
                 spawnedLasers.Add(Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, Quaternion.identity));
             }
@@ -126,6 +133,10 @@ public class BulletSpawner : MonoBehaviour
             if (position == new Vector2(2, 2) || position == new Vector2(10, 2) || position == new Vector2(2, 10) || position == new Vector2(10, 10))
             {
                 return;
+            }
+            else if (position == new Vector2(4, 6) || position == new Vector2(6, 8) || position == new Vector2(8, 6) || position == new Vector2(6, 4))
+            {
+                boss.LasersFromBoss.Add(position);
             }
 
             spawnedLasers.Add(Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, Quaternion.identity));
