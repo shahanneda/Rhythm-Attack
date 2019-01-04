@@ -389,6 +389,7 @@ MonoBehaviour:
   song: {fileID: 11400000, guid: 0bf2c1d9d524e9146ae2874201c5f784, type: 2}
   songsAvaliable:
   - {fileID: 11400000, guid: ff1003430762bf7409869945a2558d4a, type: 2}
+  - {fileID: 11400000, guid: 89c953aadc920e24e80c797e6969d5f8, type: 2}
   beatCounter: 0
   currentSecondsBetweenBeats: 0
   currentlyInBeat: 0
