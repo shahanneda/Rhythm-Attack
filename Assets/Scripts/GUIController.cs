@@ -39,7 +39,7 @@ public class GUIController : MonoBehaviour
         }
         else
         {
-            songTitleText.text = GameController.instance.songController.song.name;
+            songTitleText.text = "♪ " + GameController.instance.songController.song.name;
         }
     }
 
