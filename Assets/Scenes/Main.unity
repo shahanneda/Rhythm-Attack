@@ -390,7 +390,7 @@ MonoBehaviour:
   songsAvaliable:
   - {fileID: 11400000, guid: ff1003430762bf7409869945a2558d4a, type: 2}
   beatCounter: 0
-  secondsBetweenBeats: 0
+  currentSecondsBetweenBeats: 0
   currentlyInBeat: 0
   beatAnim: {fileID: 1519089011}
   beatTick: {fileID: 1524669054151212, guid: 140b70e0604d0534787bc1c7458b789f, type: 2}
