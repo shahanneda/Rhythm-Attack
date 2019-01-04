@@ -1488,19 +1488,19 @@ MonoBehaviour:
     bulletObject: {fileID: 1109876108463758, guid: f746052e27308f0498eb6392ae22ca97,
       type: 2}
   - bulletType: YellowLaser
-    bulletObject: {fileID: 1109876108463758, guid: f746052e27308f0498eb6392ae22ca97,
+    bulletObject: {fileID: 1109876108463758, guid: 1552b6034ab114d4f861c08c0914ea27,
       type: 2}
   - bulletType: OrangeLaser
-    bulletObject: {fileID: 1109876108463758, guid: f746052e27308f0498eb6392ae22ca97,
+    bulletObject: {fileID: 1109876108463758, guid: 611a92afe22fdf54baf2d83e3d5be10a,
       type: 2}
   - bulletType: BlueLaser
-    bulletObject: {fileID: 1109876108463758, guid: f746052e27308f0498eb6392ae22ca97,
+    bulletObject: {fileID: 1109876108463758, guid: e645f12e1ffec0348a2af8f4149dacd1,
       type: 2}
   - bulletType: GreenLaser
-    bulletObject: {fileID: 1109876108463758, guid: f746052e27308f0498eb6392ae22ca97,
+    bulletObject: {fileID: 1109876108463758, guid: 16d4aaa870c0ec0468b538d00414f7a3,
       type: 2}
   - bulletType: PurpleLaser
-    bulletObject: {fileID: 1109876108463758, guid: f746052e27308f0498eb6392ae22ca97,
+    bulletObject: {fileID: 1109876108463758, guid: df9d0b6c322e1aa47969198c1f4fb3ce,
       type: 2}
   - bulletType: RedBattery
     bulletObject: {fileID: 1995920770282816, guid: 12643d94a2ca8475a99e456344089eb8,
