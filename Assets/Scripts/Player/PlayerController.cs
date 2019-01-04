@@ -157,7 +157,7 @@ public class PlayerController : MonoBehaviour
             return false;
         }
 
-        GameController.instance.guiController.SetDashText(dashes.ToString());
+        GameController.instance.guiController.SetDashUI(dashes);
         return true;
     }
 
@@ -171,7 +171,7 @@ public class PlayerController : MonoBehaviour
             return false;
         }
 
-        GameController.instance.guiController.SetDashText(dashes.ToString());
+        GameController.instance.guiController.SetDashUI(dashes);
         return true;
     }
 

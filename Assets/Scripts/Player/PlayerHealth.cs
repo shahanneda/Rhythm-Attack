@@ -48,7 +48,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void UpdateGUI()
     {
-        GameController.instance.guiController.SetHealthText(Health.ToString());
+        GameController.instance.guiController.SetHealthUI(Health);
     }
 
     public void ToggleLock(bool locked)

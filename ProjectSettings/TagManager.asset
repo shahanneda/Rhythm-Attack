@@ -4,14 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - HealthText
-  - DashText
   - DamageOverlay
   - Bullet
   - SongTitle
   - BlueBullet
   - Boss
   - Laser
+  - HealthUI
+  - DashUI
   layers:
   - Default
   - TransparentFX
