@@ -57,23 +57,53 @@ public class BulletSpawner : MonoBehaviour
         {
             if (bulletStats.type == "None")
             {
-                return;
+                continue;
+            }
+
+            Vector2 position = bulletStats.position;
+            if (position == new Vector2(1, 2) || position == new Vector2(1, 3) || position == new Vector2(2, 3) || position == new Vector2(3, 3) || position == new Vector2(3, 2) || position == new Vector2(3, 1) || position == new Vector2(2, 1) || position == new Vector2(1, 1))
+            {
+                if (GetBatteryAtPosition(Vector2.one * -4) == null)
+                {
+                    continue;
+                }
+            }
+            else if (position == new Vector2(9, 2) || position == new Vector2(9, 3) || position == new Vector2(10, 3) || position == new Vector2(11, 3) || position == new Vector2(11, 2) || position == new Vector2(11, 1) || position == new Vector2(10, 1) || position == new Vector2(9, 1))
+            {
+                if (GetBatteryAtPosition(new Vector2(4, -4)) == null)
+                {
+                    continue;
+                }
+            }
+            else if (position == new Vector2(9, 10) || position == new Vector2(9, 11) || position == new Vector2(10, 11) || position == new Vector2(11, 11) || position == new Vector2(9, 11) || position == new Vector2(11, 10) || position == new Vector2(9, 9) || position == new Vector2(10, 9))
+            {
+                if (GetBatteryAtPosition(Vector2.one * 4) == null)
+                {
+                    continue;
+                }
+            }
+            else if (position == new Vector2(1, 10) || position == new Vector2(1, 11) || position == new Vector2(2, 11) || position == new Vector2(3, 11) || position == new Vector2(3, 10) || position == new Vector2(3, 9) || position == new Vector2(2, 9) || position == new Vector2(1, 9))
+            {
+                if (GetBatteryAtPosition(new Vector2(-4, 4)) == null)
+                {
+                    continue;
+                }
             }
 
             if (bulletStats.type.Contains("Laser"))
             {
-                SpawnLaser(new BulletStats(bulletStats.type, bulletStats.position, bulletStats.direction));
+                SpawnLaser(new BulletStats(bulletStats.type, position, bulletStats.direction));
             }
             else if (bulletStats.type.Contains("Battery"))
             {
                 if (firstIteration)
                 {
-                    batteries.Add(Instantiate(GetBulletTypeFromGameObject(bulletStats.type), GameController.instance.gridGenerator.GetPositionFromGrid(bulletStats.position), Quaternion.identity).GetComponent<Battery>());
+                    batteries.Add(Instantiate(GetBulletTypeFromGameObject(bulletStats.type), GameController.instance.gridGenerator.GetPositionFromGrid(position), Quaternion.identity).GetComponent<Battery>());
                 }
             }
             else
             {
-                Instantiate(GetBulletTypeFromGameObject(bulletStats.type), GameController.instance.gridGenerator.GetPositionFromGrid(bulletStats.position), Quaternion.identity).GetComponent<Bullet>().bulletStats = bulletStats;
+                Instantiate(GetBulletTypeFromGameObject(bulletStats.type), GameController.instance.gridGenerator.GetPositionFromGrid(position), Quaternion.identity).GetComponent<Bullet>().bulletStats = bulletStats;
             }
         }
     }
@@ -147,7 +177,7 @@ public class BulletSpawner : MonoBehaviour
     {
         foreach (Battery battery in batteries)
         {
-            if (battery.transform.position == new Vector3(position.x, position.y, battery.transform.position.z))
+            if (battery != null && battery.transform.position == new Vector3(position.x, position.y, battery.transform.position.z))
             {
                 return battery;
             }
