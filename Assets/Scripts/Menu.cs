@@ -19,7 +19,21 @@ public class Menu : MonoBehaviour
         {
             GameObject menuButton = Instantiate(button, levelsPanel);
             menuButton.GetComponent<MenuButton>().pattern = pattern;
-            menuButton.GetComponentInChildren<Text>().text = pattern.name;
+
+            string patternName = "";
+            foreach (char c in pattern.name)
+            {
+                if (c == '_')
+                {
+                    patternName += " ";
+                }
+                else
+                {
+                    patternName += c;
+                }
+            }
+
+            menuButton.GetComponentInChildren<Text>().text = patternName;
         }
     }
 
@@ -29,5 +43,10 @@ public class Menu : MonoBehaviour
         PatternLoader.instance.Pattern = pattern;
 
         SceneManager.LoadScene("Main", LoadSceneMode.Single);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }
