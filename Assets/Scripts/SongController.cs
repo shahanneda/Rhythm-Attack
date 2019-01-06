@@ -14,6 +14,7 @@ public class SongController : MonoBehaviour
     public Beat postBeat;
 
     public int beatCounter = 0;
+    private int timedBeatCounter = 0;
 
     [HideInInspector]
     public double currentSecondsBetweenBeats;
@@ -41,7 +42,7 @@ public class SongController : MonoBehaviour
     {
         if (started)
         {
-            if (audioSource.time >= currentSecondsBetweenBeats * (beatCounter + 1) - 0.225f)
+            if (audioSource.time >= currentSecondsBetweenBeats * (timedBeatCounter + 1) - 0.225f)
             {
                 currentlyInBeat = true;
 
@@ -51,7 +52,7 @@ public class SongController : MonoBehaviour
                 }
             }
 
-            if (audioSource.time >= currentSecondsBetweenBeats * beatCounter)
+            if (audioSource.time >= currentSecondsBetweenBeats * timedBeatCounter)
             {
                 currentlyInBeat = true;
                 BeatCount();
@@ -68,7 +69,7 @@ public class SongController : MonoBehaviour
                 }
             }
 
-            if (audioSource.time >= currentSecondsBetweenBeats * (beatCounter - 1) + 0.225f)
+            if (audioSource.time >= currentSecondsBetweenBeats * (timedBeatCounter - 1) + 0.225f)
             {
                 LateBeatCount();
 
@@ -81,6 +82,11 @@ public class SongController : MonoBehaviour
             if (beatCounter > beatsUntilStart)
             {
                 PlayerController.instance.ToggleLock(false);
+            }
+
+            if (!audioSource.isPlaying)
+            {
+                NextPhase();
             }
         }
     }
@@ -119,6 +125,36 @@ public class SongController : MonoBehaviour
     public void BeatCount()
     {
         beatCounter++;
+        timedBeatCounter++;
+    }
+
+    public void NextPhase()
+    {
+        timedBeatCounter++;
+
+        if (currentPhase == "Intro")
+        {
+            currentPhase = "Main";
+        }
+        else if (currentPhase == "Main")
+        {
+            currentPhase = "Transition";
+        }
+        else if (currentPhase == "Transition")
+        {
+            currentPhase = "Hyper";
+        }
+        else if (currentPhase == "Hyper")
+        {
+            currentPhase = "Cooldown";
+        }
+        else if (currentPhase == "Cooldown")
+        {
+            currentPhase = "Outro";
+        }
+
+        audioSource.clip = GetClipFromPhase(song, currentPhase);
+        audioSource.Play();
     }
 
     public static AudioClip GetClipFromPhase(Song song, string phase)
