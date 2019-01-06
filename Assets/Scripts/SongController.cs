@@ -130,7 +130,7 @@ public class SongController : MonoBehaviour
 
     public void NextPhase()
     {
-        timedBeatCounter++;
+        timedBeatCounter = 0;
 
         if (currentPhase == "Intro")
         {
