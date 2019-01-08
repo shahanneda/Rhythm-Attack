@@ -22,6 +22,61 @@ public class BulletSpawner : MonoBehaviour
 
         level = GameController.instance.level;
         boss = FindObjectOfType<Boss>();
+
+        for (int i = 0; i < level.frames.Length; i++)
+        {
+            foreach (BulletStats bulletStats in level.frames[i].bullets)
+            {
+                if (bulletStats.type.Contains("Laser"))
+                {
+                    try
+                    {
+                        if (bulletStats.type == "RedLaser" && i >= 2)
+                        {
+                            level.frames[i - 1].bullets.Add(new BulletStats("RedLaserWarning", bulletStats.position, bulletStats.direction));
+                            level.frames[i - 2].bullets.Add(new BulletStats("RedLaserWarning", bulletStats.position, bulletStats.direction));
+                        }
+                        else if (bulletStats.type == "YellowLaser" && i >= 1)
+                        {
+                            level.frames[i - 1].bullets.Add(new BulletStats("YellowLaserWarning", bulletStats.position, bulletStats.direction));
+                        }
+                        else if (bulletStats.type == "OrangeLaser" && i >= 4)
+                        {
+                            level.frames[i - 1].bullets.Add(new BulletStats("OrangeLaserWarning", bulletStats.position, bulletStats.direction));
+                            level.frames[i - 2].bullets.Add(new BulletStats("OrangeLaserWarning", bulletStats.position, bulletStats.direction));
+                            level.frames[i - 3].bullets.Add(new BulletStats("OrangeLaserWarning", bulletStats.position, bulletStats.direction));
+                            level.frames[i - 4].bullets.Add(new BulletStats("OrangeLaserWarning", bulletStats.position, bulletStats.direction));
+                        }
+                        else if (bulletStats.type == "BlueLaser" && i >= 4)
+                        {
+                            level.frames[i - 1].bullets.Add(new BulletStats("BlueLaserWarning", bulletStats.position, bulletStats.direction));
+                            level.frames[i - 2].bullets.Add(new BulletStats("BlueLaserWarning", bulletStats.position, bulletStats.direction));
+                            level.frames[i - 3].bullets.Add(new BulletStats("BlueLaserWarning", bulletStats.position, bulletStats.direction));
+                            level.frames[i - 4].bullets.Add(new BulletStats("BlueLaserWarning", bulletStats.position, bulletStats.direction));
+                        }
+                        else if (bulletStats.type == "GreenLaser" && i >= 1)
+                        {
+                            level.frames[i - 2].bullets.Add(new BulletStats("GreenLaserWarning", bulletStats.position, bulletStats.direction));
+                        }
+                        else if (bulletStats.type == "PurpleLaser" && i >= 4)
+                        {
+                            level.frames[i - 1].bullets.Add(new BulletStats("PurpleLaserWarning", bulletStats.position, bulletStats.direction));
+                            level.frames[i - 2].bullets.Add(new BulletStats("PurpleLaserWarning", bulletStats.position, bulletStats.direction));
+                            level.frames[i - 3].bullets.Add(new BulletStats("PurpleLaserWarning", bulletStats.position, bulletStats.direction));
+                            level.frames[i - 4].bullets.Add(new BulletStats("PurpleLaserWarning", bulletStats.position, bulletStats.direction));
+                        }
+                    }
+                    finally
+                    {
+
+                    }
+                }
+                else
+                {
+                    continue;
+                }
+            }
+        }
     }
 
     public GameObject GetBulletTypeFromGameObject(string type)
