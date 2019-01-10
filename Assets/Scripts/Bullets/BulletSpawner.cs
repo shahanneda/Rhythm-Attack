@@ -214,62 +214,67 @@ public class BulletSpawner : MonoBehaviour
         for (int i = 0; i < amountOfNodes; i++)
         {
             Vector2 position = (laserStats.direction * i) + laserStats.position;
+            bool laserFromBoss = false;
 
             if (position == new Vector2(2, 2) || position == new Vector2(10, 2) || position == new Vector2(2, 10) || position == new Vector2(10, 10))
             {
                 return;
             }
-            else if (position == new Vector2(4, 6) || position == new Vector2(6, 8) || position == new Vector2(8, 6) || position == new Vector2(6, 4))
+            else if (position == new Vector2(4, 6) || position == new Vector2(4, 8) || position == new Vector2(5, 8) || position == new Vector2(6, 8) || position == new Vector2(7, 8) || position == new Vector2(8, 8) || position == new Vector2(8, 7) || position == new Vector2(8, 6) || position == new Vector2(8, 5) || position == new Vector2(8, 4) || position == new Vector2(7, 4) || position == new Vector2(6, 4) || position == new Vector2(5, 4) || position == new Vector2(4, 4))
             {
                 boss.LasersFromBoss.Add(position);
+                laserFromBoss = true;
             }
 
             spawnedLasers.Add(Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, laserStats.direction.Vector2ToRotation()));
-            if (laserStats.type == "RedLaser" || laserStats.type == "OrangeLaser")
+            if (laserFromBoss)
             {
-                Vector2 position2 = Vector2.zero;
-                Vector2 position3 = Vector2.zero;
-
-                if (laserStats.direction == Vector2.up || laserStats.direction == Vector2.down)
+                if (laserStats.type == "RedLaser" || laserStats.type == "OrangeLaser")
                 {
-                    position2 = new Vector2(laserStats.position.x + 1, laserStats.position.y);
-                    position3 = new Vector2(laserStats.position.x - 1, laserStats.position.y);
-                }
-                else if (laserStats.direction == Vector2.right || laserStats.direction == Vector2.left)
-                {
-                    position2 = new Vector2(laserStats.position.x, laserStats.position.y + 1);
-                    position3 = new Vector2(laserStats.position.x, laserStats.position.y - 1);
-                }
+                    Vector2 position2 = Vector2.zero;
+                    Vector2 position3 = Vector2.zero;
 
-                spawnedLasers.Add(Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + position2, laserStats.direction.Vector2ToRotation()));
-                spawnedLasers.Add(Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + position3, laserStats.direction.Vector2ToRotation()));
-            }
-            else if (laserStats.type == "PurpleLaser")
-            {
-                Vector2 position2 = Vector2.zero;
-                Vector2 position3 = Vector2.zero;
-                Vector2 position4 = Vector2.zero;
-                Vector2 position5 = Vector2.zero;
+                    if (laserStats.direction == Vector2.up || laserStats.direction == Vector2.down)
+                    {
+                        position2 = new Vector2(laserStats.position.x + 1, laserStats.position.y);
+                        position3 = new Vector2(laserStats.position.x - 1, laserStats.position.y);
+                    }
+                    else if (laserStats.direction == Vector2.right || laserStats.direction == Vector2.left)
+                    {
+                        position2 = new Vector2(laserStats.position.x, laserStats.position.y + 1);
+                        position3 = new Vector2(laserStats.position.x, laserStats.position.y - 1);
+                    }
 
-                if (laserStats.direction == Vector2.up || laserStats.direction == Vector2.down)
-                {
-                    position2 = new Vector2(laserStats.position.x + 1, laserStats.position.y);
-                    position3 = new Vector2(laserStats.position.x + 2, laserStats.position.y);
-                    position4 = new Vector2(laserStats.position.x - 1, laserStats.position.y);
-                    position5 = new Vector2(laserStats.position.x - 2, laserStats.position.y);
+                    spawnedLasers.Add(Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + position2, laserStats.direction.Vector2ToRotation()));
+                    spawnedLasers.Add(Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + position3, laserStats.direction.Vector2ToRotation()));
                 }
-                else if (laserStats.direction == Vector2.right || laserStats.direction == Vector2.left)
+                else if (laserStats.type == "PurpleLaser")
                 {
-                    position2 = new Vector2(laserStats.position.x, laserStats.position.y + 1);
-                    position3 = new Vector2(laserStats.position.x, laserStats.position.y + 2);
-                    position4 = new Vector2(laserStats.position.x, laserStats.position.y - 1);
-                    position5 = new Vector2(laserStats.position.x, laserStats.position.y - 2);
-                }
+                    Vector2 position2 = Vector2.zero;
+                    Vector2 position3 = Vector2.zero;
+                    Vector2 position4 = Vector2.zero;
+                    Vector2 position5 = Vector2.zero;
 
-                spawnedLasers.Add(Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + position2, laserStats.direction.Vector2ToRotation()));
-                spawnedLasers.Add(Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + position3, laserStats.direction.Vector2ToRotation()));
-                spawnedLasers.Add(Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + position4, laserStats.direction.Vector2ToRotation()));
-                spawnedLasers.Add(Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + position5, laserStats.direction.Vector2ToRotation()));
+                    if (laserStats.direction == Vector2.up || laserStats.direction == Vector2.down)
+                    {
+                        position2 = new Vector2(laserStats.position.x + 1, laserStats.position.y);
+                        position3 = new Vector2(laserStats.position.x + 2, laserStats.position.y);
+                        position4 = new Vector2(laserStats.position.x - 1, laserStats.position.y);
+                        position5 = new Vector2(laserStats.position.x - 2, laserStats.position.y);
+                    }
+                    else if (laserStats.direction == Vector2.right || laserStats.direction == Vector2.left)
+                    {
+                        position2 = new Vector2(laserStats.position.x, laserStats.position.y + 1);
+                        position3 = new Vector2(laserStats.position.x, laserStats.position.y + 2);
+                        position4 = new Vector2(laserStats.position.x, laserStats.position.y - 1);
+                        position5 = new Vector2(laserStats.position.x, laserStats.position.y - 2);
+                    }
+
+                    spawnedLasers.Add(Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + position2, laserStats.direction.Vector2ToRotation()));
+                    spawnedLasers.Add(Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + position3, laserStats.direction.Vector2ToRotation()));
+                    spawnedLasers.Add(Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + position4, laserStats.direction.Vector2ToRotation()));
+                    spawnedLasers.Add(Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + position5, laserStats.direction.Vector2ToRotation()));
+                }
             }
         }
     }
