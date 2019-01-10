@@ -997,6 +997,7 @@ MonoBehaviour:
   levelsPanel: {fileID: 1944105943}
   button: {fileID: 1100088458146956, guid: d30e10b68509fde4fa1e18f3da826466, type: 2}
   patterns:
+  - {fileID: 4900000, guid: 710f831515733d1438908e7d6f969cf1, type: 3}
   - {fileID: 4900000, guid: 1fe6d39658ad4254394b39614e430166, type: 3}
   - {fileID: 4900000, guid: ea8998fcc81c38a458dc982b2f6bf8b8, type: 3}
   - {fileID: 4900000, guid: 1195e60f1eff7ad46a4969ea4a981b9b, type: 3}
@@ -1007,6 +1008,7 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 0815a6f4f79dac14fb073b1e51057220, type: 3}
   - {fileID: 4900000, guid: 9ca0b27d027b35c4b8c89d80695d385f, type: 3}
   - {fileID: 4900000, guid: a25236b1e16fc7545873c6bec43a2871, type: 3}
+  - {fileID: 4900000, guid: 41c96d7774c9ea643bdf5289c850230a, type: 3}
   - {fileID: 4900000, guid: d05e81d8aadfb37459360d448c9b6f24, type: 3}
   - {fileID: 4900000, guid: ec274d066259970449a9d3641dc1e738, type: 3}
   - {fileID: 4900000, guid: b4765c51ba3b5954bafb6c836a80c4b9, type: 3}
