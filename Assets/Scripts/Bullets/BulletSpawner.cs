@@ -202,7 +202,7 @@ public class BulletSpawner : MonoBehaviour
                 {
                     return;
                 }
-                else if (position == new Vector2(4, 6) || position == new Vector2(6, 8) || position == new Vector2(8, 6) || position == new Vector2(6, 4))
+                else if (position == new Vector2(4, 6) || position == new Vector2(4, 8) || position == new Vector2(5, 8) || position == new Vector2(6, 8) || position == new Vector2(7, 8) || position == new Vector2(8, 8) || position == new Vector2(8, 7) || position == new Vector2(8, 6) || position == new Vector2(8, 5) || position == new Vector2(8, 4) || position == new Vector2(7, 4) || position == new Vector2(6, 4) || position == new Vector2(5, 4) || position == new Vector2(4, 4))
                 {
                     boss.LasersFromBoss.Add(position);
                 }
@@ -211,19 +211,25 @@ public class BulletSpawner : MonoBehaviour
             }
         }
 
+        bool laserFromBoss = false;
+        Vector2 laserOrigin = laserStats.position;
+
+        if (laserOrigin == new Vector2(4, 6) || laserOrigin == new Vector2(4, 8) || laserOrigin == new Vector2(5, 8) || laserOrigin == new Vector2(6, 8) || laserOrigin == new Vector2(7, 8) || laserOrigin == new Vector2(8, 8) || laserOrigin == new Vector2(8, 7) || laserOrigin == new Vector2(8, 6) || laserOrigin == new Vector2(8, 5) || laserOrigin == new Vector2(8, 4) || laserOrigin == new Vector2(7, 4) || laserOrigin == new Vector2(6, 4) || laserOrigin == new Vector2(5, 4) || laserOrigin == new Vector2(4, 4))
+        {
+            laserFromBoss = true;
+        }
+
         for (int i = 0; i < amountOfNodes; i++)
         {
-            Vector2 position = (laserStats.direction * i) + laserStats.position;
-            bool laserFromBoss = false;
+            Vector2 currentPosition = (laserStats.direction * i) + laserStats.position;
 
-            if (position == new Vector2(2, 2) || position == new Vector2(10, 2) || position == new Vector2(2, 10) || position == new Vector2(10, 10))
+            if (currentPosition == new Vector2(2, 2) || currentPosition == new Vector2(10, 2) || currentPosition == new Vector2(2, 10) || currentPosition == new Vector2(10, 10))
             {
                 return;
             }
-            else if (position == new Vector2(4, 6) || position == new Vector2(4, 8) || position == new Vector2(5, 8) || position == new Vector2(6, 8) || position == new Vector2(7, 8) || position == new Vector2(8, 8) || position == new Vector2(8, 7) || position == new Vector2(8, 6) || position == new Vector2(8, 5) || position == new Vector2(8, 4) || position == new Vector2(7, 4) || position == new Vector2(6, 4) || position == new Vector2(5, 4) || position == new Vector2(4, 4))
+            else if (currentPosition == new Vector2(4, 6) || currentPosition == new Vector2(4, 8) || currentPosition == new Vector2(5, 8) || currentPosition == new Vector2(6, 8) || currentPosition == new Vector2(7, 8) || currentPosition == new Vector2(8, 8) || currentPosition == new Vector2(8, 7) || currentPosition == new Vector2(8, 6) || currentPosition == new Vector2(8, 5) || currentPosition == new Vector2(8, 4) || currentPosition == new Vector2(7, 4) || currentPosition == new Vector2(6, 4) || currentPosition == new Vector2(5, 4) || currentPosition == new Vector2(4, 4))
             {
-                boss.LasersFromBoss.Add(position);
-                laserFromBoss = true;
+                boss.LasersFromBoss.Add(currentPosition);
             }
 
             spawnedLasers.Add(Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, laserStats.direction.Vector2ToRotation()));
