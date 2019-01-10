@@ -26,5 +26,5 @@ MonoBehaviour:
   chargeUpBars: 8
   outro: {fileID: 8300000, guid: 702f4576763479847a6141a56b8acef8, type: 3}
   outroBars: 16.5
-  tempo: 150
-  beatsPerBar: 4
+  tempo: 75
+  beatsPerBar: 2
