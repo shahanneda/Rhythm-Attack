@@ -171,6 +171,90 @@ public class BulletSpawner : MonoBehaviour
         GameObject prefab = GetBulletTypeFromGameObject(laserStats.type);
         int amountOfNodes = 0;
 
+        if (laserStats.type == "GreenLaser")
+        {
+            PlayerMovement playerMovement = FindObjectOfType<PlayerMovement>();
+
+            if (playerMovement.PlayerPositionOnGrid.x == 5)
+            {
+                if (playerMovement.PlayerPositionOnGrid.y <= 4)
+                {
+                    laserStats.position = new Vector2(5, 4);
+                    laserStats.direction = Vector2.down;
+                }
+                else if (playerMovement.PlayerPositionOnGrid.y >= 8)
+                {
+                    laserStats.position = new Vector2(5, 8);
+                    laserStats.direction = Vector2.up;
+                }
+            }
+            else if (playerMovement.PlayerPositionOnGrid.x == 6)
+            {
+                if (playerMovement.PlayerPositionOnGrid.y <= 4)
+                {
+                    laserStats.position = new Vector2(6, 4);
+                    laserStats.direction = Vector2.down;
+                }
+                else if (playerMovement.PlayerPositionOnGrid.y >= 8)
+                {
+                    laserStats.position = new Vector2(6, 8);
+                    laserStats.direction = Vector2.up;
+                }
+            }
+            else if (playerMovement.PlayerPositionOnGrid.x == 7)
+            {
+                if (playerMovement.PlayerPositionOnGrid.y <= 4)
+                {
+                    laserStats.position = new Vector2(7, 4);
+                    laserStats.direction = Vector2.down;
+                }
+                else if (playerMovement.PlayerPositionOnGrid.y >= 8)
+                {
+                    laserStats.position = new Vector2(7, 8);
+                    laserStats.direction = Vector2.up;
+                }
+            }
+            else if (playerMovement.PlayerPositionOnGrid.y == 5)
+            {
+                if (playerMovement.PlayerPositionOnGrid.x <= 4)
+                {
+                    laserStats.position = new Vector2(4, 5);
+                    laserStats.direction = Vector2.left;
+                }
+                else if (playerMovement.PlayerPositionOnGrid.x >= 8)
+                {
+                    laserStats.position = new Vector2(8, 5);
+                    laserStats.direction = Vector2.right;
+                }
+            }
+            else if (playerMovement.PlayerPositionOnGrid.y == 6)
+            {
+                if (playerMovement.PlayerPositionOnGrid.x <= 4)
+                {
+                    laserStats.position = new Vector2(4, 6);
+                    laserStats.direction = Vector2.left;
+                }
+                else if (playerMovement.PlayerPositionOnGrid.x >= 8)
+                {
+                    laserStats.position = new Vector2(8, 6);
+                    laserStats.direction = Vector2.right;
+                }
+            }
+            else if (playerMovement.PlayerPositionOnGrid.y == 7)
+            {
+                if (playerMovement.PlayerPositionOnGrid.x <= 4)
+                {
+                    laserStats.position = new Vector2(4, 7);
+                    laserStats.direction = Vector2.left;
+                }
+                else if (playerMovement.PlayerPositionOnGrid.x >= 8)
+                {
+                    laserStats.position = new Vector2(8, 7);
+                    laserStats.direction = Vector2.right;
+                }
+            }
+        }
+
         if (laserStats.direction.x != 0 && laserStats.direction.y == 0)
         {
             if (laserStats.direction.x < 0)

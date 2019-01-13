@@ -12,7 +12,14 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveBounds;
     private Vector2 movement;
 
-    private Vector2 toLocation = Vector2.down * 7;
+    public Vector2 toLocation = Vector2.down * 7;
+    public Vector2 PlayerPositionOnGrid
+    {
+        get
+        {
+            return FindObjectOfType<GridGenerator>().GetPositionOnGrid(toLocation);
+        }
+    }
 
     private PlayerController playerController;
     private SongController songController;

@@ -47,8 +47,6 @@ public class GridGenerator : MonoBehaviour
                 generatedNode.parent = transform.GetChild(0);
             }
         }
-
-        //Camera.main.orthographicSize = 0.635f * ((size.x > size.y) ? size.x : size.y);
     }
 
     public void GenerateBulletGrid(GameObject bulletPrefab)
@@ -82,5 +80,10 @@ public class GridGenerator : MonoBehaviour
     public Vector2 GetPositionFromGrid(Vector2 positionOnGrid)
     {
         return positionOnGrid - new Vector2(xHalf, yHalf);
+    }
+
+    public Vector2 GetPositionOnGrid(Vector2 worldPosition)
+    {
+        return worldPosition + new Vector2(xHalf, yHalf);
     }
 }
