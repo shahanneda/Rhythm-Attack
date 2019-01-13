@@ -12,8 +12,6 @@ public class BulletSpawner : MonoBehaviour
     private int currentFrame = -1;
     private bool firstIteration = true;
 
-    private List<GameObject> spawnedLasers = new List<GameObject>();
-
     private Boss boss;
 
     private void Start()
@@ -104,12 +102,6 @@ public class BulletSpawner : MonoBehaviour
             currentFrame = 0;
             firstIteration = false;
         }
-
-        foreach (GameObject laser in spawnedLasers)
-        {
-            Destroy(laser);
-        }
-        spawnedLasers = new List<GameObject>();
 
         foreach (BulletStats bulletStats in level.frames[currentFrame].bullets)
         {
@@ -324,7 +316,7 @@ public class BulletSpawner : MonoBehaviour
                     boss.LasersFromBoss.Add(position);
                 }
 
-                spawnedLasers.Add(Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, Quaternion.identity));
+                Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, Quaternion.identity);
             }
         }
 
@@ -349,7 +341,7 @@ public class BulletSpawner : MonoBehaviour
                 boss.LasersFromBoss.Add(currentPosition);
             }
 
-            spawnedLasers.Add(Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, laserStats.direction.Vector2ToRotation()));
+            Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, Quaternion.identity);
             if (laserFromBoss)
             {
                 if (laserStats.type == "RedLaser" || laserStats.type == "OrangeLaser")
@@ -368,8 +360,8 @@ public class BulletSpawner : MonoBehaviour
                         position3 = new Vector2(laserStats.position.x, laserStats.position.y - 1);
                     }
 
-                    spawnedLasers.Add(Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + position2, laserStats.direction.Vector2ToRotation()));
-                    spawnedLasers.Add(Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + position3, laserStats.direction.Vector2ToRotation()));
+                    Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + position2, Quaternion.identity);
+                    Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + position3, Quaternion.identity);
                 }
                 else if (laserStats.type == "PurpleLaser")
                 {
@@ -393,10 +385,10 @@ public class BulletSpawner : MonoBehaviour
                         position5 = new Vector2(laserStats.position.x, laserStats.position.y - 2);
                     }
 
-                    spawnedLasers.Add(Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + position2, laserStats.direction.Vector2ToRotation()));
-                    spawnedLasers.Add(Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + position3, laserStats.direction.Vector2ToRotation()));
-                    spawnedLasers.Add(Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + position4, laserStats.direction.Vector2ToRotation()));
-                    spawnedLasers.Add(Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + position5, laserStats.direction.Vector2ToRotation()));
+                    Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + position2, Quaternion.identity);
+                    Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + position3, Quaternion.identity);
+                    Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + position4, Quaternion.identity);
+                    Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + position5, Quaternion.identity);
                 }
             }
         }
