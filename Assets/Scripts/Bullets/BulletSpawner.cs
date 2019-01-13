@@ -47,7 +47,7 @@ public class BulletSpawner : MonoBehaviour
                     }
                     else if (bulletStats.type == "BlueLaser")
                     {
-                        addAmount = 4;
+                        addAmount = 3;
                         addStats = new BulletStats("BlueLaserWarning", bulletStats.position, bulletStats.direction);
                     }
                     else if (bulletStats.type == "GreenLaser")
