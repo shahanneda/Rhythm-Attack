@@ -253,6 +253,36 @@ public class BulletSpawner : MonoBehaviour
                     laserStats.direction = Vector2.right;
                 }
             }
+            else if (playerMovement.PlayerPositionOnGrid.x == playerMovement.PlayerPositionOnGrid.y)
+            {
+                if (playerMovement.PlayerPositionOnGrid.x <= 4)
+                {
+                    laserStats.position = new Vector2(4, 4);
+                    laserStats.direction = Vector2.one * -1;
+                }
+                else if (playerMovement.PlayerPositionOnGrid.x >= 8)
+                {
+                    laserStats.position = new Vector2(8, 8);
+                    laserStats.direction = Vector2.one;
+                }
+            }
+            else if (playerMovement.PlayerPosition.x == -playerMovement.PlayerPosition.y)
+            {
+                if (playerMovement.PlayerPositionOnGrid.x <= 4)
+                {
+                    laserStats.position = new Vector2(4, 8);
+                    laserStats.direction = new Vector2(-1, 1);
+                }
+                else if (playerMovement.PlayerPositionOnGrid.x >= 8)
+                {
+                    laserStats.position = new Vector2(8, 4);
+                    laserStats.direction = new Vector2(1, -1);
+                }
+            }
+            else
+            {
+                return;
+            }
         }
 
         if (laserStats.direction.x != 0 && laserStats.direction.y == 0)

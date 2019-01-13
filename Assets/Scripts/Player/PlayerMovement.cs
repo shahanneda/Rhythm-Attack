@@ -12,12 +12,15 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveBounds;
     private Vector2 movement;
 
-    public Vector2 toLocation = Vector2.down * 7;
+    private Vector2 toLocation = Vector2.down * 7;
+    public Vector2 PlayerPosition { get { return toLocation; } }
+
+    private GridGenerator gridGenerator;
     public Vector2 PlayerPositionOnGrid
     {
         get
         {
-            return FindObjectOfType<GridGenerator>().GetPositionOnGrid(toLocation);
+            return gridGenerator.GetPositionOnGrid(toLocation);
         }
     }
 
@@ -34,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
         playerController = FindObjectOfType<PlayerController>();
         songController = FindObjectOfType<SongController>();
         bulletSpawner = FindObjectOfType<BulletSpawner>();
+        gridGenerator = FindObjectOfType<GridGenerator>();
     }
 
     private void Update()
