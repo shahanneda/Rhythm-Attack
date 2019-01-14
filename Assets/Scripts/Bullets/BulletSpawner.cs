@@ -316,8 +316,10 @@ public class BulletSpawner : MonoBehaviour
                     boss.LasersFromBoss.Add(position);
                 }
 
-                Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, Quaternion.identity);
+                Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, Vector2ToRotation(laserStats.direction));
             }
+
+            return;
         }
 
         bool laserFromBoss = false;
@@ -341,7 +343,7 @@ public class BulletSpawner : MonoBehaviour
                 boss.LasersFromBoss.Add(currentPosition);
             }
 
-            Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, Quaternion.identity);
+            Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, Vector2ToRotation(laserStats.direction));
             if (laserFromBoss)
             {
                 if (laserStats.type == "RedLaser" || laserStats.type == "OrangeLaser")
@@ -360,8 +362,8 @@ public class BulletSpawner : MonoBehaviour
                         position3 = new Vector2(laserStats.position.x, laserStats.position.y - 1);
                     }
 
-                    Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + position2, Quaternion.identity);
-                    Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + position3, Quaternion.identity);
+                    Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + position2, Vector2ToRotation(laserStats.direction));
+                    Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + position3, Vector2ToRotation(laserStats.direction));
                 }
                 else if (laserStats.type == "PurpleLaser")
                 {
@@ -385,10 +387,10 @@ public class BulletSpawner : MonoBehaviour
                         position5 = new Vector2(laserStats.position.x, laserStats.position.y - 2);
                     }
 
-                    Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + position2, Quaternion.identity);
-                    Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + position3, Quaternion.identity);
-                    Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + position4, Quaternion.identity);
-                    Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + position5, Quaternion.identity);
+                    Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + position2, Vector2ToRotation(laserStats.direction));
+                    Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + position3, Vector2ToRotation(laserStats.direction));
+                    Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + position4, Vector2ToRotation(laserStats.direction));
+                    Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + position5, Vector2ToRotation(laserStats.direction));
                 }
             }
         }
@@ -416,6 +418,38 @@ public class BulletSpawner : MonoBehaviour
         else
         {
             return false;
+        }
+    }
+
+    public static Quaternion Vector2ToRotation(Vector2 vector2)
+    {
+        if (vector2 == Vector2.one)
+        {
+            return Quaternion.Euler(Vector3.forward * 45);
+        }
+        else if (vector2 == Vector2.right)
+        {
+            return Quaternion.Euler(Vector3.forward * 90);
+        }
+        else if (vector2 == new Vector2(1, -1))
+        {
+            return Quaternion.Euler(Vector3.forward * 135);
+        }
+        else if (vector2 == Vector2.down)
+        {
+            return Quaternion.Euler(Vector3.forward * 180);
+        }
+        else if (vector2 == Vector2.one * -1)
+        {
+            return Quaternion.Euler(Vector3.forward * 225);
+        }
+        else if (vector2 == Vector2.left)
+        {
+            return Quaternion.Euler(Vector3.forward * 270);
+        }
+        else
+        {
+            return Quaternion.identity;
         }
     }
 }
