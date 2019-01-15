@@ -10,6 +10,8 @@ public class Bullet : MonoBehaviour
 
     private Vector3 newPos;
 
+    private bool firstBeat = true;
+
     public void Start()
     {
         newPos = transform.position;
@@ -24,9 +26,22 @@ public class Bullet : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, newPos, Time.deltaTime * 25f);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Bullet"))
+        {
+            Bullet bullet = collision.GetComponent<Bullet>();
+            if (firstBeat && bullet.bulletStats.type.Equals(bulletStats.type))
+            {
+                bullet.DestroyBullet();
+            }
+        }
+    }
+
     public void Move()
     {
         newPos += new Vector3(bulletStats.direction.x, bulletStats.direction.y, 0);
+        firstBeat = false;
 
         if (newPos.x >= gridGenerator.size.x - gridGenerator.xHalf || newPos.y >= gridGenerator.size.y - gridGenerator.yHalf || newPos.x <= (gridGenerator.size.x - gridGenerator.xHalf) * -1 || newPos.y <= (gridGenerator.size.y - gridGenerator.yHalf) * -1)
         {
@@ -39,6 +54,33 @@ public class Bullet : MonoBehaviour
             {
                 return;
             }
+        }
+    }
+
+    public void DestroyBullet()
+    {
+        GreenBullet greenBullet = GetComponent<GreenBullet>();
+        BlueBullet blueBullet = GetComponent<BlueBullet>();
+        SwitchBullet switchBullet = GetComponent<SwitchBullet>();
+
+        GameController.instance.songController.beat -= Move;
+
+        if (greenBullet != null)
+        {
+            GameController.instance.songController.beat -= greenBullet.FollowPlayer;
+        }
+        if (blueBullet != null)
+        {
+            GameController.instance.songController.beat -= blueBullet.CheckSplit;
+        }
+        if (switchBullet != null)
+        {
+            GameController.instance.songController.beat -= switchBullet.CheckSwitch;
+        }
+
+        if (tag != "Laser")
+        {
+            Destroy(gameObject);
         }
     }
 }

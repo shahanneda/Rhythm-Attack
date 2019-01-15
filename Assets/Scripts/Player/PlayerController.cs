@@ -52,6 +52,9 @@ public class PlayerController : MonoBehaviour
         {
             TakeDamage(10);
 
+            if (collision.CompareTag("Bullet"))
+                collision.GetComponent<Bullet>().DestroyBullet();/*
+
             GreenBullet greenBullet = collision.GetComponent<GreenBullet>();
             BlueBullet blueBullet = collision.GetComponent<BlueBullet>();
             SwitchBullet switchBullet = collision.GetComponent<SwitchBullet>();
@@ -72,7 +75,7 @@ public class PlayerController : MonoBehaviour
             if (collision.tag != "Laser")
             {
                 Destroy(collision.gameObject);
-            }
+            }*/
         }
 
         if (collision.tag == "BlueBullet")
