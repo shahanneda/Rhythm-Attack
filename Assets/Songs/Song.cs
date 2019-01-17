@@ -16,23 +16,8 @@ public class Song : ScriptableObject
     [Space]
 
     [Space]
-    public AudioClip transition;
-    public float transitionBars = 8;
-    [Space]
-
-    [Space]
     public AudioClip hyper;
     public float hyperBars = 8;
-    [Space]
-
-    [Space]
-    public AudioClip cooldown;
-    public float cooldownBars = 8;
-    [Space]
-
-    [Space]
-    public AudioClip chargeUp;
-    public float chargeUpBars = 8;
     [Space]
 
     [Space]

@@ -12,19 +12,13 @@ MonoBehaviour:
   m_Name: Skin Crawl
   m_EditorClassIdentifier: 
   name: Skin Crawl
-  intro: {fileID: 8300000, guid: c28d70a42ca9ddc4e840e54779b25ff9, type: 3}
-  introBars: 17
-  main: {fileID: 8300000, guid: 4b64cf078c4e36f46a64bc27c30c2d1a, type: 3}
+  intro: {fileID: 8300000, guid: d233e4c0a099e8f45bbeb59d60a53fa8, type: 3}
+  introBars: 9
+  main: {fileID: 8300000, guid: f6f6b38a00ba85d4c843b8e4f65273a9, type: 3}
   mainBars: 16
-  transition: {fileID: 8300000, guid: 18d1bf1fe8c8e504092caf43c30ba2b5, type: 3}
-  transitionBars: 8
-  hyper: {fileID: 8300000, guid: 0eee7f8914db3f646a57602e61d8df8f, type: 3}
+  hyper: {fileID: 8300000, guid: 1a72cf532849531408a3fc01340ea416, type: 3}
   hyperBars: 16
-  cooldown: {fileID: 8300000, guid: 5e5324fc64904aa46a396290896dd4f9, type: 3}
-  cooldownBars: 8
-  chargeUp: {fileID: 8300000, guid: e2580b4e2304ce647956de8006e6efdf, type: 3}
-  chargeUpBars: 8
-  outro: {fileID: 8300000, guid: a87a9d8ae4d4e4a4794c80a960ce6b45, type: 3}
+  outro: {fileID: 8300000, guid: b9fd97c7a14043240b9a55a0e24afab9, type: 3}
   outroBars: 16
   tempo: 75
   beatsPerBar: 2

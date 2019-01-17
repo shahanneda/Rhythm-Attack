@@ -138,17 +138,9 @@ public class SongController : MonoBehaviour
         }
         else if (currentPhase == "Main")
         {
-            currentPhase = "Transition";
-        }
-        else if (currentPhase == "Transition")
-        {
             currentPhase = "Hyper";
         }
         else if (currentPhase == "Hyper")
-        {
-            currentPhase = "Cooldown";
-        }
-        else if (currentPhase == "Cooldown")
         {
             currentPhase = "Outro";
         }
@@ -167,21 +159,9 @@ public class SongController : MonoBehaviour
         {
             return song.main;
         }
-        else if (phase == "Transition")
-        {
-            return song.transition;
-        }
         else if (phase == "Hyper")
         {
             return song.hyper;
-        }
-        else if (phase == "Cooldown")
-        {
-            return song.cooldown;
-        }
-        else if (phase == "ChargeUp")
-        {
-            return song.chargeUp;
         }
         else if (phase == "Outro")
         {
