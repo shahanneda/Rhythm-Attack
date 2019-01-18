@@ -53,29 +53,7 @@ public class PlayerController : MonoBehaviour
             TakeDamage(10);
 
             if (collision.CompareTag("Bullet"))
-                collision.GetComponent<Bullet>().DestroyBullet();/*
-
-            GreenBullet greenBullet = collision.GetComponent<GreenBullet>();
-            BlueBullet blueBullet = collision.GetComponent<BlueBullet>();
-            SwitchBullet switchBullet = collision.GetComponent<SwitchBullet>();
-
-            if (greenBullet != null)
-            {
-                GameController.instance.songController.beat -= greenBullet.FollowPlayer;
-            }
-            if (blueBullet != null)
-            {
-                GameController.instance.songController.beat -= blueBullet.CheckSplit;
-            }
-            if (switchBullet != null)
-            {
-                GameController.instance.songController.beat -= switchBullet.CheckSwitch;
-            }
-
-            if (collision.tag != "Laser")
-            {
-                Destroy(collision.gameObject);
-            }*/
+                collision.GetComponent<Bullet>().DestroyBullet();
         }
 
         if (collision.tag == "BlueBullet")
@@ -110,17 +88,21 @@ public class PlayerController : MonoBehaviour
 
     private void Attack()
     {
-        //Attack
-
         if (!GameController.instance.songController.currentlyInBeat)
         {
             TakeDamage(5);
         }
 
-        Battery battery = FindObjectOfType<BulletSpawner>().GetBatteryAtPosition(transform.position + new Vector3(playerMovement.lastDirectionMoved.x, playerMovement.lastDirectionMoved.y, transform.position.z));
+        Vector3 attackPosition = transform.position + new Vector3(playerMovement.lastDirectionMoved.x, playerMovement.lastDirectionMoved.y, transform.position.z);
+        Battery battery = FindObjectOfType<BulletSpawner>().GetBatteryAtPosition(attackPosition);
         if (battery != null)
         {
             battery.OnAttack();
+        }
+        else if (BossAtPosition(attackPosition))
+        {
+            if (FindObjectOfType<BulletSpawner>().batteries.Count <= 0)
+                FindObjectOfType<Boss>().OnAttack();
         }
 
         PlayerActedThisBeat = true;
@@ -184,5 +166,13 @@ public class PlayerController : MonoBehaviour
 
         playerMovement.ToggleLock(locked);
         playerHealth.ToggleLock(locked);
+    }
+
+    public static bool BossAtPosition(Vector3 position)
+    {
+        if (position == Vector3.up || position == Vector3.down || position == new Vector3(-2, -2) || position == Vector3.left * 2 || position == new Vector3(-2, 1) || position == new Vector3(-2, 2) || position == new Vector3(1, 2) || position == new Vector3(2, 2) || position == Vector3.right * 2 || position == new Vector3(2, -1) || position == new Vector3(2, -2) || position == Vector3.down * 2 || position == new Vector3(-1, -2))
+            return true;
+        else
+            return false;
     }
 }

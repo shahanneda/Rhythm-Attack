@@ -55,6 +55,7 @@ public class Boss : MonoBehaviour
         if (Health <= 0)
         {
             FindObjectOfType<SongController>().bossAlive = false;
+            GameController.instance.songController.beat -= UpdateAnimation;
             Destroy(gameObject);
         }
     }
