@@ -425,27 +425,27 @@ public class BulletSpawner : MonoBehaviour
     {
         if (vector2 == Vector2.one)
         {
-            return Quaternion.Euler(Vector3.forward * 45);
+            return Quaternion.Euler(Vector3.forward * -45);
         }
         else if (vector2 == Vector2.right)
         {
-            return Quaternion.Euler(Vector3.forward * 90);
+            return Quaternion.Euler(Vector3.forward * -90);
         }
         else if (vector2 == new Vector2(1, -1))
         {
-            return Quaternion.Euler(Vector3.forward * 135);
+            return Quaternion.Euler(Vector3.forward * -135);
         }
         else if (vector2 == Vector2.down)
         {
-            return Quaternion.Euler(Vector3.forward * 180);
+            return Quaternion.Euler(Vector3.forward * -180);
         }
         else if (vector2 == Vector2.one * -1)
         {
-            return Quaternion.Euler(Vector3.forward * 225);
+            return Quaternion.Euler(Vector3.forward * -225);
         }
         else if (vector2 == Vector2.left)
         {
-            return Quaternion.Euler(Vector3.forward * 270);
+            return Quaternion.Euler(Vector3.forward * -270);
         }
         else
         {
