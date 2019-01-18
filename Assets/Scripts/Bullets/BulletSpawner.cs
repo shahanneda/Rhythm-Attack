@@ -24,7 +24,7 @@ public class BulletSpawner : MonoBehaviour
         for (int i = 0; i < level.frames.Length; i++)
         {
             int addAmount = 0;
-            BulletStats addStats = new BulletStats();
+            List<BulletStats> lasers = new List<BulletStats>();
 
             foreach (BulletStats bulletStats in level.frames[i].bullets)
             {
@@ -33,48 +33,51 @@ public class BulletSpawner : MonoBehaviour
                     if (bulletStats.type == "RedLaser")
                     {
                         addAmount = 2;
-                        addStats = new BulletStats("RedLaserWarning", bulletStats.position, bulletStats.direction);
+                        lasers.Add(new BulletStats("RedLaserWarning", bulletStats.position, bulletStats.direction));
                     }
                     else if (bulletStats.type == "YellowLaser")
                     {
                         addAmount = 1;
-                        addStats = new BulletStats("YellowLaserWarning", bulletStats.position, bulletStats.direction);
+                        lasers.Add(new BulletStats("YellowLaserWarning", bulletStats.position, bulletStats.direction));
                     }
                     else if (bulletStats.type == "OrangeLaser")
                     {
                         addAmount = 4;
-                        addStats = new BulletStats("OrangeLaserWarning", bulletStats.position, bulletStats.direction);
+                        lasers.Add(new BulletStats("OrangeLaserWarning", bulletStats.position, bulletStats.direction));
                     }
                     else if (bulletStats.type == "BlueLaser")
                     {
                         addAmount = 3;
-                        addStats = new BulletStats("BlueLaserWarning", bulletStats.position, bulletStats.direction);
+                        lasers.Add(new BulletStats("BlueLaserWarning", bulletStats.position, bulletStats.direction));
                     }
                     else if (bulletStats.type == "GreenLaser")
                     {
                         addAmount = 2;
-                        addStats = new BulletStats("GreenLaserWarning", bulletStats.position, bulletStats.direction);
+                        lasers.Add(new BulletStats("GreenLaserWarning", bulletStats.position, bulletStats.direction));
                     }
                     else if (bulletStats.type == "PurpleLaser")
                     {
                         addAmount = 4;
-                        addStats = new BulletStats("PurpleLaserWarning", bulletStats.position, bulletStats.direction);
+                        lasers.Add(new BulletStats("PurpleLaserWarning", bulletStats.position, bulletStats.direction));
                     }
                 }
             }
 
             if (addAmount > 0)
             {
-                for (int x = 1; x < addAmount + 1; x++)
+                foreach (BulletStats laser in lasers)
                 {
-                    int index = i - x;
-
-                    if (index < 0)
+                    for (int x = 1; x < addAmount + 1; x++)
                     {
-                        index += level.amountOfFrames;
-                    }
+                        int index = i - x;
 
-                    level.frames[index].bullets.Add(new BulletStats(addStats.type, addStats.position, addStats.direction));
+                        if (index < 0)
+                        {
+                            index += level.amountOfFrames;
+                        }
+
+                        level.frames[index].bullets.Add(laser);
+                    }
                 }
             }
         }

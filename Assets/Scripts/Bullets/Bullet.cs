@@ -133,6 +133,11 @@ public class BulletStats
         }
     }
 
+    public override string ToString()
+    {
+        return type + ", " + position + ", " + direction;
+    }
+
     public static Quaternion DirectionToRotation(Vector2 direction)
     {
         int directionIndex = 0;
