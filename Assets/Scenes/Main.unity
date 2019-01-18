@@ -267,6 +267,7 @@ MonoBehaviour:
   currentlyInBeat: 0
   beatAnim: {fileID: 1519089011}
   beatTick: {fileID: 1524669054151212, guid: 140b70e0604d0534787bc1c7458b789f, type: 2}
+  bossAlive: 1
 --- !u!82 &522981999
 AudioSource:
   m_ObjectHideFlags: 0
@@ -467,134 +468,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelJson: {fileID: 0}
   level:
-    name: 13
-    size: {x: 13, y: 13}
+    name: 
+    size: {x: 0, y: 0}
     song: {fileID: 0}
     bpm: 0
-    amountOfFrames: 2
-    frames:
-    - bullets:
-      - type: 
-        position: {x: 8, y: 7}
-        direction: {x: 1, y: 0}
-        specialtyNumber: 4
-      - type: 
-        position: {x: 8, y: 6}
-        direction: {x: 1, y: 0}
-        specialtyNumber: 4
-      - type: 
-        position: {x: 8, y: 5}
-        direction: {x: 1, y: 0}
-        specialtyNumber: 4
-      - type: 
-        position: {x: 8, y: 8}
-        direction: {x: 1, y: 1}
-        specialtyNumber: 4
-      - type: 
-        position: {x: 8, y: 4}
-        direction: {x: 1, y: -1}
-        specialtyNumber: 4
-      - type: 
-        position: {x: 7, y: 4}
-        direction: {x: 0, y: -1}
-        specialtyNumber: 4
-      - type: 
-        position: {x: 6, y: 4}
-        direction: {x: 0, y: -1}
-        specialtyNumber: 4
-      - type: 
-        position: {x: 5, y: 4}
-        direction: {x: 0, y: -1}
-        specialtyNumber: 4
-      - type: 
-        position: {x: 4, y: 4}
-        direction: {x: -1, y: -1}
-        specialtyNumber: 4
-      - type: 
-        position: {x: 4, y: 5}
-        direction: {x: -1, y: 0}
-        specialtyNumber: 4
-      - type: 
-        position: {x: 4, y: 6}
-        direction: {x: -1, y: 0}
-        specialtyNumber: 4
-      - type: 
-        position: {x: 4, y: 7}
-        direction: {x: -1, y: 0}
-        specialtyNumber: 4
-      - type: 
-        position: {x: 4, y: 8}
-        direction: {x: -1, y: 1}
-        specialtyNumber: 4
-      - type: 
-        position: {x: 5, y: 8}
-        direction: {x: 0, y: 1}
-        specialtyNumber: 4
-      - type: 
-        position: {x: 6, y: 8}
-        direction: {x: 0, y: 1}
-        specialtyNumber: 4
-      - type: 
-        position: {x: 7, y: 8}
-        direction: {x: 0, y: 1}
-        specialtyNumber: 4
-    - bullets:
-      - type: 
-        position: {x: 6, y: 8}
-        direction: {x: 0, y: 1}
-        specialtyNumber: 4
-      - type: 
-        position: {x: 6, y: 4}
-        direction: {x: 0, y: -1}
-        specialtyNumber: 4
-      - type: 
-        position: {x: 8, y: 6}
-        direction: {x: 1, y: 0}
-        specialtyNumber: 4
-      - type: 
-        position: {x: 4, y: 6}
-        direction: {x: -1, y: 0}
-        specialtyNumber: 4
-      - type: 
-        position: {x: 4, y: 7}
-        direction: {x: -1, y: 0}
-        specialtyNumber: 4
-      - type: 
-        position: {x: 4, y: 7}
-        direction: {x: -1, y: 0}
-        specialtyNumber: 4
-      - type: 
-        position: {x: 4, y: 5}
-        direction: {x: -1, y: 0}
-        specialtyNumber: 4
-      - type: 
-        position: {x: 5, y: 4}
-        direction: {x: -1, y: 0}
-        specialtyNumber: 4
-      - type: 
-        position: {x: 7, y: 4}
-        direction: {x: 0, y: -1}
-        specialtyNumber: 4
-      - type: 
-        position: {x: 5, y: 4}
-        direction: {x: 0, y: -1}
-        specialtyNumber: 4
-      - type: 
-        position: {x: 8, y: 5}
-        direction: {x: 1, y: 0}
-        specialtyNumber: 4
-      - type: 
-        position: {x: 8, y: 7}
-        direction: {x: 1, y: 0}
-        specialtyNumber: 4
-      - type: 
-        position: {x: 7, y: 8}
-        direction: {x: 0, y: 1}
-        specialtyNumber: 4
-      - type: 
-        position: {x: 5, y: 8}
-        direction: {x: 0, y: 1}
-        specialtyNumber: 4
+    amountOfFrames: 0
+    frames: []
   playerController: {fileID: 924349094}
   songController: {fileID: 522981998}
   guiController: {fileID: 1312939967}
@@ -1407,6 +1286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0a14af33175bc34ea8a7be157c9b0ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Health: 3
   lasersFromBoss: []
 --- !u!1 &1496027279
 GameObject:
