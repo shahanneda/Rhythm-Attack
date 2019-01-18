@@ -345,7 +345,7 @@ public class BulletSpawner : MonoBehaviour
             {
                 boss.LasersFromBoss.Add(currentPosition);
             }
-
+            
             Instantiate(prefab, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, Vector2ToRotation(laserStats.direction));
             if (laserFromBoss)
             {
