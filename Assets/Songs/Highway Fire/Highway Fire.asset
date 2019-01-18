@@ -17,7 +17,7 @@ MonoBehaviour:
   main: {fileID: 8300000, guid: a084742d6e2fec747b1ebdb2354fce5e, type: 3}
   mainBars: 16
   hyper: {fileID: 8300000, guid: 7832de1357418694b8c03c87f98c422c, type: 3}
-  hyperBars: 16
+  hyperBars: 8
   outro: {fileID: 8300000, guid: c6c25f5dd4081874a94f028c3dad203a, type: 3}
   outroBars: 16
   tempo: 75
