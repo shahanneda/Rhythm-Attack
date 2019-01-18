@@ -139,10 +139,12 @@ public class SongController : MonoBehaviour
         else if (currentPhase == "Main")
         {
             currentPhase = "Hyper";
+            currentSecondsBetweenBeats = 60f / (song.tempo * 1.5f);
         }
         else if (currentPhase == "Hyper")
         {
             currentPhase = "Outro";
+            currentSecondsBetweenBeats = 60f / song.tempo;
         }
 
         audioSource.clip = GetClipFromPhase(song, currentPhase);
