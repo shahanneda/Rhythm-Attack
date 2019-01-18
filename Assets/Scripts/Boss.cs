@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
+    public int Health = 3;
+
     private bool started;
     public bool Started
     {
@@ -43,5 +45,17 @@ public class Boss : MonoBehaviour
         animator.SetBool("Left", lasersFromBoss.Contains(new Vector2(4, 6)));
 
         lasersFromBoss = new List<Vector2>();
+    }
+
+    public void OnAttack()
+    {
+        //TODO: Add Animations for the the death
+        //TODO: Add multiple health states with diffrent sprites for each
+        Health--;
+        if (Health <= 0)
+        {
+            FindObjectOfType<SongController>().bossAlive = false;
+            Destroy(gameObject);
+        }
     }
 }

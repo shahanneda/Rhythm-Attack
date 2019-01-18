@@ -24,6 +24,8 @@ public class SongController : MonoBehaviour
     public Animator beatAnim;
     public GameObject beatTick;
 
+    public bool bossAlive = true;
+
     private AudioSource audioSource;
 
     private float beatsUntilStart;
@@ -32,10 +34,14 @@ public class SongController : MonoBehaviour
 
     private string currentPhase = "Intro";
 
+    private BulletSpawner bulletSpawner;
+
     private void OnEnable()
     {
         audioSource = GetComponent<AudioSource>();
         PickSong();
+
+        bulletSpawner = FindObjectOfType<BulletSpawner>();
     }
 
     private void FixedUpdate()
@@ -138,12 +144,27 @@ public class SongController : MonoBehaviour
         }
         else if (currentPhase == "Main")
         {
-            currentPhase = "Hyper";
-            currentSecondsBetweenBeats = 60f / (song.tempo * 1.5f);
+            if (bulletSpawner.batteries.Count > 0)
+            {
+                currentPhase = "Main";
+            }
+            else
+            {
+                currentPhase = "Hyper";
+                currentSecondsBetweenBeats = 60f / (song.tempo * 1.5f);
+            }
         }
         else if (currentPhase == "Hyper")
         {
-            currentPhase = "Outro";
+            if (bossAlive)
+            {
+                currentPhase = "Main";
+            }
+            else
+            {
+                currentPhase = "Outro";
+            }
+
             currentSecondsBetweenBeats = 60f / song.tempo;
         }
 
