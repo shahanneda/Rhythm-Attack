@@ -163,7 +163,7 @@ public class BulletSpawner : MonoBehaviour
         GameObject prefab = GetBulletTypeFromGameObject(laserStats.type);
         int amountOfNodes = 0;
 
-        if (laserStats.type == "GreenLaser")
+        if (laserStats.type == "GreenLaser" || laserStats.type == "GreenLaserWarning")
         {
             PlayerMovement playerMovement = FindObjectOfType<PlayerMovement>();
 
