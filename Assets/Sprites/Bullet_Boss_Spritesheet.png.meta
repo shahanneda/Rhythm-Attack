@@ -9,6 +9,11 @@ TextureImporter:
     21300008: Bullet_Boss_Spritesheet_4
     21300010: Bullet_Boss_Spritesheet_5
     21300012: Bullet_Boss_Spritesheet_6
+    21300014: Bullet_Boss_Spritesheet_7
+    21300016: Bullet_Boss_Spritesheet_8
+    21300018: Bullet_Boss_Spritesheet_9
+    21300020: Bullet_Boss_Spritesheet_10
+    21300022: Bullet_Boss_Spritesheet_11
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -219,13 +224,113 @@ TextureImporter:
         width: 9
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: 506bcac005f0f1348a6b94599e7d110b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bullet_Boss_Spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 570
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f0693e00949c4044bc62bea7b31bf8a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bullet_Boss_Spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 570
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4766e1c229026594a8110e86363e6c15
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bullet_Boss_Spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 570
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b46f45110f77a7e439a4f5768151f7e9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bullet_Boss_Spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 570
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29821522cb54e09428df725903f1a69b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bullet_Boss_Spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 570
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 274ddb4d651ca8849b2ba786137c0da9
       vertices: []
       indices: 
       edges: []
