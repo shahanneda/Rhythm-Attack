@@ -24,48 +24,56 @@ public class BulletSpawner : MonoBehaviour
         for (int i = 0; i < level.frames.Length; i++)
         {
             int addAmount = 0;
-            List<BulletStats> lasers = new List<BulletStats>();
+            List<BulletStats> warnings = new List<BulletStats>();
 
             foreach (BulletStats bulletStats in level.frames[i].bullets)
             {
-                if (bulletStats.type.Contains("Laser"))
+                if (!bulletStats.type.Contains("Battery") && !bulletStats.type.Contains("Warning"))
                 {
-                    if (bulletStats.type == "RedLaser")
+                    if (bulletStats.type.Contains("Laser"))
                     {
-                        addAmount = 2;
-                        lasers.Add(new BulletStats("RedLaserWarning", bulletStats.position, bulletStats.direction));
+                        if (bulletStats.type == "RedLaser")
+                        {
+                            addAmount = 2;
+                            warnings.Add(new BulletStats("RedLaserWarning", bulletStats.position, bulletStats.direction));
+                        }
+                        else if (bulletStats.type == "YellowLaser")
+                        {
+                            addAmount = 1;
+                            warnings.Add(new BulletStats("YellowLaserWarning", bulletStats.position, bulletStats.direction));
+                        }
+                        else if (bulletStats.type == "OrangeLaser")
+                        {
+                            addAmount = 4;
+                            warnings.Add(new BulletStats("OrangeLaserWarning", bulletStats.position, bulletStats.direction));
+                        }
+                        else if (bulletStats.type == "BlueLaser")
+                        {
+                            addAmount = 3;
+                            warnings.Add(new BulletStats("BlueLaserWarning", bulletStats.position, bulletStats.direction));
+                        }
+                        else if (bulletStats.type == "GreenLaser")
+                        {
+                            addAmount = 2;
+                            warnings.Add(new BulletStats("GreenLaserWarning", bulletStats.position, bulletStats.direction));
+                        }
+                        else if (bulletStats.type == "PurpleLaser")
+                        {
+                            addAmount = 4;
+                            warnings.Add(new BulletStats("PurpleLaserWarning", bulletStats.position, bulletStats.direction));
+                        }
                     }
-                    else if (bulletStats.type == "YellowLaser")
+                    else
                     {
                         addAmount = 1;
-                        lasers.Add(new BulletStats("YellowLaserWarning", bulletStats.position, bulletStats.direction));
-                    }
-                    else if (bulletStats.type == "OrangeLaser")
-                    {
-                        addAmount = 4;
-                        lasers.Add(new BulletStats("OrangeLaserWarning", bulletStats.position, bulletStats.direction));
-                    }
-                    else if (bulletStats.type == "BlueLaser")
-                    {
-                        addAmount = 3;
-                        lasers.Add(new BulletStats("BlueLaserWarning", bulletStats.position, bulletStats.direction));
-                    }
-                    else if (bulletStats.type == "GreenLaser")
-                    {
-                        addAmount = 2;
-                        lasers.Add(new BulletStats("GreenLaserWarning", bulletStats.position, bulletStats.direction));
-                    }
-                    else if (bulletStats.type == "PurpleLaser")
-                    {
-                        addAmount = 4;
-                        lasers.Add(new BulletStats("PurpleLaserWarning", bulletStats.position, bulletStats.direction));
+                        warnings.Add(new BulletStats(bulletStats.type + "Warning", bulletStats.position, bulletStats.direction));
                     }
                 }
             }
 
             if (addAmount > 0)
             {
-                foreach (BulletStats laser in lasers)
+                foreach (BulletStats warning in warnings)
                 {
                     for (int x = 1; x < addAmount + 1; x++)
                     {
@@ -76,7 +84,7 @@ public class BulletSpawner : MonoBehaviour
                             index += level.amountOfFrames;
                         }
 
-                        level.frames[index].bullets.Add(laser);
+                        level.frames[index].bullets.Add(warning);
                     }
                 }
             }
@@ -156,7 +164,10 @@ public class BulletSpawner : MonoBehaviour
             }
             else
             {
-                Instantiate(GetBulletTypeFromGameObject(bulletStats.type), GameController.instance.gridGenerator.GetPositionFromGrid(position), Quaternion.identity).GetComponent<Bullet>().bulletStats = bulletStats;
+                Bullet spawnedBullet = Instantiate(GetBulletTypeFromGameObject(bulletStats.type), GameController.instance.gridGenerator.GetPositionFromGrid(position), Vector2ToRotation(bulletStats.direction)).GetComponent<Bullet>();
+
+                if (spawnedBullet != null)
+                    spawnedBullet.bulletStats = bulletStats;
             }
         }
     }
