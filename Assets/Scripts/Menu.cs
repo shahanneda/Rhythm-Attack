@@ -35,6 +35,9 @@ public class Menu : MonoBehaviour
 
             menuButton.GetComponentInChildren<Text>().text = patternName;
         }
+
+        int rows = patterns.Length / 6;
+        levelsPanel.GetComponent<RectTransform>().sizeDelta = new Vector2(660, rows * 65);
     }
 
     public void LoadPattern(TextAsset pattern)
