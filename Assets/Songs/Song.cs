@@ -21,6 +21,11 @@ public class Song : ScriptableObject
     [Space]
 
     [Space]
+    public AudioClip charge;
+    public float chargeBars = 8;
+    [Space]
+
+    [Space]
     public AudioClip outro;
     public float outroBars = 8;
     [Space]

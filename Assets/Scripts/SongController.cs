@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SongController : MonoBehaviour
 {
@@ -156,16 +157,23 @@ public class SongController : MonoBehaviour
         }
         else if (currentPhase == "Hyper")
         {
+            currentPhase = "Charge";
+        }
+        else if (currentPhase == "Charge")
+        {
             if (bossAlive)
             {
-                currentPhase = "Main";
+                currentPhase = "Hyper";
             }
             else
             {
                 currentPhase = "Outro";
+                currentSecondsBetweenBeats = 60f / song.tempo;
             }
-
-            currentSecondsBetweenBeats = 60f / song.tempo;
+        }
+        else if (currentPhase == "Outro")
+        {
+            SceneManager.LoadScene("Menu");
         }
 
         audioSource.clip = GetClipFromPhase(song, currentPhase);
@@ -185,6 +193,10 @@ public class SongController : MonoBehaviour
         else if (phase == "Hyper")
         {
             return song.hyper;
+        }
+        else if (phase == "Charge")
+        {
+            return song.charge;
         }
         else if (phase == "Outro")
         {
