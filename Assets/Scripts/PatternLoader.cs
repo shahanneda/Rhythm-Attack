@@ -8,6 +8,7 @@ public class PatternLoader : MonoBehaviour
     public static PatternLoader instance;
 
     public TextAsset Pattern { get; set; }
+    public Level Level { get; set; }
 
     private void OnEnable()
     {
@@ -27,6 +28,13 @@ public class PatternLoader : MonoBehaviour
 
     public void LoadPattern()
     {
-        GameController.instance.levelJson = Pattern;
+        if (Pattern == null)
+        {
+            GameController.instance.level = Level;
+        }
+        else
+        {
+            GameController.instance.levelJson = Pattern;
+        }
     }
 }

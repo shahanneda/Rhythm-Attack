@@ -9,7 +9,10 @@ public class Menu : MonoBehaviour
     public GameObject patternLoader;
 
     public Transform levelsPanel;
-    public GameObject button;
+    public GameObject levelButton;
+
+    public InputField customLevelInput;
+    public GameObject customLevelFailText;
 
     public TextAsset[] patterns;
 
@@ -17,7 +20,7 @@ public class Menu : MonoBehaviour
     {
         foreach (TextAsset pattern in patterns)
         {
-            GameObject menuButton = Instantiate(button, levelsPanel);
+            GameObject menuButton = Instantiate(levelButton, levelsPanel);
             menuButton.GetComponent<MenuButton>().pattern = pattern;
 
             string patternName = "";
@@ -46,6 +49,16 @@ public class Menu : MonoBehaviour
         PatternLoader.instance.Pattern = pattern;
 
         SceneManager.LoadScene("Main", LoadSceneMode.Single);
+    }
+
+    public void LoadCustomPattern()
+    {
+        Instantiate(patternLoader);
+        PatternLoader.instance.Level = JSON.LoadFromJSON(customLevelInput.text);
+
+        SceneManager.LoadScene("Main", LoadSceneMode.Single);
+
+        customLevelFailText.SetActive(false);
     }
 
     public void Quit()
