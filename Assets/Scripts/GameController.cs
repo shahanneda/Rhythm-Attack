@@ -7,7 +7,7 @@ public class GameController : MonoBehaviour
     public static GameController instance;
 
     public TextAsset levelJson;
-    public Level level;
+    public Level level = new Level();
 
     public PlayerController playerController;
     public SongController songController;
@@ -20,13 +20,13 @@ public class GameController : MonoBehaviour
 
         PatternLoader.instance.LoadPattern();
 
-        if (level == null && levelJson != null)
+        if (level.name.Equals(string.Empty))
             level = JSON.LoadFromJSON(levelJson);
     }
 
     private void Start()
     {
-        guiController = FindObjectOfType<GUIController>();
+        /*guiController = FindObjectOfType<GUIController>();
 
         if (guiController == null)
         {
@@ -42,7 +42,7 @@ public class GameController : MonoBehaviour
             throw new MissingReferenceException("Please add songController to game controller!!");
         }
 
-        gridGenerator = FindObjectOfType<GridGenerator>();
+        gridGenerator = FindObjectOfType<GridGenerator>();*/
     }
 }
 
@@ -50,7 +50,7 @@ public class GameController : MonoBehaviour
 public class Level
 {
     public string name = "New Level";
-    public Vector2 size = Vector2.one * 13f;
+    public Vector2 size;
     public AudioClip song;
     public int bpm;
     public int amountOfFrames;
@@ -88,5 +88,20 @@ public class Level
         {
             frames[i] = new Frame();
         }
+    }
+
+    public static Level Blank()
+    {
+        Level blankLevel = new Level
+        {
+            name = string.Empty,
+            size = Vector2.zero,
+            song = null,
+            bpm = 0,
+            amountOfFrames = 0,
+            frames = new Frame[0]
+        };
+
+        return blankLevel;
     }
 }

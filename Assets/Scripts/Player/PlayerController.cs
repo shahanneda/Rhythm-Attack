@@ -6,8 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
 
-    [HideInInspector]
     public PlayerMovement playerMovement;
+    [SerializeField]
     private PlayerHealth playerHealth;
 
     private int dashes = 3;
@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        playerMovement = GetComponent<PlayerMovement>();
+        /*playerMovement = GetComponent<PlayerMovement>();
         if (playerMovement == null)
         {
             throw new MissingReferenceException("Please add PlayerMovement to player!!");
@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
         if (playerHealth == null)
         {
             throw new MissingReferenceException("Please add playerHealth to player!!");
-        }
+        }*/
 
         GameController.instance.songController.beat += DashRefill;
         GameController.instance.songController.beat += CheckPlayerActedThisBeat;
