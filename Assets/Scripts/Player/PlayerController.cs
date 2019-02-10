@@ -165,7 +165,7 @@ public class PlayerController : MonoBehaviour
         this.locked = locked;
 
         playerMovement.ToggleLock(locked);
-        playerHealth.ToggleLock(locked);
+        //playerHealth.ToggleLock(locked);
     }
 
     public static bool BossAtPosition(Vector3 position)

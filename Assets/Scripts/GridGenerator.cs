@@ -37,7 +37,6 @@ public class GridGenerator : MonoBehaviour
         xHalf = Mathf.FloorToInt(size.x / 2f);
         yHalf = Mathf.FloorToInt(size.y / 2f);
 
-        print(GameController.instance.playerController.playerMovement);
         GameController.instance.playerController.playerMovement.SetBounds(new Vector2(xHalf, yHalf));
 
         for (int x = 0; x < size.x; x++)
