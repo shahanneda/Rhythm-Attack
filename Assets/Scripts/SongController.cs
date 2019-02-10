@@ -169,6 +169,8 @@ public class SongController : MonoBehaviour
             {
                 currentPhase = "Outro";
                 currentSecondsBetweenBeats = 60f / song.tempo;
+
+                PlayerController.instance.ToggleLock(true);
             }
         }
         else if (currentPhase == "Outro")
