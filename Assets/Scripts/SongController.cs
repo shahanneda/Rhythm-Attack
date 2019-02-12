@@ -89,6 +89,7 @@ public class SongController : MonoBehaviour
             if (beatCounter > beatsUntilStart)
             {
                 PlayerController.instance.ToggleLock(false);
+                FindObjectOfType<PlayerHealth>().ToggleLock(true);
             }
 
             if (!audioSource.isPlaying)
@@ -175,6 +176,7 @@ public class SongController : MonoBehaviour
         }
         else if (currentPhase == "Outro")
         {
+            Time.timeScale = 0;
             SceneManager.LoadScene("Menu");
         }
 
