@@ -461,6 +461,10 @@ public class BulletSpawner : MonoBehaviour
         {
             return Quaternion.Euler(Vector3.forward * -270);
         }
+        else if(vector2 == new Vector2(-1, 1))
+        {
+            return Quaternion.Euler(Vector3.forward * -315);
+        }
         else
         {
             return Quaternion.identity;
