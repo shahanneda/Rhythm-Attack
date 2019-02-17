@@ -280,6 +280,7 @@ MonoBehaviour:
   beatAnim: {fileID: 1519089011}
   beatTick: {fileID: 1524669054151212, guid: 140b70e0604d0534787bc1c7458b789f, type: 3}
   bossAlive: 1
+  playerController: {fileID: 924349094}
 --- !u!82 &522981999
 AudioSource:
   m_ObjectHideFlags: 0

@@ -37,6 +37,9 @@ public class SongController : MonoBehaviour
 
     private BulletSpawner bulletSpawner;
 
+    [SerializeField]
+    private PlayerController playerController;
+
     private void OnEnable()
     {
         audioSource = GetComponent<AudioSource>();
@@ -86,12 +89,6 @@ public class SongController : MonoBehaviour
                 }
             }
 
-            if (beatCounter > beatsUntilStart)
-            {
-                PlayerController.instance.ToggleLock(false);
-                FindObjectOfType<PlayerHealth>().ToggleLock(true);
-            }
-
             if (!audioSource.isPlaying)
             {
                 NextPhase();
@@ -102,7 +99,7 @@ public class SongController : MonoBehaviour
     private void LateBeatCount()
     {
         currentlyInBeat = false;
-        PlayerController.instance.PlayerActedThisBeat = false;
+        playerController.PlayerActedThisBeat = false;
     }
 
     private void PickSong()
@@ -142,6 +139,7 @@ public class SongController : MonoBehaviour
 
         if (currentPhase == "Intro")
         {
+            playerController.ToggleLock(false);
             currentPhase = "Main";
         }
         else if (currentPhase == "Main")
@@ -170,8 +168,8 @@ public class SongController : MonoBehaviour
             {
                 currentPhase = "Outro";
                 currentSecondsBetweenBeats = 60f / song.tempo;
-
-                PlayerController.instance.ToggleLock(true);
+                
+                playerController.ToggleLock(true);
             }
         }
         else if (currentPhase == "Outro")

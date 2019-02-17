@@ -54,6 +54,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void ToggleLock(bool locked)
     {
-        this.locked = locked;
+        print("Health is currently locked for testing. Check PlayerHealth.ToggleLock()");
+        //this.locked = locked;
     }
 }
