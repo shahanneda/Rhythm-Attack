@@ -36,6 +36,10 @@ public class Bullet : MonoBehaviour
                 bullet.DestroyBullet();
             }
         }
+        else if(collision.CompareTag("Boss"))
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void Move()
