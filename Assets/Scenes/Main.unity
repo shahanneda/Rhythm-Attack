@@ -1515,6 +1515,19 @@ MonoBehaviour:
   - bulletType: PurpleWarning
     bulletObject: {fileID: 5077910055774305563, guid: 0277be302df7b49469eb424f96693a23,
       type: 3}
+  laserTypeToGameObjects:
+  - bulletType: RedLaser
+    warning: {fileID: 1485064814790338, guid: ef162c67d5496e14bbc86b74f66f04b3, type: 3}
+    oneStart: {fileID: 0}
+    oneBlock: {fileID: 1109876108463758, guid: f746052e27308f0498eb6392ae22ca97, type: 3}
+    thickLeft: {fileID: 1109876108463758, guid: f9ba3fe93bb340b46944aff6fd5592ba,
+      type: 3}
+    thickMiddle: {fileID: 1109876108463758, guid: c55e6cfbd70265144af02425e708590e,
+      type: 3}
+    thickRight: {fileID: 1109876108463758, guid: a8214d050c4ecc9489b4a920ff94a188,
+      type: 3}
+    diagonalSide: {fileID: 0}
+    diagonalMiddle: {fileID: 0}
   batteries: []
 --- !u!1 &1519089007
 GameObject:

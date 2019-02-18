@@ -10,6 +10,7 @@ public class Menu : MonoBehaviour
 
     public Transform levelsPanel;
     public GameObject levelButton;
+    public Scrollbar levelsScroll;
 
     public InputField customLevelInput;
     public GameObject customLevelFailText;
@@ -41,6 +42,7 @@ public class Menu : MonoBehaviour
 
         int rows = patterns.Length / 6;
         levelsPanel.GetComponent<RectTransform>().sizeDelta = new Vector2(660, rows * 65);
+        levelsScroll.value = 1;
     }
 
     public void LoadPattern(TextAsset pattern)
