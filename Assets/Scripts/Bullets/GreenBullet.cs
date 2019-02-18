@@ -19,28 +19,31 @@ public class GreenBullet : Bullet
 
     public void FollowPlayer()
     {
-        Vector2 direction = playerMovement.transform.position - transform.position;
+        if (this != null)
+        {
+            Vector2 direction = playerMovement.transform.position - transform.position;
 
-        if (direction.x > 1)
-        {
-            direction.x = 1;
-        }
-        else if (direction.x < -1)
-        {
-            direction.x = -1;
-        }
+            if (direction.x > 1)
+            {
+                direction.x = 1;
+            }
+            else if (direction.x < -1)
+            {
+                direction.x = -1;
+            }
 
-        if (direction.y > 1)
-        {
-            direction.y = 1;
-        }
-        else if (direction.y < -1)
-        {
-            direction.y = -1;
-        }
+            if (direction.y > 1)
+            {
+                direction.y = 1;
+            }
+            else if (direction.y < -1)
+            {
+                direction.y = -1;
+            }
 
-        bulletStats.direction = direction;
-        beatsAlive++;
+            bulletStats.direction = direction;
+            beatsAlive++;
+        }
 
         if (beatsAlive > bulletStats.specialtyNumber)
         {
