@@ -1443,24 +1443,6 @@ MonoBehaviour:
   - bulletType: Purple
     bulletObject: {fileID: 1161608631663378, guid: 208569909f2d7e549b4b239e677e3154,
       type: 3}
-  - bulletType: RedLaser
-    bulletObject: {fileID: 1109876108463758, guid: f746052e27308f0498eb6392ae22ca97,
-      type: 3}
-  - bulletType: YellowLaser
-    bulletObject: {fileID: 1109876108463758, guid: 1552b6034ab114d4f861c08c0914ea27,
-      type: 3}
-  - bulletType: OrangeLaser
-    bulletObject: {fileID: 1109876108463758, guid: 611a92afe22fdf54baf2d83e3d5be10a,
-      type: 3}
-  - bulletType: BlueLaser
-    bulletObject: {fileID: 1109876108463758, guid: e645f12e1ffec0348a2af8f4149dacd1,
-      type: 3}
-  - bulletType: GreenLaser
-    bulletObject: {fileID: 1109876108463758, guid: 16d4aaa870c0ec0468b538d00414f7a3,
-      type: 3}
-  - bulletType: PurpleLaser
-    bulletObject: {fileID: 1109876108463758, guid: df9d0b6c322e1aa47969198c1f4fb3ce,
-      type: 3}
   - bulletType: RedBattery
     bulletObject: {fileID: 1995920770282816, guid: 12643d94a2ca8475a99e456344089eb8,
       type: 3}
@@ -1478,24 +1460,6 @@ MonoBehaviour:
       type: 3}
   - bulletType: PurpleBattery
     bulletObject: {fileID: 1995920770282816, guid: 12643d94a2ca8475a99e456344089eb8,
-      type: 3}
-  - bulletType: RedLaserWarning
-    bulletObject: {fileID: 1485064814790338, guid: ef162c67d5496e14bbc86b74f66f04b3,
-      type: 3}
-  - bulletType: YellowLaserWarning
-    bulletObject: {fileID: 1048654823761362, guid: 134ff6fa5c666604fb252990418cd691,
-      type: 3}
-  - bulletType: OrangeLaserWarning
-    bulletObject: {fileID: 1793875225824834, guid: e8bdce2c70c58264484eced4b36a0ab5,
-      type: 3}
-  - bulletType: BlueLaserWarning
-    bulletObject: {fileID: 1581346974415188, guid: ad3454a5f203d404384271b4e0e98c73,
-      type: 3}
-  - bulletType: GreenLaserWarning
-    bulletObject: {fileID: 1667755192952854, guid: 9eaa11215a44d91498fdeb26a5d7f33c,
-      type: 3}
-  - bulletType: PurpleLaserWarning
-    bulletObject: {fileID: 1746591678135904, guid: aa3a7651a56b95e439af1489880c22e4,
       type: 3}
   - bulletType: RedWarning
     bulletObject: {fileID: 6936093209460229460, guid: c733a03dc087665438baa187488f1ef7,
@@ -1516,6 +1480,46 @@ MonoBehaviour:
     bulletObject: {fileID: 5077910055774305563, guid: 0277be302df7b49469eb424f96693a23,
       type: 3}
   laserTypeToGameObjects:
+  - bulletType: BlueLaser
+    warning: {fileID: 1581346974415188, guid: ad3454a5f203d404384271b4e0e98c73, type: 3}
+    oneStart: {fileID: 0}
+    oneBlock: {fileID: 1109876108463758, guid: f746052e27308f0498eb6392ae22ca97, type: 3}
+    thickLeft: {fileID: 1109876108463758, guid: f9ba3fe93bb340b46944aff6fd5592ba,
+      type: 3}
+    thickMiddle: {fileID: 1109876108463758, guid: c55e6cfbd70265144af02425e708590e,
+      type: 3}
+    thickRight: {fileID: 1109876108463758, guid: a8214d050c4ecc9489b4a920ff94a188,
+      type: 3}
+  - bulletType: GreenLaser
+    warning: {fileID: 1667755192952854, guid: 9eaa11215a44d91498fdeb26a5d7f33c, type: 3}
+    oneStart: {fileID: 0}
+    oneBlock: {fileID: 1109876108463758, guid: f746052e27308f0498eb6392ae22ca97, type: 3}
+    thickLeft: {fileID: 1109876108463758, guid: f9ba3fe93bb340b46944aff6fd5592ba,
+      type: 3}
+    thickMiddle: {fileID: 1109876108463758, guid: c55e6cfbd70265144af02425e708590e,
+      type: 3}
+    thickRight: {fileID: 1109876108463758, guid: a8214d050c4ecc9489b4a920ff94a188,
+      type: 3}
+  - bulletType: OrangeLaser
+    warning: {fileID: 1793875225824834, guid: e8bdce2c70c58264484eced4b36a0ab5, type: 3}
+    oneStart: {fileID: 0}
+    oneBlock: {fileID: 1109876108463758, guid: f746052e27308f0498eb6392ae22ca97, type: 3}
+    thickLeft: {fileID: 1109876108463758, guid: f9ba3fe93bb340b46944aff6fd5592ba,
+      type: 3}
+    thickMiddle: {fileID: 1109876108463758, guid: c55e6cfbd70265144af02425e708590e,
+      type: 3}
+    thickRight: {fileID: 1109876108463758, guid: a8214d050c4ecc9489b4a920ff94a188,
+      type: 3}
+  - bulletType: PurpleLaser
+    warning: {fileID: 1746591678135904, guid: aa3a7651a56b95e439af1489880c22e4, type: 3}
+    oneStart: {fileID: 0}
+    oneBlock: {fileID: 1109876108463758, guid: f746052e27308f0498eb6392ae22ca97, type: 3}
+    thickLeft: {fileID: 1109876108463758, guid: f9ba3fe93bb340b46944aff6fd5592ba,
+      type: 3}
+    thickMiddle: {fileID: 1109876108463758, guid: c55e6cfbd70265144af02425e708590e,
+      type: 3}
+    thickRight: {fileID: 1109876108463758, guid: a8214d050c4ecc9489b4a920ff94a188,
+      type: 3}
   - bulletType: RedLaser
     warning: {fileID: 1485064814790338, guid: ef162c67d5496e14bbc86b74f66f04b3, type: 3}
     oneStart: {fileID: 0}
@@ -1526,8 +1530,16 @@ MonoBehaviour:
       type: 3}
     thickRight: {fileID: 1109876108463758, guid: a8214d050c4ecc9489b4a920ff94a188,
       type: 3}
-    diagonalSide: {fileID: 0}
-    diagonalMiddle: {fileID: 0}
+  - bulletType: YellowLaser
+    warning: {fileID: 1048654823761362, guid: 134ff6fa5c666604fb252990418cd691, type: 3}
+    oneStart: {fileID: 0}
+    oneBlock: {fileID: 1109876108463758, guid: f746052e27308f0498eb6392ae22ca97, type: 3}
+    thickLeft: {fileID: 1109876108463758, guid: f9ba3fe93bb340b46944aff6fd5592ba,
+      type: 3}
+    thickMiddle: {fileID: 1109876108463758, guid: c55e6cfbd70265144af02425e708590e,
+      type: 3}
+    thickRight: {fileID: 1109876108463758, guid: a8214d050c4ecc9489b4a920ff94a188,
+      type: 3}
   batteries: []
 --- !u!1 &1519089007
 GameObject:

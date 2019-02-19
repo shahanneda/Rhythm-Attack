@@ -29,8 +29,6 @@ public class SongController : MonoBehaviour
 
     private AudioSource audioSource;
 
-    private float beatsUntilStart;
-
     private bool started;
 
     private string currentPhase = "Intro";
@@ -124,7 +122,6 @@ public class SongController : MonoBehaviour
         }
 
         currentSecondsBetweenBeats = 60f / song.tempo;
-        beatsUntilStart = song.introBars * song.beatsPerBar;
     }
 
     public void BeatCount()
@@ -168,7 +165,7 @@ public class SongController : MonoBehaviour
             {
                 currentPhase = "Outro";
                 currentSecondsBetweenBeats = 60f / song.tempo;
-                
+
                 playerController.ToggleLock(true);
             }
         }
