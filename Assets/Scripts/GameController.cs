@@ -44,6 +44,8 @@ public class GameController : MonoBehaviour
         }
 
         gridGenerator = FindObjectOfType<GridGenerator>();*/
+
+        Application.runInBackground = true;
     }
 
     private void Update()
