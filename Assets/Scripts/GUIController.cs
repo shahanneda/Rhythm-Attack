@@ -55,7 +55,6 @@ public class GUIController : MonoBehaviour
 
     public void DamageOverlay()
     {
-        print("Damage overlay");
         damageOverlay.Play("Damage");
     }
 }

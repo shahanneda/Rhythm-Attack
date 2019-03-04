@@ -51,7 +51,6 @@ public class PlayerController : MonoBehaviour
         if (collision.tag == "Bullet" || collision.tag == "Laser")
         {
             TakeDamage(10);
-            print("Bullet");
 
             if (collision.CompareTag("Bullet"))
                 collision.GetComponent<Bullet>().DestroyBullet();

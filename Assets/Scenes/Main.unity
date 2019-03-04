@@ -274,8 +274,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a1ddf3eb76b4c184aba33d903eeeb29a, type: 2}
   - {fileID: 11400000, guid: 89c953aadc920e24e80c797e6969d5f8, type: 2}
   - {fileID: 11400000, guid: ff1003430762bf7409869945a2558d4a, type: 2}
-  beatCounter: 0
   currentSecondsBetweenBeats: 0
+  normalSecondsBetweenBeats: 0
+  fastSecondsBetweenBeats: 0
   currentlyInBeat: 0
   beatAnim: {fileID: 1519089011}
   beatTick: {fileID: 1524669054151212, guid: 140b70e0604d0534787bc1c7458b789f, type: 3}

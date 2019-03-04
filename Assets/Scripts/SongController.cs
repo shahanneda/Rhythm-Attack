@@ -15,7 +15,6 @@ public class SongController : MonoBehaviour
     public Beat lateBeat;
     public Beat postBeat;
 
-    public int beatCounter = 0;
     private int timedBeatCounter = 0;
 
     [HideInInspector]
@@ -33,6 +32,7 @@ public class SongController : MonoBehaviour
     private AudioSource audioSource;
 
     private bool started;
+    private bool postBeatInvoked;
 
     private string currentPhase = "Intro";
 
@@ -53,18 +53,15 @@ public class SongController : MonoBehaviour
     {
         if (started)
         {
-            if (audioSource.time >= currentSecondsBetweenBeats * (timedBeatCounter + 1) - 0.225d)
+            if (audioSource.time >= currentSecondsBetweenBeats * timedBeatCounter - 0.1d && audioSource.time < currentSecondsBetweenBeats * timedBeatCounter)
             {
                 currentlyInBeat = true;
+                postBeatInvoked = false;
 
-                if (earlyBeat != null)
-                {
-                    earlyBeat.Invoke();
-                }
+                if (earlyBeat != null) earlyBeat.Invoke();
             }
-            else if (audioSource.time >= currentSecondsBetweenBeats * timedBeatCounter)
+            else if (audioSource.time >= currentSecondsBetweenBeats * timedBeatCounter && audioSource.time <= currentSecondsBetweenBeats * timedBeatCounter + 0.05d)
             {
-                currentlyInBeat = true;
                 BeatCount();
                 BeatAnim();
 
@@ -78,20 +75,18 @@ public class SongController : MonoBehaviour
                     beat.Invoke();
                 }
             }
-            else if (audioSource.time >= currentSecondsBetweenBeats * (timedBeatCounter - 1) + 0.225d)
+            else if (audioSource.time > currentSecondsBetweenBeats * (timedBeatCounter - 1) && audioSource.time <= currentSecondsBetweenBeats * (timedBeatCounter - 1) + 0.1d)
             {
-                currentlyInBeat = true;
-                PostBeat();
-
-                if (lateBeat != null)
-                {
-                    lateBeat.Invoke();
-                }
+                if (lateBeat != null) lateBeat.Invoke();
             }
             else
             {
-                PostBeat();
-                postBeat.Invoke();
+                if (!postBeatInvoked)
+                {
+                    postBeatInvoked = true;
+                    postBeat.Invoke();
+                    PostBeat();
+                }
             }
 
             if (!audioSource.isPlaying)
@@ -136,7 +131,6 @@ public class SongController : MonoBehaviour
 
     public void BeatCount()
     {
-        beatCounter++;
         timedBeatCounter++;
     }
 

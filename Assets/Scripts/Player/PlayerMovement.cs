@@ -124,7 +124,6 @@ public class PlayerMovement : MonoBehaviour
                 if (!songController.currentlyInBeat)
                 {
                     playerController.TakeDamage(5);
-                    print("Not in beat");
                 }
             }
         }
