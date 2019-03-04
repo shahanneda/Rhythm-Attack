@@ -387,8 +387,6 @@ public class BulletSpawner : MonoBehaviour
 
             if (laserFromBoss && !laserStats.type.Contains("Warning"))
             {
-                //Instantiate(laserType.oneBlock, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, LaserRotation(laserStats.direction));
-
                 if (laserStats.type == "RedLaser" || laserStats.type == "OrangeLaser")
                 {
                     Instantiate(laserType.thickMiddle, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, LaserRotation(laserStats.direction));

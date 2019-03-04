@@ -97,10 +97,10 @@ public class PlayerMovement : MonoBehaviour
                     MovePlayer(movement);
                     playerController.PlayerActedThisBeat = true;
 
-                    if (!songController.currentlyInBeat)
+                    /*if (!songController.currentlyInBeat)
                     {
-                        GameController.instance.playerController.TakeDamage(5f);
-                    }
+                        playerController.TakeDamage(5f);
+                    }*/
                 }
             }
 
@@ -120,12 +120,19 @@ public class PlayerMovement : MonoBehaviour
                 toLocation = newPosition;
                 lastDirectionMoved = move;
                 moved = true;
+
+                if (!songController.currentlyInBeat)
+                {
+                    playerController.TakeDamage(5);
+                    print("Not in beat");
+                }
             }
         }
 
         if (!moved)
         {
             playerController.TakeDamage(5);
+            print("Not moved");
         }
     }
 

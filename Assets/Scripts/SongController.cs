@@ -11,7 +11,8 @@ public class SongController : MonoBehaviour
 
     public delegate void Beat();
     public Beat beat;
-    public Beat preBeat;
+    public Beat earlyBeat;
+    public Beat lateBeat;
     public Beat postBeat;
 
     public int beatCounter = 0;
@@ -19,6 +20,8 @@ public class SongController : MonoBehaviour
 
     [HideInInspector]
     public double currentSecondsBetweenBeats;
+    public double normalSecondsBetweenBeats;
+    public double fastSecondsBetweenBeats;
 
     public bool currentlyInBeat;
 
@@ -50,17 +53,16 @@ public class SongController : MonoBehaviour
     {
         if (started)
         {
-            if (audioSource.time >= currentSecondsBetweenBeats * (timedBeatCounter + 1) - 0.225f)
+            if (audioSource.time >= currentSecondsBetweenBeats * (timedBeatCounter + 1) - 0.225d)
             {
                 currentlyInBeat = true;
 
-                if (preBeat != null)
+                if (earlyBeat != null)
                 {
-                    preBeat.Invoke();
+                    earlyBeat.Invoke();
                 }
             }
-
-            if (audioSource.time >= currentSecondsBetweenBeats * timedBeatCounter)
+            else if (audioSource.time >= currentSecondsBetweenBeats * timedBeatCounter)
             {
                 currentlyInBeat = true;
                 BeatCount();
@@ -76,15 +78,20 @@ public class SongController : MonoBehaviour
                     beat.Invoke();
                 }
             }
-
-            if (audioSource.time >= currentSecondsBetweenBeats * (timedBeatCounter - 1) + 0.225f)
+            else if (audioSource.time >= currentSecondsBetweenBeats * (timedBeatCounter - 1) + 0.225d)
             {
-                LateBeatCount();
+                currentlyInBeat = true;
+                PostBeat();
 
-                if (postBeat != null)
+                if (lateBeat != null)
                 {
-                    postBeat.Invoke();
+                    lateBeat.Invoke();
                 }
+            }
+            else
+            {
+                PostBeat();
+                postBeat.Invoke();
             }
 
             if (!audioSource.isPlaying)
@@ -94,7 +101,7 @@ public class SongController : MonoBehaviour
         }
     }
 
-    private void LateBeatCount()
+    private void PostBeat()
     {
         currentlyInBeat = false;
         playerController.PlayerActedThisBeat = false;
@@ -104,6 +111,9 @@ public class SongController : MonoBehaviour
     {
         int songIndex = Random.Range(0, songsAvaliable.Length);
         song = songsAvaliable[songIndex];
+
+        normalSecondsBetweenBeats = 60d / song.tempo;
+        fastSecondsBetweenBeats = 40d / song.tempo;
     }
 
     private void BeatAnim()
@@ -121,7 +131,7 @@ public class SongController : MonoBehaviour
             audioSource.Play();
         }
 
-        currentSecondsBetweenBeats = 60f / song.tempo;
+        currentSecondsBetweenBeats = normalSecondsBetweenBeats;
     }
 
     public void BeatCount()
@@ -148,7 +158,7 @@ public class SongController : MonoBehaviour
             else
             {
                 currentPhase = "Hyper";
-                currentSecondsBetweenBeats = 60f / (song.tempo * 1.5f);
+                currentSecondsBetweenBeats = fastSecondsBetweenBeats;
             }
         }
         else if (currentPhase == "Hyper")
@@ -164,7 +174,7 @@ public class SongController : MonoBehaviour
             else
             {
                 currentPhase = "Outro";
-                currentSecondsBetweenBeats = 60f / song.tempo;
+                currentSecondsBetweenBeats = normalSecondsBetweenBeats;
 
                 playerController.ToggleLock(true);
             }

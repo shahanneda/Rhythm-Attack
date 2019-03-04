@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
         }*/
 
         GameController.instance.songController.beat += DashRefill;
-        GameController.instance.songController.beat += CheckPlayerActedThisBeat;
+        GameController.instance.songController.postBeat += CheckPlayerActedThisBeat;
     }
 
     void Update()
@@ -51,6 +51,7 @@ public class PlayerController : MonoBehaviour
         if (collision.tag == "Bullet" || collision.tag == "Laser")
         {
             TakeDamage(10);
+            print("Bullet");
 
             if (collision.CompareTag("Bullet"))
                 collision.GetComponent<Bullet>().DestroyBullet();
@@ -59,6 +60,7 @@ public class PlayerController : MonoBehaviour
         if (collision.tag == "BlueBullet")
         {
             TakeDamage(5);
+            print("Blue Bullet");
             Destroy(collision.gameObject);
         }
     }
@@ -81,6 +83,7 @@ public class PlayerController : MonoBehaviour
         if (!playerActedThisBeat)
         {
             TakeDamage(5);
+            print("Not acted this beat");
         }
 
         playerActedThisBeat = false;
@@ -91,6 +94,7 @@ public class PlayerController : MonoBehaviour
         if (!GameController.instance.songController.currentlyInBeat)
         {
             TakeDamage(5);
+            print("Attacked off beat");
         }
 
         Vector3 attackPosition = transform.position + new Vector3(playerMovement.lastDirectionMoved.x, playerMovement.lastDirectionMoved.y, transform.position.z);
