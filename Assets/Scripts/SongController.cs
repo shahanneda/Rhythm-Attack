@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//TODO: MAKE SONG ONLY 1 CLIP AND MEASURE TIME OF DIFFERENT PHASES (TO MAKE CONTINOUS)
 public class SongController : MonoBehaviour
 {
     [HideInInspector] public Song song;
