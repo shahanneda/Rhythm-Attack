@@ -25,18 +25,6 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        /*playerMovement = GetComponent<PlayerMovement>();
-        if (playerMovement == null)
-        {
-            throw new MissingReferenceException("Please add PlayerMovement to player!!");
-        }
-
-        playerHealth = GetComponent<PlayerHealth>();
-        if (playerHealth == null)
-        {
-            throw new MissingReferenceException("Please add playerHealth to player!!");
-        }*/
-
         GameController.instance.songController.beat += DashRefill;
         GameController.instance.songController.postBeat += CheckPlayerActedThisBeat;
     }
