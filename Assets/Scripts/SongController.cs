@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-//TODO: MAKE SONG ONLY 1 CLIP AND MEASURE TIME OF DIFFERENT PHASES (TO MAKE CONTINOUS)
 public class SongController : MonoBehaviour
 {
     [HideInInspector] public Song song;
@@ -32,6 +31,8 @@ public class SongController : MonoBehaviour
 
     private AudioSource audioSource;
 
+    private BulletSpawner bulletSpawner;
+
     private bool started;
     private bool postBeatInvoked;
 
@@ -52,6 +53,8 @@ public class SongController : MonoBehaviour
         PickSong();
 
         checkRangeEvent += CheckNextPhase;
+
+        bulletSpawner = FindObjectOfType<BulletSpawner>();
     }
 
     private void FixedUpdate()
@@ -94,7 +97,6 @@ public class SongController : MonoBehaviour
                 }
             }
 
-            //CheckNextPhase();
             CheckRange();
         }
     }
@@ -165,11 +167,17 @@ public class SongController : MonoBehaviour
         }
         else if (currentPhase == "Main")
         {
-            PlayPhase("Hyper");
+            if (bulletSpawner.batteries.Count <= 0)
+            {
+                PlayPhase("Hyper");
+            }
         }
         else if (currentPhase == "Hyper")
         {
-            PlayPhase("Charge");
+            if (FindObjectOfType<Boss>() == null)
+            {
+                PlayPhase("Charge");
+            }
         }
         else if (currentPhase == "Charge")
         {
