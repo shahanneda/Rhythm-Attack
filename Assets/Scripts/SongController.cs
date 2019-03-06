@@ -16,7 +16,8 @@ public class SongController : MonoBehaviour
     public Beat lateBeat;
     public Beat postBeat;
 
-    private int timedBeatCounter = 0;
+    private int beatCounter = 0;
+    //private int lastBeatCounter;
 
     [HideInInspector]
     public double currentSecondsBetweenBeats;
@@ -37,8 +38,6 @@ public class SongController : MonoBehaviour
 
     private string currentPhase = "Intro";
 
-    private BulletSpawner bulletSpawner;
-
     [SerializeField]
     private PlayerController playerController;
 
@@ -46,22 +45,20 @@ public class SongController : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         PickSong();
-
-        bulletSpawner = FindObjectOfType<BulletSpawner>();
     }
 
     private void FixedUpdate()
     {
         if (started)
         {
-            if (audioSource.time >= currentSecondsBetweenBeats * timedBeatCounter - 0.1d && audioSource.time < currentSecondsBetweenBeats * timedBeatCounter)
+            if (audioSource.time >= currentSecondsBetweenBeats * beatCounter - 0.1d && audioSource.time < currentSecondsBetweenBeats * beatCounter)
             {
                 currentlyInBeat = true;
                 postBeatInvoked = false;
 
                 if (earlyBeat != null) earlyBeat.Invoke();
             }
-            else if (audioSource.time >= currentSecondsBetweenBeats * timedBeatCounter && audioSource.time <= currentSecondsBetweenBeats * timedBeatCounter + 0.05d)
+            else if (audioSource.time >= currentSecondsBetweenBeats * beatCounter && audioSource.time <= currentSecondsBetweenBeats * beatCounter + 0.05d)
             {
                 BeatCount();
                 BeatAnim();
@@ -76,7 +73,7 @@ public class SongController : MonoBehaviour
                     beat.Invoke();
                 }
             }
-            else if (audioSource.time > currentSecondsBetweenBeats * (timedBeatCounter - 1) && audioSource.time <= currentSecondsBetweenBeats * (timedBeatCounter - 1) + 0.1d)
+            else if (audioSource.time > currentSecondsBetweenBeats * (beatCounter - 1) && audioSource.time <= currentSecondsBetweenBeats * (beatCounter - 1) + 0.1d)
             {
                 if (lateBeat != null) lateBeat.Invoke();
             }
@@ -120,7 +117,7 @@ public class SongController : MonoBehaviour
 
         if (audioSource != null)
         {
-            audioSource.clip = /*GetClipFromPhase(song, currentPhase)*/ song.full;
+            audioSource.clip = song.full;
             audioSource.Play();
         }
 
@@ -129,58 +126,11 @@ public class SongController : MonoBehaviour
 
     public void BeatCount()
     {
-        timedBeatCounter++;
+        beatCounter++;
     }
 
     public void CheckNextPhase()
     {
-        timedBeatCounter = 0;
-
-        /*if (currentPhase == "Intro")
-        {
-            playerController.ToggleLock(false);
-            currentPhase = "Main";
-        }
-        else if (currentPhase == "Main")
-        {
-            if (bulletSpawner.batteries.Count > 0)
-            {
-                currentPhase = "Main";
-                currentSecondsBetweenBeats = normalSecondsBetweenBeats;
-            }
-            else
-            {
-                currentPhase = "Hyper";
-                currentSecondsBetweenBeats = fastSecondsBetweenBeats;
-            }
-        }
-        else if (currentPhase == "Hyper")
-        {
-            currentPhase = "Charge";
-        }
-        else if (currentPhase == "Charge")
-        {
-            if (bossAlive)
-            {
-                currentPhase = "Hyper";
-            }
-            else
-            {
-                currentPhase = "Outro";
-                currentSecondsBetweenBeats = normalSecondsBetweenBeats;
-
-                playerController.ToggleLock(true);
-            }
-        }
-        else if (currentPhase == "Outro")
-        {
-            Time.timeScale = 0;
-            SceneManager.LoadScene("Menu");
-        }
-
-        audioSource.clip = GetClipFromPhase(song, currentPhase);
-        audioSource.Play();*/
-
         if (currentPhase == "Intro")
         {
             if (audioSource.time >= song.mainStart)
@@ -189,7 +139,7 @@ public class SongController : MonoBehaviour
                 playerController.ToggleLock(false);
             }
         }
-        else if (currentPhase == "Main")
+        /*else if (currentPhase == "Main")
         {
             if (audioSource.time >= song.hyperStart)
             {
@@ -198,17 +148,23 @@ public class SongController : MonoBehaviour
         }
         else if (currentPhase == "Hyper")
         {
+            if (audioSource.time >= song.chargeStart)
+            {
+                PlayPhase("Charge");
+            }
+        }
+        else if (currentPhase == "Charge")
+        {
             if (audioSource.time >= song.outroStart)
             {
                 PlayPhase("Outro");
             }
-        }
+        }*/
     }
 
     public void PlayPhase(string phase)
     {
         currentPhase = phase;
-        print(phase);
 
         if (phase == "Intro")
         {
@@ -216,17 +172,31 @@ public class SongController : MonoBehaviour
         }
         else if (phase == "Main")
         {
-            audioSource.time = song.mainStart;
+            audioSource.SetScheduledStartTime(song.mainStart);
+            audioSource.SetScheduledEndTime(song.hyperStart);
+
             currentSecondsBetweenBeats = normalSecondsBetweenBeats;
         }
         else if (phase == "Hyper")
         {
-            audioSource.time = song.hyperStart;
+            audioSource.SetScheduledStartTime(song.hyperStart);
+            audioSource.SetScheduledEndTime(song.chargeStart);
+
             currentSecondsBetweenBeats = fastSecondsBetweenBeats;
+        }
+        else if (phase == "Charge")
+        {
+            audioSource.SetScheduledStartTime(song.chargeStart);
+            audioSource.SetScheduledEndTime(song.outroStart);
+
+            currentSecondsBetweenBeats = normalSecondsBetweenBeats;
         }
         else if (phase == "Outro")
         {
-            audioSource.time = song.outroStart;
+            audioSource.SetScheduledStartTime(song.outroStart);
+            audioSource.SetScheduledEndTime(song.full.length);
         }
+
+        audioSource.Play();
     }
 }

@@ -14,18 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Skin Crawl
   full: {fileID: 8300000, guid: 539da838226fb7246aea6ffef9e0efe3, type: 3}
-  mainStart: 14.418
+  mainStart: 14.4242
   hyperStart: 65.618
-  outroStart: 86.944
-  intro: {fileID: 8300000, guid: d233e4c0a099e8f45bbeb59d60a53fa8, type: 3}
-  introBars: 9
-  main: {fileID: 8300000, guid: f6f6b38a00ba85d4c843b8e4f65273a9, type: 3}
-  mainBars: 16
-  hyper: {fileID: 8300000, guid: 1a72cf532849531408a3fc01340ea416, type: 3}
-  hyperBars: 8
-  charge: {fileID: 0}
-  chargeBars: 8
-  outro: {fileID: 8300000, guid: b9fd97c7a14043240b9a55a0e24afab9, type: 3}
-  outroBars: 16
+  chargeStart: 86.9422
+  outroStart: 112.5878
   tempo: 75
   beatsPerBar: 2

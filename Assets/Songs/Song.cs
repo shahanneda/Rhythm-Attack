@@ -13,6 +13,7 @@ public class Song : ScriptableObject
 
     public float mainStart;
     public float hyperStart;
+    public float chargeStart;
     public float outroStart;
 
     [Space]

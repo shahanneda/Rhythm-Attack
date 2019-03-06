@@ -70,7 +70,6 @@ public class PlayerController : MonoBehaviour
         if (!playerActedThisBeat)
         {
             TakeDamage(5);
-            print("Not acted this beat");
         }
 
         playerActedThisBeat = false;
@@ -81,7 +80,6 @@ public class PlayerController : MonoBehaviour
         if (!GameController.instance.songController.currentlyInBeat)
         {
             TakeDamage(5);
-            print("Attacked off beat");
         }
 
         Vector3 attackPosition = transform.position + new Vector3(playerMovement.lastDirectionMoved.x, playerMovement.lastDirectionMoved.y, transform.position.z);

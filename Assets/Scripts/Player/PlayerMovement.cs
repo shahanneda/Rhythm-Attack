@@ -131,7 +131,6 @@ public class PlayerMovement : MonoBehaviour
         if (!moved)
         {
             playerController.TakeDamage(5);
-            print("Not moved");
         }
     }
 
