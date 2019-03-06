@@ -90,33 +90,7 @@ public class SongController : MonoBehaviour
                 }
             }
 
-            /*if (!audioSource.isPlaying)
-            {
-                NextPhase();
-            }*/
-
-            if (currentPhase == "Intro")
-            {
-                if (audioSource.time >= song.mainStart)
-                {
-                    PlayPhase("Main");
-                    playerController.ToggleLock(false);
-                }
-            }
-            else if (currentPhase == "Main")
-            {
-                if (audioSource.time >= song.hyperStart)
-                {
-                    PlayPhase("Hyper");
-                }
-            }
-            else if (currentPhase == "Hyper")
-            {
-                if (audioSource.time >= song.outroStart)
-                {
-                    PlayPhase("Outro");
-                }
-            }
+            CheckNextPhase();
         }
     }
 
@@ -158,11 +132,11 @@ public class SongController : MonoBehaviour
         timedBeatCounter++;
     }
 
-    public void NextPhase()
+    public void CheckNextPhase()
     {
         timedBeatCounter = 0;
 
-        if (currentPhase == "Intro")
+        /*if (currentPhase == "Intro")
         {
             playerController.ToggleLock(false);
             currentPhase = "Main";
@@ -205,7 +179,30 @@ public class SongController : MonoBehaviour
         }
 
         audioSource.clip = GetClipFromPhase(song, currentPhase);
-        audioSource.Play();
+        audioSource.Play();*/
+
+        if (currentPhase == "Intro")
+        {
+            if (audioSource.time >= song.mainStart)
+            {
+                PlayPhase("Main");
+                playerController.ToggleLock(false);
+            }
+        }
+        else if (currentPhase == "Main")
+        {
+            if (audioSource.time >= song.hyperStart)
+            {
+                PlayPhase("Hyper");
+            }
+        }
+        else if (currentPhase == "Hyper")
+        {
+            if (audioSource.time >= song.outroStart)
+            {
+                PlayPhase("Outro");
+            }
+        }
     }
 
     public void PlayPhase(string phase)
@@ -230,34 +227,6 @@ public class SongController : MonoBehaviour
         else if (phase == "Outro")
         {
             audioSource.time = song.outroStart;
-        }
-    }
-
-    public static AudioClip GetClipFromPhase(Song song, string phase)
-    {
-        if (phase == "Intro")
-        {
-            return song.intro;
-        }
-        else if (phase == "Main")
-        {
-            return song.main;
-        }
-        else if (phase == "Hyper")
-        {
-            return song.hyper;
-        }
-        else if (phase == "Charge")
-        {
-            return song.charge;
-        }
-        else if (phase == "Outro")
-        {
-            return song.outro;
-        }
-        else
-        {
-            return null;
         }
     }
 }
