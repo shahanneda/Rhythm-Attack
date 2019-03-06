@@ -90,9 +90,32 @@ public class SongController : MonoBehaviour
                 }
             }
 
-            if (!audioSource.isPlaying)
+            /*if (!audioSource.isPlaying)
             {
                 NextPhase();
+            }*/
+
+            if (currentPhase == "Intro")
+            {
+                if (audioSource.time >= song.mainStart)
+                {
+                    PlayPhase("Main");
+                    playerController.ToggleLock(false);
+                }
+            }
+            else if (currentPhase == "Main")
+            {
+                if (audioSource.time >= song.hyperStart)
+                {
+                    PlayPhase("Hyper");
+                }
+            }
+            else if (currentPhase == "Hyper")
+            {
+                if (audioSource.time >= song.outroStart)
+                {
+                    PlayPhase("Outro");
+                }
             }
         }
     }
@@ -123,7 +146,7 @@ public class SongController : MonoBehaviour
 
         if (audioSource != null)
         {
-            audioSource.clip = GetClipFromPhase(song, currentPhase);
+            audioSource.clip = /*GetClipFromPhase(song, currentPhase)*/ song.full;
             audioSource.Play();
         }
 
@@ -149,6 +172,7 @@ public class SongController : MonoBehaviour
             if (bulletSpawner.batteries.Count > 0)
             {
                 currentPhase = "Main";
+                currentSecondsBetweenBeats = normalSecondsBetweenBeats;
             }
             else
             {
@@ -182,6 +206,31 @@ public class SongController : MonoBehaviour
 
         audioSource.clip = GetClipFromPhase(song, currentPhase);
         audioSource.Play();
+    }
+
+    public void PlayPhase(string phase)
+    {
+        currentPhase = phase;
+        print(phase);
+
+        if (phase == "Intro")
+        {
+            audioSource.time = 0;
+        }
+        else if (phase == "Main")
+        {
+            audioSource.time = song.mainStart;
+            currentSecondsBetweenBeats = normalSecondsBetweenBeats;
+        }
+        else if (phase == "Hyper")
+        {
+            audioSource.time = song.hyperStart;
+            currentSecondsBetweenBeats = fastSecondsBetweenBeats;
+        }
+        else if (phase == "Outro")
+        {
+            audioSource.time = song.outroStart;
+        }
     }
 
     public static AudioClip GetClipFromPhase(Song song, string phase)

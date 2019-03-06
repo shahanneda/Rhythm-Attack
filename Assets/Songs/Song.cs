@@ -5,6 +5,12 @@ public class Song : ScriptableObject
 {
     public new string name = "New Song";
 
+    public AudioClip full;
+
+    public float mainStart;
+    public float hyperStart;
+    public float outroStart;
+
     [Space]
     public AudioClip intro;
     public float introBars = 8;
