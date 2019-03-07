@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-//TODO: FIX BEAT TIMER ENDING AFTER FIRST LOOP
+//TODO: FIX OFF-BEAT START ON NEW BPM.
 public class SongController : MonoBehaviour
 {
     [HideInInspector] public Song song;
@@ -16,8 +16,10 @@ public class SongController : MonoBehaviour
     public Beat lateBeat;
     public Beat postBeat;
 
-    [SerializeField] private int beatCounter = 0;
-    [SerializeField] private float extraTime = 0;
+    private int beatCounter = 0;
+    private int fastBeatCounter;
+
+    private float extraTime = 0;
 
     [HideInInspector]
     public double currentSecondsBetweenBeats;
@@ -46,6 +48,10 @@ public class SongController : MonoBehaviour
     private float startTime;
     private float endTime;
 
+    private float elapsedTime = 0;
+    private float elapsedNormalTime = 0;
+    [SerializeField] private float elapsedFastTime = 0;
+
     [SerializeField]
     private PlayerController playerController;
 
@@ -63,15 +69,17 @@ public class SongController : MonoBehaviour
     {
         if (started)
         {
-            print(audioSource.time + extraTime + " " + (currentSecondsBetweenBeats * beatCounter - 0.1d) + " " + currentSecondsBetweenBeats * beatCounter);
-            if (audioSource.time + extraTime >= currentSecondsBetweenBeats * beatCounter - 0.1d && audioSource.time + extraTime < currentSecondsBetweenBeats * beatCounter)
+            print(elapsedFastTime);
+            elapsedTime = audioSource.time + extraTime;
+
+            if (elapsedTime >= elapsedNormalTime + elapsedFastTime - 0.1d && elapsedTime < elapsedNormalTime + elapsedFastTime)
             {
                 currentlyInBeat = true;
                 postBeatInvoked = false;
 
                 if (earlyBeat != null) earlyBeat.Invoke();
             }
-            else if (audioSource.time + extraTime >= currentSecondsBetweenBeats * beatCounter && audioSource.time + extraTime <= currentSecondsBetweenBeats * beatCounter + 0.05d)
+            else if (elapsedTime >= elapsedNormalTime + elapsedFastTime && elapsedTime <= elapsedNormalTime + elapsedFastTime + 0.05d)
             {
                 BeatCount();
                 BeatAnim();
@@ -86,7 +94,7 @@ public class SongController : MonoBehaviour
                     beat.Invoke();
                 }
             }
-            else if (audioSource.time + extraTime > currentSecondsBetweenBeats * (beatCounter - 1) && audioSource.time + extraTime <= currentSecondsBetweenBeats * (beatCounter - 1) + 0.1d)
+            else if (elapsedTime > normalSecondsBetweenBeats * (beatCounter - 1) + fastSecondsBetweenBeats * (fastBeatCounter - 1) && elapsedTime <= normalSecondsBetweenBeats * (beatCounter - 1) + fastSecondsBetweenBeats * (fastBeatCounter - 1) + 0.1d)
             {
                 if (lateBeat != null) lateBeat.Invoke();
             }
@@ -146,7 +154,17 @@ public class SongController : MonoBehaviour
 
     public void BeatCount()
     {
-        beatCounter++;
+        if (currentPhase == "Hyper")
+        {
+            fastBeatCounter++;
+        }
+        else
+        {
+            beatCounter++;
+        }
+
+        elapsedNormalTime = (float)normalSecondsBetweenBeats * beatCounter;
+        elapsedFastTime = (float)fastSecondsBetweenBeats * fastBeatCounter;
     }
 
     public void SetRange(float startTime, float endTime)
@@ -186,7 +204,7 @@ public class SongController : MonoBehaviour
         }
         else if (currentPhase == "Hyper")
         {
-            if (FindObjectOfType<Boss>() == null)
+            if (!bossAlive)
             {
                 PlayPhase("Charge");
             }
