@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-//TODO: FIX OFF-BEAT START ON NEW BPM.
+//TODO: FIX DELAY ON NEW BPM
 public class SongController : MonoBehaviour
 {
     [HideInInspector] public Song song;
@@ -42,9 +42,6 @@ public class SongController : MonoBehaviour
 
     private string currentPhase = "Intro";
 
-    private delegate void CheckRangeEvent();
-    private CheckRangeEvent checkRangeEvent;
-
     private float startTime;
     private float endTime;
 
@@ -60,8 +57,6 @@ public class SongController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         PickSong();
 
-        checkRangeEvent += CheckNextPhase;
-
         bulletSpawner = FindObjectOfType<BulletSpawner>();
     }
 
@@ -69,7 +64,6 @@ public class SongController : MonoBehaviour
     {
         if (started)
         {
-            print(elapsedFastTime);
             elapsedTime = audioSource.time + extraTime;
 
             if (elapsedTime >= elapsedNormalTime + elapsedFastTime - 0.1d && elapsedTime < elapsedNormalTime + elapsedFastTime)
@@ -137,6 +131,18 @@ public class SongController : MonoBehaviour
         extraTime += endTime - startTime;
     }
 
+    private void CheckRange()
+    {
+        if (audioSource.time >= endTime)
+        {
+            if (!CheckNextPhase())
+            {
+                audioSource.time = startTime;
+                audioSource.Play();
+            }
+        }
+    }
+
     public void StartSong()
     {
         started = true;
@@ -173,19 +179,10 @@ public class SongController : MonoBehaviour
         this.endTime = endTime;
     }
 
-    public void CheckRange()
+    public bool CheckNextPhase()
     {
-        if (audioSource.time >= endTime)
-        {
-            checkRangeEvent.Invoke();
+        bool nextPhase = true;
 
-            audioSource.time = startTime;
-            audioSource.Play();
-        }
-    }
-
-    public void CheckNextPhase()
-    {
         if (currentPhase == "Intro")
         {
             PlayPhase("Main");
@@ -200,6 +197,7 @@ public class SongController : MonoBehaviour
             else
             {
                 AddExtraTime();
+                nextPhase = false;
             }
         }
         else if (currentPhase == "Hyper")
@@ -211,6 +209,7 @@ public class SongController : MonoBehaviour
             else
             {
                 AddExtraTime();
+                nextPhase = false;
             }
         }
         else if (currentPhase == "Charge")
@@ -218,6 +217,8 @@ public class SongController : MonoBehaviour
             PlayPhase("Outro");
             playerController.ToggleLock(true);
         }
+
+        return nextPhase;
     }
 
     public void PlayPhase(string phase)
@@ -251,6 +252,7 @@ public class SongController : MonoBehaviour
             SetRange(song.outroStart, song.full.length);
         }
 
+        audioSource.time = startTime;
         audioSource.Play();
     }
 }
