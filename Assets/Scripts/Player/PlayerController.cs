@@ -83,6 +83,7 @@ public class PlayerController : MonoBehaviour
         }
 
         Vector3 attackPosition = transform.position + new Vector3(playerMovement.lastDirectionMoved.x, playerMovement.lastDirectionMoved.y, transform.position.z);
+        print(playerMovement.lastDirectionMoved);
         Battery battery = FindObjectOfType<BulletSpawner>().GetBatteryAtPosition(attackPosition);
         if (battery != null)
         {

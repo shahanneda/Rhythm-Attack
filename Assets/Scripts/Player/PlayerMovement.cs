@@ -94,6 +94,8 @@ public class PlayerMovement : MonoBehaviour
                         locked = true;
                     }
 
+                    lastDirectionMoved = movement.normalized;
+
                     MovePlayer(movement);
                     playerController.PlayerActedThisBeat = true;
 
@@ -118,7 +120,6 @@ public class PlayerMovement : MonoBehaviour
             if (newPosition.x >= -moveBounds.x && newPosition.x <= moveBounds.x && newPosition.y >= -moveBounds.y && newPosition.y <= moveBounds.y)
             {
                 toLocation = newPosition;
-                lastDirectionMoved = move;
                 moved = true;
 
                 if (!songController.currentlyInBeat)
