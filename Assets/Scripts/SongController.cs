@@ -37,6 +37,8 @@ public class SongController : MonoBehaviour
     private BulletSpawner bulletSpawner;
 
     private bool started;
+    private bool ended = false;
+
     private bool postBeatInvoked;
 
     private string currentPhase = "Intro";
@@ -45,11 +47,10 @@ public class SongController : MonoBehaviour
     private float endTime;
 
     private float elapsedTime = 0;
-    [SerializeField] private float elapsedNormalTime = 0;
-    [SerializeField] private float elapsedFastTime = 0;
+    private float elapsedNormalTime = 0;
+    private float elapsedFastTime = 0;
 
-    [SerializeField]
-    private PlayerController playerController;
+    [SerializeField] private PlayerController playerController;
 
     private void OnEnable()
     {
@@ -61,44 +62,55 @@ public class SongController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (started)
+        if (ended)
         {
-            elapsedTime = audioSource.time + extraTime;
-            CheckRange();
-
-            if (elapsedTime >= elapsedNormalTime + elapsedFastTime - 0.1d && elapsedTime < elapsedNormalTime + elapsedFastTime)
+            if (!audioSource.isPlaying)
             {
-                currentlyInBeat = true;
-                postBeatInvoked = false;
-
-                if (earlyBeat != null) earlyBeat.Invoke();
+                audioSource.Stop();
+                SceneManager.LoadScene("Menu");
             }
-            else if (elapsedTime >= elapsedNormalTime + elapsedFastTime && elapsedTime <= elapsedNormalTime + elapsedFastTime + 0.05d)
+        }
+        else
+        {
+            if (started)
             {
-                BeatCount();
-                BeatAnim();
+                elapsedTime = audioSource.time + extraTime;
+                CheckRange();
 
-                Instantiate(beatTick, GameObject.Find("BeatCounter").transform).GetComponent<BeatTick>().direction = 1;
-                Transform leftBeatTick = Instantiate(beatTick, GameObject.Find("BeatCounter").transform).transform;
-                leftBeatTick.GetComponent<BeatTick>().direction = -1;
-                leftBeatTick.position = new Vector2(Screen.width, leftBeatTick.position.y);
-
-                if (beat != null)
+                if (elapsedTime >= elapsedNormalTime + elapsedFastTime - 0.1d && elapsedTime < elapsedNormalTime + elapsedFastTime)
                 {
-                    beat.Invoke();
+                    currentlyInBeat = true;
+                    postBeatInvoked = false;
+
+                    if (earlyBeat != null) earlyBeat.Invoke();
                 }
-            }
-            else if (elapsedTime > normalSecondsBetweenBeats * (beatCounter - 1) + fastSecondsBetweenBeats * (fastBeatCounter - 1) && elapsedTime <= normalSecondsBetweenBeats * (beatCounter - 1) + fastSecondsBetweenBeats * (fastBeatCounter - 1) + 0.1d)
-            {
-                if (lateBeat != null) lateBeat.Invoke();
-            }
-            else
-            {
-                if (!postBeatInvoked)
+                else if (elapsedTime >= elapsedNormalTime + elapsedFastTime && elapsedTime <= elapsedNormalTime + elapsedFastTime + 0.05d)
                 {
-                    postBeatInvoked = true;
-                    postBeat.Invoke();
-                    PostBeat();
+                    BeatCount();
+                    BeatAnim();
+
+                    Instantiate(beatTick, GameObject.Find("BeatCounter").transform).GetComponent<BeatTick>().direction = 1;
+                    Transform leftBeatTick = Instantiate(beatTick, GameObject.Find("BeatCounter").transform).transform;
+                    leftBeatTick.GetComponent<BeatTick>().direction = -1;
+                    leftBeatTick.position = new Vector2(Screen.width, leftBeatTick.position.y);
+
+                    if (beat != null)
+                    {
+                        beat.Invoke();
+                    }
+                }
+                else if (elapsedTime > normalSecondsBetweenBeats * (beatCounter - 1) + fastSecondsBetweenBeats * (fastBeatCounter - 1) && elapsedTime <= normalSecondsBetweenBeats * (beatCounter - 1) + fastSecondsBetweenBeats * (fastBeatCounter - 1) + 0.1d)
+                {
+                    if (lateBeat != null) lateBeat.Invoke();
+                }
+                else
+                {
+                    if (!postBeatInvoked)
+                    {
+                        postBeatInvoked = true;
+                        postBeat.Invoke();
+                        PostBeat();
+                    }
                 }
             }
         }
@@ -217,6 +229,7 @@ public class SongController : MonoBehaviour
         {
             PlayPhase("Outro");
             playerController.ToggleLock(true);
+            ended = true;
         }
 
         return nextPhase;
