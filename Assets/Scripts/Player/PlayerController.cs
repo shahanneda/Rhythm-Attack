@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
         {
             battery.OnAttack();
         }
-        else if (BossAtPosition(attackPosition))
+        else if (BulletSpawner.IsBossAtPosition(attackPosition))
         {
             if (FindObjectOfType<BulletSpawner>().batteries.Count <= 0)
                 FindObjectOfType<Boss>().OnAttack();
@@ -156,13 +156,5 @@ public class PlayerController : MonoBehaviour
 
         playerMovement.ToggleLock(locked);
         playerHealth.ToggleLock(locked);
-    }
-
-    public static bool BossAtPosition(Vector3 position)
-    {
-        if ((position == Vector3.zero || position == Vector3.up || position == new Vector3(1, 1) || position == Vector3.right || position == new Vector3(1, -1) || position == Vector3.down || position == new Vector3(-1, -1) || position == Vector3.left || position == new Vector3(-1, 1)) && FindObjectOfType<Boss>() != null)
-            return true;
-        else
-            return false;
     }
 }

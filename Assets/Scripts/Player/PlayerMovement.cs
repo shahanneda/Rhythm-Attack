@@ -113,9 +113,13 @@ public class PlayerMovement : MonoBehaviour
     public void MovePlayer(Vector2 move)
     {
         Vector3 newPosition = new Vector3(Mathf.Round(transform.position.x) + move.x, Mathf.Round(transform.position.y) + move.y, 0);
+
+        Vector3 moveNormalized = move.normalized;
+        Vector3 newPositionNormalized = new Vector3(Mathf.Round(transform.position.x) + move.normalized.x, Mathf.Round(transform.position.y) + move.normalized.y, 0);
+
         bool moved = false;
 
-        if (bulletSpawner.GetBatteryAtPosition(newPosition) == null && !BulletSpawner.GetBossAtPosition(newPosition))
+        if (bulletSpawner.GetBatteryAtPosition(newPosition) == null && bulletSpawner.GetBatteryAtPosition(newPositionNormalized) == null && !BulletSpawner.IsBossAtPosition(newPosition))
         {
             if (newPosition.x >= -moveBounds.x && newPosition.x <= moveBounds.x && newPosition.y >= -moveBounds.y && newPosition.y <= moveBounds.y)
             {
