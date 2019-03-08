@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-//TODO: FIX DELAY ON NEW BPM
 public class SongController : MonoBehaviour
 {
     [HideInInspector] public Song song;
@@ -46,7 +45,7 @@ public class SongController : MonoBehaviour
     private float endTime;
 
     private float elapsedTime = 0;
-    private float elapsedNormalTime = 0;
+    [SerializeField] private float elapsedNormalTime = 0;
     [SerializeField] private float elapsedFastTime = 0;
 
     [SerializeField]
@@ -65,6 +64,7 @@ public class SongController : MonoBehaviour
         if (started)
         {
             elapsedTime = audioSource.time + extraTime;
+            CheckRange();
 
             if (elapsedTime >= elapsedNormalTime + elapsedFastTime - 0.1d && elapsedTime < elapsedNormalTime + elapsedFastTime)
             {
@@ -101,8 +101,6 @@ public class SongController : MonoBehaviour
                     PostBeat();
                 }
             }
-
-            CheckRange();
         }
     }
 
@@ -193,6 +191,9 @@ public class SongController : MonoBehaviour
             if (bulletSpawner.batteries.Count <= 0)
             {
                 PlayPhase("Hyper");
+
+                beatCounter--;
+                elapsedNormalTime = (float)normalSecondsBetweenBeats * beatCounter;
             }
             else
             {
