@@ -75,6 +75,9 @@ public class SongController : MonoBehaviour
             if (started)
             {
                 elapsedTime = audioSource.time + extraTime;
+                elapsedNormalTime = (float)normalSecondsBetweenBeats * beatCounter;
+                elapsedFastTime = (float)fastSecondsBetweenBeats * fastBeatCounter;
+
                 CheckRange();
 
                 if (elapsedTime >= elapsedNormalTime + elapsedFastTime - 0.1d + 0.033d && elapsedTime < elapsedNormalTime + elapsedFastTime + 0.033d)
@@ -84,7 +87,7 @@ public class SongController : MonoBehaviour
 
                     if (earlyBeat != null) earlyBeat.Invoke();
                 }
-                else if (elapsedTime >= elapsedNormalTime + elapsedFastTime + 0.033d && elapsedTime <= elapsedNormalTime + elapsedFastTime + 0.05d + 0.033d)
+                else if (elapsedTime >= elapsedNormalTime + elapsedFastTime + 0.033d /*&& elapsedTime <= elapsedNormalTime + elapsedFastTime + 0.05d + 0.033d*/)
                 {
                     BeatCount();
                     BeatAnim();
@@ -178,9 +181,6 @@ public class SongController : MonoBehaviour
         {
             beatCounter++;
         }
-
-        elapsedNormalTime = (float)normalSecondsBetweenBeats * beatCounter;
-        elapsedFastTime = (float)fastSecondsBetweenBeats * fastBeatCounter;
     }
 
     public void SetRange(float startTime, float endTime)
@@ -203,9 +203,6 @@ public class SongController : MonoBehaviour
             if (bulletSpawner.batteries.Count <= 0)
             {
                 PlayPhase("Hyper");
-
-                beatCounter--;
-                elapsedNormalTime = (float)normalSecondsBetweenBeats * beatCounter;
             }
             else
             {
