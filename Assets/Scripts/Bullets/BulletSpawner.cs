@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//TODO: LASERS SPAWN 4 TIMES!!! FIX THIS!!!
 public class BulletSpawner : MonoBehaviour
 {
     public BulletTypeToGameObject[] bulletTypeToGameObjects;
