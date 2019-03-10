@@ -12,7 +12,6 @@ public class BulletSpawner : MonoBehaviour
     private Level level;
 
     private int currentFrame = -1;
-    private bool firstIteration = true;
 
     private Boss boss;
     private GridGenerator gridGenerator;
@@ -25,6 +24,14 @@ public class BulletSpawner : MonoBehaviour
         boss = FindObjectOfType<Boss>();
         gridGenerator = FindObjectOfType<GridGenerator>();
 
+        foreach (BulletStats bulletStats in level.frames[0].bullets)
+        {
+            if (bulletStats.type.Contains("Battery"))
+            {
+                batteries.Add(Instantiate(GetBulletTypeFromGameObject(bulletStats.type), gridGenerator.GetPositionFromGrid(bulletStats.position), Quaternion.identity).GetComponent<Battery>());
+            }
+        }
+
         for (int i = 0; i < level.frames.Length; i++)
         {
             int addAmount = 0;
@@ -32,45 +39,49 @@ public class BulletSpawner : MonoBehaviour
 
             foreach (BulletStats bulletStats in level.frames[i].bullets)
             {
+                Vector2 position = bulletStats.position;
+
                 if (!bulletStats.type.Contains("Battery") && !bulletStats.type.Contains("Warning"))
                 {
                     if (bulletStats.type.Contains("Laser"))
                     {
+                        bool batteryLaser = (GetBatteryAtPosition(gridGenerator.GetPositionFromGrid(position + Vector2.up)) != null || GetBatteryAtPosition(gridGenerator.GetPositionFromGrid(position + Vector2.down)) || GetBatteryAtPosition(gridGenerator.GetPositionFromGrid(position + Vector2.right)) || GetBatteryAtPosition(gridGenerator.GetPositionFromGrid(position + Vector2.left)) != null || GetBatteryAtPosition(gridGenerator.GetPositionFromGrid(position + Vector2.one)) != null || GetBatteryAtPosition(gridGenerator.GetPositionFromGrid(position - Vector2.one)) != null || GetBatteryAtPosition(gridGenerator.GetPositionFromGrid(position + new Vector2(1, -1))) != null || GetBatteryAtPosition(gridGenerator.GetPositionFromGrid(position + new Vector2(-1, 1))) != null);
+
                         if (bulletStats.type == "RedLaser")
                         {
-                            addAmount = 2;
-                            warnings.Add(new BulletStats("RedLaserWarning", bulletStats.position, bulletStats.direction));
+                            addAmount = (batteryLaser) ? 1 : 2;
+                            warnings.Add(new BulletStats("RedLaserWarning", position, bulletStats.direction));
                         }
                         else if (bulletStats.type == "YellowLaser")
                         {
-                            addAmount = 1;
-                            warnings.Add(new BulletStats("YellowLaserWarning", bulletStats.position, bulletStats.direction));
+                            addAmount = (batteryLaser) ? 3 : 1;
+                            warnings.Add(new BulletStats("YellowLaserWarning", position, bulletStats.direction));
                         }
                         else if (bulletStats.type == "OrangeLaser")
                         {
-                            addAmount = 4;
-                            warnings.Add(new BulletStats("OrangeLaserWarning", bulletStats.position, bulletStats.direction));
+                            addAmount = (batteryLaser) ? 3 : 4;
+                            warnings.Add(new BulletStats("OrangeLaserWarning", position, bulletStats.direction));
                         }
                         else if (bulletStats.type == "BlueLaser")
                         {
-                            addAmount = 3;
-                            warnings.Add(new BulletStats("BlueLaserWarning", bulletStats.position, bulletStats.direction));
+                            addAmount = (batteryLaser) ? 3 : 4;
+                            warnings.Add(new BulletStats("BlueLaserWarning", position, bulletStats.direction));
                         }
                         else if (bulletStats.type == "GreenLaser")
                         {
                             addAmount = 2;
-                            warnings.Add(new BulletStats("GreenLaserWarning", bulletStats.position, bulletStats.direction));
+                            warnings.Add(new BulletStats("GreenLaserWarning", position, bulletStats.direction));
                         }
                         else if (bulletStats.type == "PurpleLaser")
                         {
-                            addAmount = 4;
-                            warnings.Add(new BulletStats("PurpleLaserWarning", bulletStats.position, bulletStats.direction));
+                            addAmount = (batteryLaser) ? 5 : 4;
+                            warnings.Add(new BulletStats("PurpleLaserWarning", position, bulletStats.direction));
                         }
                     }
                     else
                     {
                         addAmount = 1;
-                        warnings.Add(new BulletStats(bulletStats.type + "Warning", bulletStats.position, bulletStats.direction));
+                        warnings.Add(new BulletStats(bulletStats.type + "Warning", position, bulletStats.direction));
                     }
                 }
             }
@@ -128,17 +139,17 @@ public class BulletSpawner : MonoBehaviour
         if (currentFrame >= level.amountOfFrames)
         {
             currentFrame = 0;
-            firstIteration = false;
         }
 
         foreach (BulletStats bulletStats in level.frames[currentFrame].bullets)
         {
-            if (bulletStats.type == "None")
+            Vector2 position = bulletStats.position;
+
+            if (bulletStats.type == "None" || bulletStats.type.Contains("Battery"))
             {
                 continue;
             }
 
-            Vector2 position = bulletStats.position;
             if (position == new Vector2(1, 2) || position == new Vector2(1, 3) || position == new Vector2(2, 3) || position == new Vector2(3, 3) || position == new Vector2(3, 2) || position == new Vector2(3, 1) || position == new Vector2(2, 1) || position == new Vector2(1, 1))
             {
                 if (GetBatteryAtPosition(Vector2.one * -4) == null)
@@ -171,13 +182,6 @@ public class BulletSpawner : MonoBehaviour
             if (bulletStats.type.Contains("Laser"))
             {
                 SpawnLaser(new BulletStats(bulletStats.type, position, bulletStats.direction));
-            }
-            else if (bulletStats.type.Contains("Battery"))
-            {
-                if (firstIteration)
-                {
-                    batteries.Add(Instantiate(GetBulletTypeFromGameObject(bulletStats.type), GameController.instance.gridGenerator.GetPositionFromGrid(position), Quaternion.identity).GetComponent<Battery>());
-                }
             }
             else
             {
