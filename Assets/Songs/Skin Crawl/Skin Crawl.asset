@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Skin Crawl
   full: {fileID: 8300000, guid: 539da838226fb7246aea6ffef9e0efe3, type: 3}
-  mainStart: 14.4242
+  mainStart: 14.4718
   hyperStart: 65.618
   chargeStart: 86.9422
   outroStart: 112.5878
