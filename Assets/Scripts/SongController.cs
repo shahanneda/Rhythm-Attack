@@ -226,6 +226,7 @@ public class SongController : MonoBehaviour
         {
             PlayPhase("Outro");
             playerController.ToggleLock(true);
+            playerController.playerMovement.MovePlayerTo(Vector2.zero);
             ended = true;
         }
 
