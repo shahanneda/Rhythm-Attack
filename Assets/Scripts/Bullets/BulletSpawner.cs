@@ -15,6 +15,7 @@ public class BulletSpawner : MonoBehaviour
     private bool firstIteration = true;
 
     private Boss boss;
+    private GridGenerator gridGenerator;
 
     private void Start()
     {
@@ -22,6 +23,7 @@ public class BulletSpawner : MonoBehaviour
 
         level = GameController.instance.level;
         boss = FindObjectOfType<Boss>();
+        gridGenerator = FindObjectOfType<GridGenerator>();
 
         for (int i = 0; i < level.frames.Length; i++)
         {
@@ -345,7 +347,7 @@ public class BulletSpawner : MonoBehaviour
             {
                 Vector2 position = (laserStats.direction * i) + laserStats.position;
 
-                if (position == new Vector2(2, 2) || position == new Vector2(10, 2) || position == new Vector2(2, 10) || position == new Vector2(10, 10) || position.x < 0 || position.x >= 13 || position.y < 0 || position.y >= 13)
+                if (GetBatteryAtPosition(gridGenerator.GetPositionFromGrid(position)) != null || position.x < 0 || position.x >= 13 || position.y < 0 || position.y >= 13)
                 {
                     return;
                 }
