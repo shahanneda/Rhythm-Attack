@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -12,13 +13,10 @@ MonoBehaviour:
   m_Name: Neon Gold Empire
   m_EditorClassIdentifier: 
   name: Neon Gold Empire
-  intro: {fileID: 8300000, guid: 81f703f1f7bd4fc4f8034a5be1013e62, type: 3}
-  introBars: 9
-  main: {fileID: 8300000, guid: 6fcfd2cefd764da44b2712f53cda72ca, type: 3}
-  mainBars: 16
-  hyper: {fileID: 8300000, guid: 47eb9df1a029c5f4e8a399bfd9db37e3, type: 3}
-  hyperBars: 8
-  outro: {fileID: 8300000, guid: f8209318d48caea4a83849ec1be0e393, type: 3}
-  outroBars: 16
+  full: {fileID: 8300000, guid: fa0bd7a77759f5b45a5107372d3f08b8, type: 3}
+  mainStart: 14.4719
+  hyperStart: 65.6193
+  chargeStart: 86.955
+  outroStart: 99.73335
   tempo: 75
   beatsPerBar: 2
