@@ -13,6 +13,7 @@ public class BulletSpawner : MonoBehaviour
 
     private int currentFrame = -1;
 
+    public Line[] alternateGreenLaserLines;
     private BulletStats greenLaser;
 
     private Boss boss;
@@ -21,8 +22,8 @@ public class BulletSpawner : MonoBehaviour
     private void Start()
     {
         GameController.instance.songController.beat += SpawnBullets;
-
         level = GameController.instance.level;
+
         boss = FindObjectOfType<Boss>();
         gridGenerator = FindObjectOfType<GridGenerator>();
 
@@ -131,7 +132,7 @@ public class BulletSpawner : MonoBehaviour
             }
         }
 
-        return null;
+        return new LaserTypeToGameObject();
     }
 
     public void SpawnBullets()
@@ -319,7 +320,14 @@ public class BulletSpawner : MonoBehaviour
             }
             else
             {
-                return;
+                foreach (Line line in alternateGreenLaserLines)
+                {
+                    if (PlayerOnLine(line))
+                    {
+                        laserStats.position = line.origin;
+                        laserStats.direction = line.direction;
+                    }
+                }
             }
 
             greenLaser = new BulletStats("GreenLaser", laserStats.position, laserStats.direction);
@@ -562,17 +570,43 @@ public class BulletSpawner : MonoBehaviour
             return Quaternion.identity;
         }
     }
+
+    public static bool PlayerOnLine(Line line)
+    {
+        PlayerMovement playerMovement = FindObjectOfType<PlayerMovement>();
+        GridGenerator gridGenerator = FindObjectOfType<GridGenerator>();
+
+        for (int i = 0; i < 13; i++)
+        {
+            if (gridGenerator.GetPositionOnGrid(playerMovement.toLocation) == line.origin + line.direction * i) return true;
+        }
+
+        return false;
+    }
+
+    public static bool PlayerOnLine(Vector2 origin, Vector2 direction)
+    {
+        PlayerMovement playerMovement = FindObjectOfType<PlayerMovement>();
+        GridGenerator gridGenerator = FindObjectOfType<GridGenerator>();
+
+        for (int i = 0; i < 13; i++)
+        {
+            if (gridGenerator.GetPositionOnGrid(playerMovement.toLocation) == origin + direction * i) return true;
+        }
+
+        return false;
+    }
 }
 
 [System.Serializable]
-public class BulletTypeToGameObject
+public struct BulletTypeToGameObject
 {
     public string bulletType;
     public GameObject bulletObject;
 }
 
 [System.Serializable]
-public class LaserTypeToGameObject
+public struct LaserTypeToGameObject
 {
     public string bulletType;
     public GameObject warning;
@@ -581,4 +615,11 @@ public class LaserTypeToGameObject
     public GameObject thickLeft;
     public GameObject thickMiddle;
     public GameObject thickRight;
+}
+
+[System.Serializable]
+public struct Line
+{
+    public Vector2 origin;
+    public Vector2 direction;
 }

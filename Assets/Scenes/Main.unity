@@ -1542,6 +1542,62 @@ MonoBehaviour:
     thickRight: {fileID: 1109876108463758, guid: a8214d050c4ecc9489b4a920ff94a188,
       type: 3}
   batteries: []
+  level:
+    name: New Level
+    size: {x: 0, y: 0}
+    song: {fileID: 0}
+    bpm: 0
+    amountOfFrames: 0
+    frames: []
+  alternateGreenLaserLines:
+  - origin: {x: 4, y: 5}
+    direction: {x: -1, y: -1}
+  - origin: {x: 4, y: 5}
+    direction: {x: -1, y: 1}
+  - origin: {x: 4, y: 6}
+    direction: {x: -1, y: -1}
+  - origin: {x: 4, y: 6}
+    direction: {x: -1, y: 1}
+  - origin: {x: 4, y: 7}
+    direction: {x: -1, y: -1}
+  - origin: {x: 4, y: 7}
+    direction: {x: -1, y: 1}
+  - origin: {x: 5, y: 8}
+    direction: {x: -1, y: 1}
+  - origin: {x: 5, y: 8}
+    direction: {x: 1, y: 1}
+  - origin: {x: 6, y: 8}
+    direction: {x: -1, y: 1}
+  - origin: {x: 6, y: 8}
+    direction: {x: 1, y: 1}
+  - origin: {x: 7, y: 8}
+    direction: {x: -1, y: 1}
+  - origin: {x: 7, y: 8}
+    direction: {x: 1, y: 1}
+  - origin: {x: 8, y: 7}
+    direction: {x: 1, y: 1}
+  - origin: {x: 8, y: 7}
+    direction: {x: 1, y: -1}
+  - origin: {x: 8, y: 6}
+    direction: {x: 1, y: 1}
+  - origin: {x: 8, y: 6}
+    direction: {x: 1, y: -1}
+  - origin: {x: 8, y: 5}
+    direction: {x: 1, y: 1}
+  - origin: {x: 8, y: 5}
+    direction: {x: 1, y: -1}
+  - origin: {x: 7, y: 4}
+    direction: {x: 1, y: -1}
+  - origin: {x: 7, y: 4}
+    direction: {x: -1, y: -1}
+  - origin: {x: 6, y: 4}
+    direction: {x: 1, y: -1}
+  - origin: {x: 6, y: 4}
+    direction: {x: -1, y: -1}
+  - origin: {x: 5, y: 4}
+    direction: {x: 1, y: -1}
+  - origin: {x: 5, y: 4}
+    direction: {x: -1, y: -1}
 --- !u!1 &1519089007
 GameObject:
   m_ObjectHideFlags: 0
