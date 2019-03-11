@@ -9,9 +9,11 @@ public class BulletSpawner : MonoBehaviour
 
     public List<Battery> batteries = new List<Battery>();
 
-    private Level level;
+    [SerializeField] private Level level;
 
     private int currentFrame = -1;
+
+    private BulletStats greenLaser;
 
     private Boss boss;
     private GridGenerator gridGenerator;
@@ -207,7 +209,7 @@ public class BulletSpawner : MonoBehaviour
 
         int amountOfNodes = 0;
 
-        if (laserStats.type == "GreenLaser" || laserStats.type == "GreenLaserWarning")
+        if (/*laserStats.type == "GreenLaser" || */laserStats.type == "GreenLaserWarning")
         {
             PlayerMovement playerMovement = FindObjectOfType<PlayerMovement>();
 
@@ -318,6 +320,16 @@ public class BulletSpawner : MonoBehaviour
             else
             {
                 return;
+            }
+
+            greenLaser = new BulletStats("GreenLaser", laserStats.position, laserStats.direction);
+        }
+        else if (laserStats.type == "GreenLaser")
+        {
+            if (greenLaser != null)
+            {
+                laserStats = greenLaser;
+                greenLaser = null;
             }
         }
 
