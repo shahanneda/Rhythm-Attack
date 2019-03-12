@@ -1483,63 +1483,69 @@ MonoBehaviour:
   laserTypeToGameObjects:
   - bulletType: BlueLaser
     warning: {fileID: 1581346974415188, guid: ad3454a5f203d404384271b4e0e98c73, type: 3}
-    oneStart: {fileID: 0}
-    oneBlock: {fileID: 1109876108463758, guid: f746052e27308f0498eb6392ae22ca97, type: 3}
+    oneBlock: {fileID: 1109876108463758, guid: e645f12e1ffec0348a2af8f4149dacd1, type: 3}
     thickLeft: {fileID: 1109876108463758, guid: f9ba3fe93bb340b46944aff6fd5592ba,
       type: 3}
     thickMiddle: {fileID: 1109876108463758, guid: c55e6cfbd70265144af02425e708590e,
       type: 3}
     thickRight: {fileID: 1109876108463758, guid: a8214d050c4ecc9489b4a920ff94a188,
+      type: 3}
+    oneBlockEnd: {fileID: 1109876108463758, guid: dd890ad77e335bb43a5fc889bb7dd409,
       type: 3}
   - bulletType: GreenLaser
     warning: {fileID: 1667755192952854, guid: 9eaa11215a44d91498fdeb26a5d7f33c, type: 3}
-    oneStart: {fileID: 0}
-    oneBlock: {fileID: 1109876108463758, guid: f746052e27308f0498eb6392ae22ca97, type: 3}
+    oneBlock: {fileID: 1109876108463758, guid: 16d4aaa870c0ec0468b538d00414f7a3, type: 3}
     thickLeft: {fileID: 1109876108463758, guid: f9ba3fe93bb340b46944aff6fd5592ba,
       type: 3}
     thickMiddle: {fileID: 1109876108463758, guid: c55e6cfbd70265144af02425e708590e,
       type: 3}
     thickRight: {fileID: 1109876108463758, guid: a8214d050c4ecc9489b4a920ff94a188,
+      type: 3}
+    oneBlockEnd: {fileID: 1109876108463758, guid: d25e3269c91bfb449bf8221fb84b6ea7,
       type: 3}
   - bulletType: OrangeLaser
     warning: {fileID: 1793875225824834, guid: e8bdce2c70c58264484eced4b36a0ab5, type: 3}
-    oneStart: {fileID: 0}
-    oneBlock: {fileID: 1109876108463758, guid: f746052e27308f0498eb6392ae22ca97, type: 3}
+    oneBlock: {fileID: 1109876108463758, guid: 611a92afe22fdf54baf2d83e3d5be10a, type: 3}
     thickLeft: {fileID: 1109876108463758, guid: f9ba3fe93bb340b46944aff6fd5592ba,
       type: 3}
     thickMiddle: {fileID: 1109876108463758, guid: c55e6cfbd70265144af02425e708590e,
       type: 3}
     thickRight: {fileID: 1109876108463758, guid: a8214d050c4ecc9489b4a920ff94a188,
+      type: 3}
+    oneBlockEnd: {fileID: 1109876108463758, guid: f04a902e281ba2e42be15481bcdab16d,
       type: 3}
   - bulletType: PurpleLaser
     warning: {fileID: 1746591678135904, guid: aa3a7651a56b95e439af1489880c22e4, type: 3}
-    oneStart: {fileID: 0}
-    oneBlock: {fileID: 1109876108463758, guid: f746052e27308f0498eb6392ae22ca97, type: 3}
+    oneBlock: {fileID: 1109876108463758, guid: df9d0b6c322e1aa47969198c1f4fb3ce, type: 3}
     thickLeft: {fileID: 1109876108463758, guid: f9ba3fe93bb340b46944aff6fd5592ba,
       type: 3}
     thickMiddle: {fileID: 1109876108463758, guid: c55e6cfbd70265144af02425e708590e,
       type: 3}
     thickRight: {fileID: 1109876108463758, guid: a8214d050c4ecc9489b4a920ff94a188,
+      type: 3}
+    oneBlockEnd: {fileID: 1109876108463758, guid: 25ef5dd07a98a4f49b35c475ec0fd962,
       type: 3}
   - bulletType: RedLaser
     warning: {fileID: 1485064814790338, guid: ef162c67d5496e14bbc86b74f66f04b3, type: 3}
-    oneStart: {fileID: 0}
     oneBlock: {fileID: 1109876108463758, guid: f746052e27308f0498eb6392ae22ca97, type: 3}
     thickLeft: {fileID: 1109876108463758, guid: f9ba3fe93bb340b46944aff6fd5592ba,
       type: 3}
     thickMiddle: {fileID: 1109876108463758, guid: c55e6cfbd70265144af02425e708590e,
       type: 3}
     thickRight: {fileID: 1109876108463758, guid: a8214d050c4ecc9489b4a920ff94a188,
+      type: 3}
+    oneBlockEnd: {fileID: 1109876108463758, guid: 53961e16b5528194d977b47bd53e62ec,
       type: 3}
   - bulletType: YellowLaser
     warning: {fileID: 1048654823761362, guid: 134ff6fa5c666604fb252990418cd691, type: 3}
-    oneStart: {fileID: 0}
-    oneBlock: {fileID: 1109876108463758, guid: f746052e27308f0498eb6392ae22ca97, type: 3}
+    oneBlock: {fileID: 1109876108463758, guid: 1552b6034ab114d4f861c08c0914ea27, type: 3}
     thickLeft: {fileID: 1109876108463758, guid: f9ba3fe93bb340b46944aff6fd5592ba,
       type: 3}
     thickMiddle: {fileID: 1109876108463758, guid: c55e6cfbd70265144af02425e708590e,
       type: 3}
     thickRight: {fileID: 1109876108463758, guid: a8214d050c4ecc9489b4a920ff94a188,
+      type: 3}
+    oneBlockEnd: {fileID: 1109876108463758, guid: 722028cfb17bea1498750003eecf3379,
       type: 3}
   batteries: []
   level:

@@ -386,7 +386,14 @@ public class BulletSpawner : MonoBehaviour
                 }
                 else
                 {
-                    Instantiate(laserType.oneBlock, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, LaserRotation(laserStats.direction));
+                    if (i == 12)
+                    {
+                        Instantiate(laserType.oneBlockEnd, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, LaserRotation(laserStats.direction));
+                    }
+                    else
+                    {
+                        Instantiate(laserType.oneBlock, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, LaserRotation(laserStats.direction));
+                    }
                 }
             }
 
@@ -465,7 +472,14 @@ public class BulletSpawner : MonoBehaviour
                 }
                 else
                 {
-                    Instantiate(laserType.oneBlock, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, LaserRotation(laserStats.direction));
+                    if (i == amountOfNodes - 1)
+                    {
+                        Instantiate(laserType.oneBlockEnd, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, LaserRotation(laserStats.direction));
+                    }
+                    else
+                    {
+                        Instantiate(laserType.oneBlock, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, LaserRotation(laserStats.direction));
+                    }
                 }
             }
             else
@@ -476,7 +490,14 @@ public class BulletSpawner : MonoBehaviour
                 }
                 else
                 {
-                    Instantiate(laserType.oneBlock, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, LaserRotation(laserStats.direction));
+                    if (i == amountOfNodes - 1)
+                    {
+                        Instantiate(laserType.oneBlockEnd, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, LaserRotation(laserStats.direction));
+                    }
+                    else
+                    {
+                        Instantiate(laserType.oneBlock, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, LaserRotation(laserStats.direction));
+                    }
                 }
             }
         }
@@ -610,11 +631,11 @@ public struct LaserTypeToGameObject
 {
     public string bulletType;
     public GameObject warning;
-    public GameObject oneStart;
     public GameObject oneBlock;
     public GameObject thickLeft;
     public GameObject thickMiddle;
     public GameObject thickRight;
+    public GameObject oneBlockEnd;
 }
 
 [System.Serializable]

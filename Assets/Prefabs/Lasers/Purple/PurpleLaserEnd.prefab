@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 212451862834135124}
   - component: {fileID: 61777323986863166}
   - component: {fileID: 50926452187183492}
-  - component: {fileID: 114055007414222470}
+  - component: {fileID: 114701237280053924}
   m_Layer: 0
-  m_Name: RedLaser
+  m_Name: PurpleLaserEnd
   m_TagString: Laser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: f8ec800d5b9b4dd4aa901e60910df837, type: 3}
+  m_Sprite: {fileID: 21300022, guid: 784defb90fbab124db2792a6eafb9d9d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,7 +99,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 0.8125, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -129,7 +129,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &114055007414222470
+--- !u!114 &114701237280053924
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,4 +141,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a23b242c8d600ab4cb688a0dff06dc10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatsToDie: 1
+  beatsToDie: 4
