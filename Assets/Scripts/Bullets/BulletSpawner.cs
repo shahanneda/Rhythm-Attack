@@ -188,7 +188,7 @@ public class BulletSpawner : MonoBehaviour
             }
             else
             {
-                Bullet spawnedBullet = Instantiate(GetBulletTypeFromGameObject(bulletStats.type), GameController.instance.gridGenerator.GetPositionFromGrid(position), LaserRotation(bulletStats.direction)).GetComponent<Bullet>();
+                Bullet spawnedBullet = Instantiate(GetBulletTypeFromGameObject(bulletStats.type), GameController.instance.gridGenerator.GetPositionFromGrid(position), Vector2ToRotation(bulletStats.direction)).GetComponent<Bullet>();
 
                 if (spawnedBullet != null)
                     spawnedBullet.bulletStats = bulletStats;
@@ -388,7 +388,7 @@ public class BulletSpawner : MonoBehaviour
                 {
                     if (i == 12)
                     {
-                        Instantiate(laserType.oneBlockEnd, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, LaserRotation(laserStats.direction));
+                        Instantiate(laserType.oneBlockEnd, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, Vector2ToRotation(laserStats.direction));
                     }
                     else
                     {
@@ -474,7 +474,7 @@ public class BulletSpawner : MonoBehaviour
                 {
                     if (i == amountOfNodes - 1)
                     {
-                        Instantiate(laserType.oneBlockEnd, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, LaserRotation(laserStats.direction));
+                        Instantiate(laserType.oneBlockEnd, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, Vector2ToRotation(laserStats.direction));
                     }
                     else
                     {
@@ -492,7 +492,7 @@ public class BulletSpawner : MonoBehaviour
                 {
                     if (i == amountOfNodes - 1)
                     {
-                        Instantiate(laserType.oneBlockEnd, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, LaserRotation(laserStats.direction));
+                        Instantiate(laserType.oneBlockEnd, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, Vector2ToRotation(laserStats.direction));
                     }
                     else
                     {
@@ -528,6 +528,7 @@ public class BulletSpawner : MonoBehaviour
         }
     }
 
+    //TODO: INVERT QUATERNIONS FOR LASER ENDS
     public static Quaternion Vector2ToRotation(Vector2 vector2)
     {
         if (vector2 == Vector2.one)
