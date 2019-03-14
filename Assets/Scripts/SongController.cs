@@ -80,14 +80,14 @@ public class SongController : MonoBehaviour
 
                 CheckRange();
 
-                if (elapsedTime >= elapsedNormalTime + elapsedFastTime - 0.1d + 0.033d && elapsedTime < elapsedNormalTime + elapsedFastTime + 0.033d)
+                if (elapsedTime >= elapsedNormalTime + elapsedFastTime - 0.1d + 0.04d && elapsedTime < elapsedNormalTime + elapsedFastTime + 0.04d)
                 {
                     currentlyInBeat = true;
                     postBeatInvoked = false;
 
                     if (earlyBeat != null) earlyBeat.Invoke();
                 }
-                else if (elapsedTime >= elapsedNormalTime + elapsedFastTime + 0.033d /*&& elapsedTime <= elapsedNormalTime + elapsedFastTime + 0.05d + 0.033d*/)
+                else if (elapsedTime >= elapsedNormalTime + elapsedFastTime + 0.04d /*&& elapsedTime <= elapsedNormalTime + elapsedFastTime + 0.05d + 0.033d*/)
                 {
                     BeatCount();
                     BeatAnim();
@@ -102,7 +102,7 @@ public class SongController : MonoBehaviour
                         beat.Invoke();
                     }
                 }
-                else if (elapsedTime > normalSecondsBetweenBeats * (beatCounter - 1) + fastSecondsBetweenBeats * (fastBeatCounter - 1) + 0.033d && elapsedTime <= normalSecondsBetweenBeats * (beatCounter - 1) + fastSecondsBetweenBeats * (fastBeatCounter - 1) + 0.1d + 0.033d)
+                else if (elapsedTime > normalSecondsBetweenBeats * (beatCounter - 1) + fastSecondsBetweenBeats * (fastBeatCounter - 1) + 0.04d && elapsedTime <= normalSecondsBetweenBeats * (beatCounter - 1) + fastSecondsBetweenBeats * (fastBeatCounter - 1) + 0.1d + 0.04d)
                 {
                     if (lateBeat != null) lateBeat.Invoke();
                 }

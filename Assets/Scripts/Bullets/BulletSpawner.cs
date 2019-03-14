@@ -388,7 +388,7 @@ public class BulletSpawner : MonoBehaviour
                 {
                     if (i == 12)
                     {
-                        Instantiate(laserType.oneBlockEnd, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, Vector2ToRotation(laserStats.direction));
+                        Instantiate(laserType.oneBlockEnd, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, LaserEndRotation(laserStats.direction));
                     }
                     else
                     {
@@ -474,7 +474,7 @@ public class BulletSpawner : MonoBehaviour
                 {
                     if (i == amountOfNodes - 1)
                     {
-                        Instantiate(laserType.oneBlockEnd, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, Vector2ToRotation(laserStats.direction));
+                        Instantiate(laserType.oneBlockEnd, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, LaserEndRotation(laserStats.direction));
                     }
                     else
                     {
@@ -492,7 +492,7 @@ public class BulletSpawner : MonoBehaviour
                 {
                     if (i == amountOfNodes - 1)
                     {
-                        Instantiate(laserType.oneBlockEnd, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, Vector2ToRotation(laserStats.direction));
+                        Instantiate(laserType.oneBlockEnd, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, LaserEndRotation(laserStats.direction));
                     }
                     else
                     {
@@ -591,6 +591,11 @@ public class BulletSpawner : MonoBehaviour
         {
             return Quaternion.identity;
         }
+    }
+
+    public static Quaternion LaserEndRotation(Vector2 rotation)
+    {
+        return Vector2ToRotation(-rotation);
     }
 
     public static bool PlayerOnLine(Line line)
