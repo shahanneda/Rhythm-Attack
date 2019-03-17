@@ -367,12 +367,21 @@ public class BulletSpawner : MonoBehaviour
         }
         else
         {
+            //Diagonal lasers
+            GameObject previousDiagonalLaser = null;
+
             for (int i = 0; i < 13; i++)
             {
                 Vector2 position = (laserStats.direction * i) + laserStats.position;
 
                 if (GetBatteryAtPosition(gridGenerator.GetPositionFromGrid(position)) != null || position.x < 0 || position.x >= 13 || position.y < 0 || position.y >= 13)
                 {
+                    if (!laserStats.type.Contains("Warning"))
+                    {
+                        Instantiate(laserType.oneBlockEnd, previousDiagonalLaser.transform.position, LaserEndRotation(laserStats.direction));
+                        Destroy(previousDiagonalLaser);
+                    }
+
                     return;
                 }
                 else if (position == new Vector2(4, 6) || position == new Vector2(4, 8) || position == new Vector2(5, 8) || position == new Vector2(6, 8) || position == new Vector2(7, 8) || position == new Vector2(8, 8) || position == new Vector2(8, 7) || position == new Vector2(8, 6) || position == new Vector2(8, 5) || position == new Vector2(8, 4) || position == new Vector2(7, 4) || position == new Vector2(6, 4) || position == new Vector2(5, 4) || position == new Vector2(4, 4))
@@ -386,14 +395,7 @@ public class BulletSpawner : MonoBehaviour
                 }
                 else
                 {
-                    if (i == 12)
-                    {
-                        Instantiate(laserType.oneBlockEnd, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, LaserEndRotation(laserStats.direction));
-                    }
-                    else
-                    {
-                        Instantiate(laserType.oneBlock, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, LaserRotation(laserStats.direction));
-                    }
+                    previousDiagonalLaser = Instantiate(laserType.oneBlock, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, LaserRotation(laserStats.direction));
                 }
             }
 
@@ -402,6 +404,8 @@ public class BulletSpawner : MonoBehaviour
 
         bool laserFromBoss = false;
         Vector2 laserOrigin = laserStats.position;
+
+        GameObject previousLaser = null;
 
         if (laserOrigin == new Vector2(4, 6) || laserOrigin == new Vector2(4, 8) || laserOrigin == new Vector2(5, 8) || laserOrigin == new Vector2(6, 8) || laserOrigin == new Vector2(7, 8) || laserOrigin == new Vector2(8, 8) || laserOrigin == new Vector2(8, 7) || laserOrigin == new Vector2(8, 6) || laserOrigin == new Vector2(8, 5) || laserOrigin == new Vector2(8, 4) || laserOrigin == new Vector2(7, 4) || laserOrigin == new Vector2(6, 4) || laserOrigin == new Vector2(5, 4) || laserOrigin == new Vector2(4, 4))
         {
@@ -415,6 +419,12 @@ public class BulletSpawner : MonoBehaviour
 
             if (currentPosition == new Vector2(2, 2) || currentPosition == new Vector2(10, 2) || currentPosition == new Vector2(2, 10) || currentPosition == new Vector2(10, 10))
             {
+                if (!laserStats.type.Contains("Warning"))
+                {
+                    Instantiate(laserType.oneBlockEnd, previousLaser.transform.position, LaserEndRotation(laserStats.direction));
+                    Destroy(previousLaser);
+                }
+
                 return;
             }
 
@@ -478,7 +488,7 @@ public class BulletSpawner : MonoBehaviour
                     }
                     else
                     {
-                        Instantiate(laserType.oneBlock, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, LaserRotation(laserStats.direction));
+                        previousLaser = Instantiate(laserType.oneBlock, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, LaserRotation(laserStats.direction));
                     }
                 }
             }
@@ -496,7 +506,7 @@ public class BulletSpawner : MonoBehaviour
                     }
                     else
                     {
-                        Instantiate(laserType.oneBlock, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, LaserRotation(laserStats.direction));
+                        previousLaser = Instantiate(laserType.oneBlock, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, LaserRotation(laserStats.direction));
                     }
                 }
             }
@@ -528,7 +538,6 @@ public class BulletSpawner : MonoBehaviour
         }
     }
 
-    //TODO: INVERT QUATERNIONS FOR LASER ENDS
     public static Quaternion Vector2ToRotation(Vector2 vector2)
     {
         if (vector2 == Vector2.one)
