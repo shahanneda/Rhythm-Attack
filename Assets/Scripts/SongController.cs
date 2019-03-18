@@ -18,7 +18,7 @@ public class SongController : MonoBehaviour
     private int beatCounter = 0;
     private int fastBeatCounter;
 
-    private float extraTime = 0;
+    [SerializeField] private float extraTime = 0;
 
     [HideInInspector]
     public double currentSecondsBetweenBeats;
@@ -47,7 +47,7 @@ public class SongController : MonoBehaviour
     private float startTime;
     private float endTime;
 
-    private float elapsedTime = 0;
+    [SerializeField] private float elapsedTime = 0;
     private float elapsedNormalTime = 0;
     private float elapsedFastTime = 0;
 
@@ -145,6 +145,14 @@ public class SongController : MonoBehaviour
         extraTime += endTime - startTime;
     }
 
+    private void AddExtraTimeHyperLoop()
+    {
+        float hyperTime = song.chargeStart - song.hyperStart;
+        float chargeTime = song.outroStart - song.chargeStart;
+
+        extraTime += hyperTime + chargeTime;
+    }
+
     private void CheckRange()
     {
         if (audioSource.time >= endTime)
@@ -213,22 +221,22 @@ public class SongController : MonoBehaviour
         }
         else if (currentPhase == "Hyper")
         {
-            if (!bossAlive)
-            {
-                PlayPhase("Charge");
-            }
-            else
-            {
-                AddExtraTime();
-                nextPhase = false;
-            }
+            PlayPhase("Charge");
         }
         else if (currentPhase == "Charge")
         {
-            PlayPhase("Outro");
-            playerController.ToggleLock(true);
-            playerController.playerMovement.MovePlayerTo(Vector2.zero);
-            ended = true;
+            if (!bossAlive)
+            {
+                PlayPhase("Outro");
+                playerController.ToggleLock(true);
+                playerController.playerMovement.MovePlayerTo(Vector2.zero);
+                ended = true;
+            }
+            else
+            {
+                AddExtraTimeHyperLoop();
+                PlayPhase("Hyper");
+            }
         }
 
         return nextPhase;
