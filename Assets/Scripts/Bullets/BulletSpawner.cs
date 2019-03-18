@@ -368,20 +368,12 @@ public class BulletSpawner : MonoBehaviour
         else
         {
             //Diagonal lasers
-            GameObject previousDiagonalLaser = null;
-
             for (int i = 0; i < 13; i++)
             {
                 Vector2 position = (laserStats.direction * i) + laserStats.position;
 
                 if (GetBatteryAtPosition(gridGenerator.GetPositionFromGrid(position)) != null || position.x < 0 || position.x >= 13 || position.y < 0 || position.y >= 13)
                 {
-                    if (!laserStats.type.Contains("Warning"))
-                    {
-                        Instantiate(laserType.oneBlockEnd, previousDiagonalLaser.transform.position, LaserEndRotation(laserStats.direction));
-                        Destroy(previousDiagonalLaser);
-                    }
-
                     return;
                 }
                 else if (position == new Vector2(4, 6) || position == new Vector2(4, 8) || position == new Vector2(5, 8) || position == new Vector2(6, 8) || position == new Vector2(7, 8) || position == new Vector2(8, 8) || position == new Vector2(8, 7) || position == new Vector2(8, 6) || position == new Vector2(8, 5) || position == new Vector2(8, 4) || position == new Vector2(7, 4) || position == new Vector2(6, 4) || position == new Vector2(5, 4) || position == new Vector2(4, 4))
@@ -395,7 +387,8 @@ public class BulletSpawner : MonoBehaviour
                 }
                 else
                 {
-                    previousDiagonalLaser = Instantiate(laserType.oneBlock, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, LaserRotation(laserStats.direction));
+                    Transform spawnedLaser = Instantiate(laserType.diagonal, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, LaserRotationDiagonal(laserStats.direction)).transform;
+                    Instantiate(laserType.diagonalEdge, spawnedLaser).transform.localPosition = Vector2.zero;
                 }
             }
 
@@ -584,17 +577,41 @@ public class BulletSpawner : MonoBehaviour
         {
             return Quaternion.Euler(Vector3.forward * -135);
         }
-        else if (vector2 == -Vector2.one)
-        {
-            return Quaternion.Euler(Vector3.forward * -225);
-        }
         else if (vector2 == Vector2.left || vector2 == Vector2.right)
         {
             return Quaternion.Euler(Vector3.forward * -270);
         }
+        else if (vector2 == -Vector2.one)
+        {
+            return Quaternion.Euler(Vector3.forward * 135);
+        }
         else if (vector2 == new Vector2(-1, 1))
         {
-            return Quaternion.Euler(Vector3.forward * -315);
+            return Quaternion.Euler(Vector3.forward * 45);
+        }
+        else
+        {
+            return Quaternion.identity;
+        }
+    }
+
+    public static Quaternion LaserRotationDiagonal(Vector2 vector2)
+    {
+        /*if (vector2 == Vector2.one)
+        {
+            return Quaternion.Euler(Vector3.forward * 180);
+        }*/
+        if (vector2 == new Vector2(1, -1))
+        {
+            return Quaternion.Euler(Vector3.forward * -90);
+        }
+        else if (vector2 == new Vector2(-1, 1))
+        {
+            return Quaternion.Euler(Vector3.forward * -270);
+        }
+        else if (vector2 == -Vector2.one)
+        {
+            return Quaternion.Euler(Vector3.forward * 180);
         }
         else
         {
@@ -650,6 +667,8 @@ public struct LaserTypeToGameObject
     public GameObject thickLeft;
     public GameObject thickMiddle;
     public GameObject thickRight;
+    public GameObject diagonal;
+    public GameObject diagonalEdge;
     public GameObject oneBlockEnd;
 }
 

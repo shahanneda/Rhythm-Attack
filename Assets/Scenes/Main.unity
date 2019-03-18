@@ -1490,6 +1490,9 @@ MonoBehaviour:
       type: 3}
     thickRight: {fileID: 1109876108463758, guid: a8214d050c4ecc9489b4a920ff94a188,
       type: 3}
+    diagonal: {fileID: 6941117264703929979, guid: 70bf0fef9d76e4b4d8405d5b72a7762c,
+      type: 3}
+    diagonalEdge: {fileID: 0}
     oneBlockEnd: {fileID: 1109876108463758, guid: dd890ad77e335bb43a5fc889bb7dd409,
       type: 3}
   - bulletType: GreenLaser
@@ -1501,6 +1504,9 @@ MonoBehaviour:
       type: 3}
     thickRight: {fileID: 1109876108463758, guid: a8214d050c4ecc9489b4a920ff94a188,
       type: 3}
+    diagonal: {fileID: 6941117264703929979, guid: 70bf0fef9d76e4b4d8405d5b72a7762c,
+      type: 3}
+    diagonalEdge: {fileID: 0}
     oneBlockEnd: {fileID: 1109876108463758, guid: d25e3269c91bfb449bf8221fb84b6ea7,
       type: 3}
   - bulletType: OrangeLaser
@@ -1512,6 +1518,9 @@ MonoBehaviour:
       type: 3}
     thickRight: {fileID: 1109876108463758, guid: a8214d050c4ecc9489b4a920ff94a188,
       type: 3}
+    diagonal: {fileID: 6941117264703929979, guid: 70bf0fef9d76e4b4d8405d5b72a7762c,
+      type: 3}
+    diagonalEdge: {fileID: 0}
     oneBlockEnd: {fileID: 1109876108463758, guid: f04a902e281ba2e42be15481bcdab16d,
       type: 3}
   - bulletType: PurpleLaser
@@ -1523,6 +1532,9 @@ MonoBehaviour:
       type: 3}
     thickRight: {fileID: 1109876108463758, guid: a8214d050c4ecc9489b4a920ff94a188,
       type: 3}
+    diagonal: {fileID: 6941117264703929979, guid: 70bf0fef9d76e4b4d8405d5b72a7762c,
+      type: 3}
+    diagonalEdge: {fileID: 0}
     oneBlockEnd: {fileID: 1109876108463758, guid: 25ef5dd07a98a4f49b35c475ec0fd962,
       type: 3}
   - bulletType: RedLaser
@@ -1534,6 +1546,9 @@ MonoBehaviour:
       type: 3}
     thickRight: {fileID: 1109876108463758, guid: a8214d050c4ecc9489b4a920ff94a188,
       type: 3}
+    diagonal: {fileID: 6941117264703929979, guid: 70bf0fef9d76e4b4d8405d5b72a7762c,
+      type: 3}
+    diagonalEdge: {fileID: 0}
     oneBlockEnd: {fileID: 1109876108463758, guid: 53961e16b5528194d977b47bd53e62ec,
       type: 3}
   - bulletType: YellowLaser
@@ -1544,6 +1559,10 @@ MonoBehaviour:
     thickMiddle: {fileID: 1109876108463758, guid: c55e6cfbd70265144af02425e708590e,
       type: 3}
     thickRight: {fileID: 1109876108463758, guid: a8214d050c4ecc9489b4a920ff94a188,
+      type: 3}
+    diagonal: {fileID: 6941117264703929979, guid: 70bf0fef9d76e4b4d8405d5b72a7762c,
+      type: 3}
+    diagonalEdge: {fileID: 6095872087298623932, guid: 8580ab487768ce6428687f3014005475,
       type: 3}
     oneBlockEnd: {fileID: 1109876108463758, guid: 722028cfb17bea1498750003eecf3379,
       type: 3}
