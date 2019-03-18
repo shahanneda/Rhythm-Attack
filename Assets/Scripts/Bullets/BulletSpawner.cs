@@ -367,6 +367,8 @@ public class BulletSpawner : MonoBehaviour
         }
         else
         {
+            GameObject previousSpawnedEdge = null;
+
             //Diagonal lasers
             for (int i = 0; i < 13; i++)
             {
@@ -374,6 +376,7 @@ public class BulletSpawner : MonoBehaviour
 
                 if (GetBatteryAtPosition(gridGenerator.GetPositionFromGrid(position)) != null || position.x < 0 || position.x >= 13 || position.y < 0 || position.y >= 13)
                 {
+                    if (previousSpawnedEdge != null) Destroy(previousSpawnedEdge);
                     return;
                 }
                 else if (position == new Vector2(4, 6) || position == new Vector2(4, 8) || position == new Vector2(5, 8) || position == new Vector2(6, 8) || position == new Vector2(7, 8) || position == new Vector2(8, 8) || position == new Vector2(8, 7) || position == new Vector2(8, 6) || position == new Vector2(8, 5) || position == new Vector2(8, 4) || position == new Vector2(7, 4) || position == new Vector2(6, 4) || position == new Vector2(5, 4) || position == new Vector2(4, 4))
@@ -388,7 +391,9 @@ public class BulletSpawner : MonoBehaviour
                 else
                 {
                     Transform spawnedLaser = Instantiate(laserType.diagonal, GameController.instance.gridGenerator.GetPositionFromGrid(laserStats.direction * i) + laserStats.position, LaserRotationDiagonal(laserStats.direction)).transform;
-                    Instantiate(laserType.diagonalEdge, spawnedLaser).transform.localPosition = Vector2.zero;
+
+                    previousSpawnedEdge = Instantiate(laserType.diagonalEdge, spawnedLaser);
+                    previousSpawnedEdge.transform.localPosition = Vector2.zero;
                 }
             }
 
