@@ -1490,9 +1490,10 @@ MonoBehaviour:
       type: 3}
     thickRight: {fileID: 1109876108463758, guid: a8214d050c4ecc9489b4a920ff94a188,
       type: 3}
-    diagonal: {fileID: 6941117264703929979, guid: 70bf0fef9d76e4b4d8405d5b72a7762c,
+    diagonal: {fileID: 805512297163665408, guid: bd349356c2d154c4993c06307797986e,
       type: 3}
-    diagonalEdge: {fileID: 0}
+    diagonalEdge: {fileID: 5160073201528566146, guid: 7c50003cdca3a0546943f7093b7d27f0,
+      type: 3}
     oneBlockEnd: {fileID: 1109876108463758, guid: dd890ad77e335bb43a5fc889bb7dd409,
       type: 3}
   - bulletType: GreenLaser
@@ -1504,9 +1505,10 @@ MonoBehaviour:
       type: 3}
     thickRight: {fileID: 1109876108463758, guid: a8214d050c4ecc9489b4a920ff94a188,
       type: 3}
-    diagonal: {fileID: 6941117264703929979, guid: 70bf0fef9d76e4b4d8405d5b72a7762c,
+    diagonal: {fileID: 7860148857623325224, guid: 8c320336b9a39a04ea5d37fc9b9a29d4,
       type: 3}
-    diagonalEdge: {fileID: 0}
+    diagonalEdge: {fileID: 526800636642638210, guid: 89b55f59c59047844972e6e59efe0dd1,
+      type: 3}
     oneBlockEnd: {fileID: 1109876108463758, guid: d25e3269c91bfb449bf8221fb84b6ea7,
       type: 3}
   - bulletType: OrangeLaser
@@ -1518,9 +1520,10 @@ MonoBehaviour:
       type: 3}
     thickRight: {fileID: 1109876108463758, guid: a8214d050c4ecc9489b4a920ff94a188,
       type: 3}
-    diagonal: {fileID: 6941117264703929979, guid: 70bf0fef9d76e4b4d8405d5b72a7762c,
+    diagonal: {fileID: 5788939973194468394, guid: 66fc33e1e4a001c42a340ecdb57a4ca4,
       type: 3}
-    diagonalEdge: {fileID: 0}
+    diagonalEdge: {fileID: 3707071443671843401, guid: 3d52809e33f4e6b48ae526c12a53a511,
+      type: 3}
     oneBlockEnd: {fileID: 1109876108463758, guid: f04a902e281ba2e42be15481bcdab16d,
       type: 3}
   - bulletType: PurpleLaser
@@ -1532,9 +1535,10 @@ MonoBehaviour:
       type: 3}
     thickRight: {fileID: 1109876108463758, guid: a8214d050c4ecc9489b4a920ff94a188,
       type: 3}
-    diagonal: {fileID: 6941117264703929979, guid: 70bf0fef9d76e4b4d8405d5b72a7762c,
+    diagonal: {fileID: 2827663951124317915, guid: e8f21544454d27c498798c6394ea1057,
       type: 3}
-    diagonalEdge: {fileID: 0}
+    diagonalEdge: {fileID: 486834117134334276, guid: 4eb5a1c6a955e854584ffffd6cbc602e,
+      type: 3}
     oneBlockEnd: {fileID: 1109876108463758, guid: 25ef5dd07a98a4f49b35c475ec0fd962,
       type: 3}
   - bulletType: RedLaser
@@ -1560,9 +1564,9 @@ MonoBehaviour:
       type: 3}
     thickRight: {fileID: 1109876108463758, guid: a8214d050c4ecc9489b4a920ff94a188,
       type: 3}
-    diagonal: {fileID: 6941117264703929979, guid: 70bf0fef9d76e4b4d8405d5b72a7762c,
+    diagonal: {fileID: 6472087719900027292, guid: 84ac099851e82d146bbef440840ade59,
       type: 3}
-    diagonalEdge: {fileID: 6095872087298623932, guid: 8580ab487768ce6428687f3014005475,
+    diagonalEdge: {fileID: 7036296776456369810, guid: b6062acb79d0c744eb999981bc109ec8,
       type: 3}
     oneBlockEnd: {fileID: 1109876108463758, guid: 722028cfb17bea1498750003eecf3379,
       type: 3}
