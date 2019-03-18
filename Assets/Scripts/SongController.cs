@@ -42,6 +42,7 @@ public class SongController : MonoBehaviour
     private bool postBeatInvoked;
 
     private string currentPhase = "Intro";
+    public string CurrentPhase { get { return currentPhase; } }
 
     private float startTime;
     private float endTime;

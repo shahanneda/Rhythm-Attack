@@ -31,10 +31,14 @@ public class Boss : MonoBehaviour
 
     private Animator animator;
 
+    private SongController songController;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
         GameController.instance.songController.beat += UpdateAnimation;
+
+        songController = FindObjectOfType<SongController>();
     }
 
     private void UpdateAnimation()
@@ -51,12 +55,16 @@ public class Boss : MonoBehaviour
     {
         //TODO: Add Animations for the the death
         //TODO: Add multiple health states with diffrent sprites for each
-        Health--;
-        if (Health <= 0)
+
+        if (songController.CurrentPhase == "Hyper")
         {
-            FindObjectOfType<SongController>().bossAlive = false;
-            GameController.instance.songController.beat -= UpdateAnimation;
-            Destroy(gameObject);
+            Health--;
+            if (Health <= 0)
+            {
+                FindObjectOfType<SongController>().bossAlive = false;
+                GameController.instance.songController.beat -= UpdateAnimation;
+                Destroy(gameObject);
+            }
         }
     }
 }
