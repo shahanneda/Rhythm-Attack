@@ -32,17 +32,81 @@ public class Boss : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        //GameController.instance.songController.beat += UpdateAnimation;
-
         songController = FindObjectOfType<SongController>();
+
+        songController.beat += UpdateAnimation;
     }
 
     private void UpdateAnimation()
     {
-        animator.SetBool("Up", up);
-        animator.SetBool("Right", right);
-        animator.SetBool("Down", down);
-        animator.SetBool("Left", left);
+        if (up && right && down && left)
+        {
+            animator.Play("All");
+        }
+
+        else if (right && down && left)
+        {
+            animator.Play("No-Up");
+        }
+        else if (up && down && left)
+        {
+            animator.Play("No-Right");
+        }
+        else if (up && right && left)
+        {
+            animator.Play("No-Down");
+        }
+        else if (up && right && down)
+        {
+            animator.Play("No-Left");
+        }
+
+        else if (up && right)
+        {
+            animator.Play("Up-Right");
+        }
+        else if (up && down)
+        {
+            animator.Play("Up-Down");
+        }
+        else if (up && left)
+        {
+            animator.Play("Up-Left");
+        }
+        else if (right && down)
+        {
+            animator.Play("Down-Right");
+        }
+        else if (down && left)
+        {
+            animator.Play("Down-Left");
+        }
+        else if (right && left)
+        {
+            animator.Play("Right-Left");
+        }
+
+        else if (up)
+        {
+            animator.Play("Up");
+        }
+        else if (right)
+        {
+            animator.Play("Right");
+        }
+        else if (down)
+        {
+            animator.Play("Down");
+        }
+        else if (left)
+        {
+            animator.Play("Left");
+        }
+
+        else
+        {
+            animator.Play("Passive");
+        }
 
         up = false;
         right = false;
