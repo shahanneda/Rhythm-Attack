@@ -274,6 +274,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a1ddf3eb76b4c184aba33d903eeeb29a, type: 2}
   - {fileID: 11400000, guid: 89c953aadc920e24e80c797e6969d5f8, type: 2}
   - {fileID: 11400000, guid: ff1003430762bf7409869945a2558d4a, type: 2}
+  extraTime: 0
   currentSecondsBetweenBeats: 0
   normalSecondsBetweenBeats: 0
   fastSecondsBetweenBeats: 0
@@ -281,6 +282,7 @@ MonoBehaviour:
   beatAnim: {fileID: 1519089011}
   beatTick: {fileID: 1524669054151212, guid: 140b70e0604d0534787bc1c7458b789f, type: 3}
   bossAlive: 1
+  elapsedTime: 0
   playerController: {fileID: 924349094}
 --- !u!82 &522981999
 AudioSource:
@@ -1362,7 +1364,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 3
-  lasersFromBoss: []
+  up: 0
+  right: 0
+  down: 0
+  left: 0
 --- !u!1 &1496027279
 GameObject:
   m_ObjectHideFlags: 0

@@ -379,10 +379,6 @@ public class BulletSpawner : MonoBehaviour
                     if (previousSpawnedEdge != null) Destroy(previousSpawnedEdge);
                     return;
                 }
-                else if (position == new Vector2(4, 6) || position == new Vector2(4, 8) || position == new Vector2(5, 8) || position == new Vector2(6, 8) || position == new Vector2(7, 8) || position == new Vector2(8, 8) || position == new Vector2(8, 7) || position == new Vector2(8, 6) || position == new Vector2(8, 5) || position == new Vector2(8, 4) || position == new Vector2(7, 4) || position == new Vector2(6, 4) || position == new Vector2(5, 4) || position == new Vector2(4, 4))
-                {
-                    boss.LasersFromBoss.Add(position);
-                }
 
                 if (laserStats.type.Contains("Warning"))
                 {
@@ -394,6 +390,24 @@ public class BulletSpawner : MonoBehaviour
 
                     previousSpawnedEdge = Instantiate(laserType.diagonalEdge, spawnedLaser);
                     previousSpawnedEdge.transform.localPosition = Vector2.zero;
+
+                    Vector2 laserOriginDiagonal = laserStats.position;
+                    if (laserOriginDiagonal == new Vector2(5, 8) || laserOriginDiagonal == new Vector2(6, 8) || laserOriginDiagonal == new Vector2(7, 8))
+                    {
+                        boss.up = true;
+                    }
+                    else if (laserOriginDiagonal == new Vector2(8, 5) || laserOriginDiagonal == new Vector2(8, 6) || laserOriginDiagonal == new Vector2(8, 7))
+                    {
+                        boss.right = true;
+                    }
+                    else if (laserOriginDiagonal == new Vector2(5, 4) || laserOriginDiagonal == new Vector2(6, 4) || laserOriginDiagonal == new Vector2(7, 4))
+                    {
+                        boss.down = true;
+                    }
+                    else if (laserOriginDiagonal == new Vector2(4, 5) || laserOriginDiagonal == new Vector2(4, 6) || laserOriginDiagonal == new Vector2(4, 7))
+                    {
+                        boss.left = true;
+                    }
                 }
             }
 
@@ -405,10 +419,27 @@ public class BulletSpawner : MonoBehaviour
 
         GameObject previousLaser = null;
 
-        if (laserOrigin == new Vector2(4, 6) || laserOrigin == new Vector2(4, 8) || laserOrigin == new Vector2(5, 8) || laserOrigin == new Vector2(6, 8) || laserOrigin == new Vector2(7, 8) || laserOrigin == new Vector2(8, 8) || laserOrigin == new Vector2(8, 7) || laserOrigin == new Vector2(8, 6) || laserOrigin == new Vector2(8, 5) || laserOrigin == new Vector2(8, 4) || laserOrigin == new Vector2(7, 4) || laserOrigin == new Vector2(6, 4) || laserOrigin == new Vector2(5, 4) || laserOrigin == new Vector2(4, 4))
+        /*if (laserOrigin == new Vector2(4, 6) || laserOrigin == new Vector2(4, 8) || laserOrigin == new Vector2(5, 8) || laserOrigin == new Vector2(6, 8) || laserOrigin == new Vector2(7, 8) || laserOrigin == new Vector2(8, 8) || laserOrigin == new Vector2(8, 7) || laserOrigin == new Vector2(8, 6) || laserOrigin == new Vector2(8, 5) || laserOrigin == new Vector2(8, 4) || laserOrigin == new Vector2(7, 4) || laserOrigin == new Vector2(6, 4) || laserOrigin == new Vector2(5, 4) || laserOrigin == new Vector2(4, 4))
         {
             laserFromBoss = true;
             boss.LasersFromBoss.Add(laserOrigin);
+        }*/
+
+        if (laserOrigin == new Vector2(5, 8) || laserOrigin == new Vector2(6, 8) || laserOrigin == new Vector2(7, 8))
+        {
+            boss.up = true;
+        }
+        else if (laserOrigin == new Vector2(8, 5) || laserOrigin == new Vector2(8, 6) || laserOrigin == new Vector2(8, 7))
+        {
+            boss.right = true;
+        }
+        else if (laserOrigin == new Vector2(5, 4) || laserOrigin == new Vector2(6, 4) || laserOrigin == new Vector2(7, 4))
+        {
+            boss.down = true;
+        }
+        else if (laserOrigin == new Vector2(4, 5) || laserOrigin == new Vector2(4, 6) || laserOrigin == new Vector2(4, 7))
+        {
+            boss.left = true;
         }
 
         for (int i = 0; i < amountOfNodes; i++)
@@ -508,6 +539,23 @@ public class BulletSpawner : MonoBehaviour
                     }
                 }
             }
+        }
+
+        if (laserOrigin == new Vector2(5, 8) || laserOrigin == new Vector2(6, 8) || laserOrigin == new Vector2(7, 8))
+        {
+            boss.up = true;
+        }
+        else if (laserOrigin == new Vector2(8, 5) || laserOrigin == new Vector2(8, 6) || laserOrigin == new Vector2(8, 7))
+        {
+            boss.right = true;
+        }
+        else if (laserOrigin == new Vector2(5, 4) || laserOrigin == new Vector2(6, 4) || laserOrigin == new Vector2(7, 4))
+        {
+            boss.down = true;
+        }
+        else if (laserOrigin == new Vector2(4, 5) || laserOrigin == new Vector2(4, 6) || laserOrigin == new Vector2(4, 7))
+        {
+            boss.left = true;
         }
     }
 
