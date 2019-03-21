@@ -1512,8 +1512,7 @@ MonoBehaviour:
       type: 3}
     diagonal: {fileID: 7860148857623325224, guid: 8c320336b9a39a04ea5d37fc9b9a29d4,
       type: 3}
-    diagonalEdge: {fileID: 526800636642638210, guid: 89b55f59c59047844972e6e59efe0dd1,
-      type: 3}
+    diagonalEdge: {fileID: 180, guid: 89b55f59c59047844972e6e59efe0dd1, type: 3}
     oneBlockEnd: {fileID: 1109876108463758, guid: d25e3269c91bfb449bf8221fb84b6ea7,
       type: 3}
   - bulletType: OrangeLaser
