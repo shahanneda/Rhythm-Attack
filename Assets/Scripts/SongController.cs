@@ -81,7 +81,7 @@ public class SongController : MonoBehaviour
 
                 CheckRange();
 
-                if (elapsedTime >= elapsedNormalTime + elapsedFastTime - 0.1d + 0.04d && elapsedTime < elapsedNormalTime + elapsedFastTime + 0.04d)
+                if (elapsedTime >= elapsedNormalTime + elapsedFastTime - 0.3d + 0.04d && elapsedTime < elapsedNormalTime + elapsedFastTime + 0.04d)
                 {
                     currentlyInBeat = true;
                     postBeatInvoked = false;
@@ -103,7 +103,7 @@ public class SongController : MonoBehaviour
                         beat.Invoke();
                     }
                 }
-                else if (elapsedTime > normalSecondsBetweenBeats * (beatCounter - 1) + fastSecondsBetweenBeats * (fastBeatCounter - 1) + 0.04d && elapsedTime <= normalSecondsBetweenBeats * (beatCounter - 1) + fastSecondsBetweenBeats * (fastBeatCounter - 1) + 0.1d + 0.04d)
+                else if (elapsedTime > normalSecondsBetweenBeats * (beatCounter - 1) + fastSecondsBetweenBeats * (fastBeatCounter - 1) + 0.04d && elapsedTime <= normalSecondsBetweenBeats * (beatCounter - 1) + fastSecondsBetweenBeats * (fastBeatCounter - 1) + 0.3d + 0.04d)
                 {
                     if (lateBeat != null) lateBeat.Invoke();
                 }
