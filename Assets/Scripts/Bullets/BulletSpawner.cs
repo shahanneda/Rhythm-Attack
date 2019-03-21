@@ -650,10 +650,6 @@ public class BulletSpawner : MonoBehaviour
 
     public static Quaternion LaserRotationDiagonal(Vector2 vector2)
     {
-        /*if (vector2 == Vector2.one)
-        {
-            return Quaternion.Euler(Vector3.forward * 180);
-        }*/
         if (vector2 == new Vector2(1, -1))
         {
             return Quaternion.Euler(Vector3.forward * -90);

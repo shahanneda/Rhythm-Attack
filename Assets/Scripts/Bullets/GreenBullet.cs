@@ -22,14 +22,16 @@ public class GreenBullet : Bullet
         if (this != null)
         {
             Vector2 direction = playerMovement.transform.position - transform.position;
+            float absX = Mathf.Abs(direction.x);
+            float absY = Mathf.Abs(direction.y);
 
             if (direction.x != 0 && direction.y != 0)
             {
-                if (direction.x > direction.y)
+                if (absX > absY)
                 {
                     direction.y = 0;
                 }
-                else if (direction.y > direction.x)
+                else if (absY > absX)
                 {
                     direction.x = 0;
                 }
@@ -40,6 +42,7 @@ public class GreenBullet : Bullet
             }
 
             direction.Normalize();
+            transform.rotation = BulletSpawner.Vector2ToRotation(direction);
 
             bulletStats.direction = direction;
             beatsAlive++;
