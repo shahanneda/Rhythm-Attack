@@ -23,23 +23,23 @@ public class GreenBullet : Bullet
         {
             Vector2 direction = playerMovement.transform.position - transform.position;
 
-            if (direction.x > 1)
+            if (direction.x != 0 && direction.y != 0)
             {
-                direction.x = 1;
-            }
-            else if (direction.x < -1)
-            {
-                direction.x = -1;
+                if (direction.x > direction.y)
+                {
+                    direction.y = 0;
+                }
+                else if (direction.y > direction.x)
+                {
+                    direction.x = 0;
+                }
+                else
+                {
+                    direction.y = 0;
+                }
             }
 
-            if (direction.y > 1)
-            {
-                direction.y = 1;
-            }
-            else if (direction.y < -1)
-            {
-                direction.y = -1;
-            }
+            direction.Normalize();
 
             bulletStats.direction = direction;
             beatsAlive++;

@@ -47,7 +47,6 @@ public class PlayerController : MonoBehaviour
         if (collision.tag == "BlueBullet")
         {
             TakeDamage(5);
-            print("Blue Bullet");
             Destroy(collision.gameObject);
         }
     }
