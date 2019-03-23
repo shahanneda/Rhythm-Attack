@@ -49,7 +49,6 @@ public class BulletSpawner : MonoBehaviour
                     if (bulletStats.type.Contains("Laser"))
                     {
                         bool batteryLaser = (GetBatteryAtPosition(gridGenerator.GetPositionFromGrid(position + Vector2.up)) != null || GetBatteryAtPosition(gridGenerator.GetPositionFromGrid(position + Vector2.down)) || GetBatteryAtPosition(gridGenerator.GetPositionFromGrid(position + Vector2.right)) || GetBatteryAtPosition(gridGenerator.GetPositionFromGrid(position + Vector2.left)) != null || GetBatteryAtPosition(gridGenerator.GetPositionFromGrid(position + Vector2.one)) != null || GetBatteryAtPosition(gridGenerator.GetPositionFromGrid(position - Vector2.one)) != null || GetBatteryAtPosition(gridGenerator.GetPositionFromGrid(position + new Vector2(1, -1))) != null || GetBatteryAtPosition(gridGenerator.GetPositionFromGrid(position + new Vector2(-1, 1))) != null);
-
                         if (bulletStats.type == "RedLaser")
                         {
                             addAmount = (batteryLaser) ? 1 : 2;
@@ -210,7 +209,7 @@ public class BulletSpawner : MonoBehaviour
 
         int amountOfNodes = 0;
 
-        if (/*laserStats.type == "GreenLaser" || */laserStats.type == "GreenLaserWarning")
+        if (laserStats.type == "GreenLaserWarning")
         {
             PlayerMovement playerMovement = FindObjectOfType<PlayerMovement>();
 
@@ -419,12 +418,6 @@ public class BulletSpawner : MonoBehaviour
 
         GameObject previousLaser = null;
 
-        /*if (laserOrigin == new Vector2(4, 6) || laserOrigin == new Vector2(4, 8) || laserOrigin == new Vector2(5, 8) || laserOrigin == new Vector2(6, 8) || laserOrigin == new Vector2(7, 8) || laserOrigin == new Vector2(8, 8) || laserOrigin == new Vector2(8, 7) || laserOrigin == new Vector2(8, 6) || laserOrigin == new Vector2(8, 5) || laserOrigin == new Vector2(8, 4) || laserOrigin == new Vector2(7, 4) || laserOrigin == new Vector2(6, 4) || laserOrigin == new Vector2(5, 4) || laserOrigin == new Vector2(4, 4))
-        {
-            laserFromBoss = true;
-            boss.LasersFromBoss.Add(laserOrigin);
-        }*/
-
         if (laserOrigin == new Vector2(5, 8) || laserOrigin == new Vector2(6, 8) || laserOrigin == new Vector2(7, 8))
         {
             boss.up = true;
@@ -453,8 +446,8 @@ public class BulletSpawner : MonoBehaviour
                     Instantiate(laserType.oneBlockEnd, previousLaser.transform.position, LaserEndRotation(laserStats.direction));
                     Destroy(previousLaser);
                 }
-
-                return;
+                
+                break;
             }
 
             if (laserFromBoss && !laserStats.type.Contains("Warning"))

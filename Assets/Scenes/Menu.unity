@@ -3228,7 +3228,7 @@ MonoBehaviour:
   customLevelInput: {fileID: 1746824146}
   customLevelFailText: {fileID: 1640987151}
   patterns:
-  - {fileID: 4900000, guid: d3081c3f795e4b7449d090987d5997ec, type: 3}
+  - {fileID: 4900000, guid: eb67fb6b50c17d649a65ff870e5538ef, type: 3}
   - {fileID: 4900000, guid: 710f831515733d1438908e7d6f969cf1, type: 3}
   - {fileID: 4900000, guid: b9416cdbd85232b42a45f368bd77dccd, type: 3}
   - {fileID: 4900000, guid: 1fe6d39658ad4254394b39614e430166, type: 3}
