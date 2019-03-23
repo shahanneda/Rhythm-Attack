@@ -61,7 +61,7 @@ public class SongController : MonoBehaviour
         bulletSpawner = FindObjectOfType<BulletSpawner>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (ended)
         {
