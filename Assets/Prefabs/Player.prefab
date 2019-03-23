@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoPlayer: 0
-  transitionSpeed: 0.5
+  transitionSpeed: 0.25
   lastDirectionMoved: {x: 0, y: 0}
   toLocation: {x: 0, y: -7}
   locked: 0
