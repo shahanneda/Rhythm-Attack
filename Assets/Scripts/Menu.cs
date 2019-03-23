@@ -17,8 +17,12 @@ public class Menu : MonoBehaviour
 
     public TextAsset[] patterns;
 
+    [SerializeField] private GameObject levelsObject;
+
     private void Start()
     {
+        levelsObject.SetActive(true);
+
         foreach (TextAsset pattern in patterns)
         {
             GameObject menuButton = Instantiate(levelButton, levelsPanel);
@@ -43,6 +47,8 @@ public class Menu : MonoBehaviour
         int rows = patterns.Length / 6;
         levelsPanel.GetComponent<RectTransform>().sizeDelta = new Vector2(660, rows * 65);
         levelsScroll.value = 1;
+
+        levelsObject.SetActive(false);
     }
 
     public void LoadPattern(TextAsset pattern)
