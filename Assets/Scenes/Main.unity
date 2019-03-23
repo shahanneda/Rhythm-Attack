@@ -1556,7 +1556,8 @@ MonoBehaviour:
       type: 3}
     diagonal: {fileID: 6941117264703929979, guid: 70bf0fef9d76e4b4d8405d5b72a7762c,
       type: 3}
-    diagonalEdge: {fileID: 0}
+    diagonalEdge: {fileID: 6095872087298623932, guid: 8580ab487768ce6428687f3014005475,
+      type: 3}
     oneBlockEnd: {fileID: 1109876108463758, guid: 53961e16b5528194d977b47bd53e62ec,
       type: 3}
   - bulletType: YellowLaser
