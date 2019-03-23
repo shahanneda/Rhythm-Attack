@@ -44,7 +44,7 @@ public class BulletSpawner : MonoBehaviour
             {
                 Vector2 position = bulletStats.position;
 
-                if (!bulletStats.type.Contains("Battery") && !bulletStats.type.Contains("Warning"))
+                if (!bulletStats.type.Contains("Battery") && !bulletStats.type.Contains("Warning") && !bulletStats.type.Contains("None"))
                 {
                     if (bulletStats.type.Contains("Laser"))
                     {
@@ -147,7 +147,7 @@ public class BulletSpawner : MonoBehaviour
         {
             Vector2 position = bulletStats.position;
 
-            if (bulletStats.type == "None" || bulletStats.type.Contains("Battery"))
+            if (bulletStats.type.Contains("None") || bulletStats.type.Contains("Battery"))
             {
                 continue;
             }
@@ -446,7 +446,7 @@ public class BulletSpawner : MonoBehaviour
                     Instantiate(laserType.oneBlockEnd, previousLaser.transform.position, LaserEndRotation(laserStats.direction));
                     Destroy(previousLaser);
                 }
-                
+
                 break;
             }
 
