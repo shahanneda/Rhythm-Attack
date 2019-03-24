@@ -10,8 +10,6 @@ public class Bullet : MonoBehaviour
 
     private Vector3 newPos;
 
-    private bool firstBeat = true;
-
     public void Start()
     {
         newPos = transform.position;
@@ -28,7 +26,15 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Boss"))
+        if (collision.CompareTag("Bullet"))
+        {
+            Bullet bullet = collision.GetComponent<Bullet>();
+            if (bullet.bulletStats.type.Equals(bulletStats.type) && bulletStats.type != "Red")
+            {
+                bullet.DestroyBullet();
+            }
+        }
+        else if (collision.CompareTag("Boss"))
         {
             Destroy(gameObject);
         }
@@ -37,7 +43,6 @@ public class Bullet : MonoBehaviour
     public void Move()
     {
         newPos += new Vector3(bulletStats.direction.x, bulletStats.direction.y, 0);
-        firstBeat = false;
 
         if (newPos.x >= gridGenerator.size.x - gridGenerator.xHalf || newPos.y >= gridGenerator.size.y - gridGenerator.yHalf || newPos.x <= (gridGenerator.size.x - gridGenerator.xHalf) * -1 || newPos.y <= (gridGenerator.size.y - gridGenerator.yHalf) * -1)
         {
