@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 moveBounds;
     private Vector2 movement;
+    private Vector2 prevDirection;
 
     [HideInInspector] public Vector2 toLocation = Vector2.down * 7;
     public Vector2 PlayerPosition { get { return toLocation; } }
@@ -98,11 +99,6 @@ public class PlayerMovement : MonoBehaviour
 
                     MovePlayer(movement);
                     playerController.PlayerActedThisBeat = true;
-
-                    /*if (!songController.currentlyInBeat)
-                    {
-                        playerController.TakeDamage(5f);
-                    }*/
                 }
             }
 
@@ -133,10 +129,12 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (!moved)
+        if (!moved && prevDirection == lastDirectionMoved)
         {
             playerController.TakeDamage(5);
         }
+
+        prevDirection = lastDirectionMoved;
     }
 
     public void MovePlayerTo(Vector2 newPosition)
