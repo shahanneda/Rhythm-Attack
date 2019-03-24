@@ -567,7 +567,7 @@ public class BulletSpawner : MonoBehaviour
 
     public static bool IsBossAtPosition(Vector2 position)
     {
-        if (position.x >= -1 && position.x <= 1 && position.y >= -1 && position.y <= 1 && FindObjectOfType<Boss>() != null)
+        if (position.x >= -1.1f && position.x <= 1.1f && position.y >= -1.1f && position.y <= 1.1f && FindObjectOfType<Boss>() != null)
         {
             return true;
         }
