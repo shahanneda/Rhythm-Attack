@@ -28,15 +28,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Bullet"))
-        {
-            Bullet bullet = collision.GetComponent<Bullet>();
-            if (firstBeat && bullet.bulletStats.type.Equals(bulletStats.type))
-            {
-                bullet.DestroyBullet();
-            }
-        }
-        else if(collision.CompareTag("Boss"))
+        if (collision.CompareTag("Boss"))
         {
             Destroy(gameObject);
         }
