@@ -157,7 +157,7 @@ public class SongController : MonoBehaviour
     {
         if (audioSource.time >= endTime)
         {
-            if (!CheckNextPhase())
+            if (!NextPhase())
             {
                 audioSource.time = startTime;
                 audioSource.Play();
@@ -198,7 +198,7 @@ public class SongController : MonoBehaviour
         this.endTime = endTime;
     }
 
-    public bool CheckNextPhase()
+    public bool NextPhase()
     {
         bool nextPhase = true;
 
@@ -211,6 +211,9 @@ public class SongController : MonoBehaviour
         {
             if (bulletSpawner.batteries.Count <= 0)
             {
+                extraTime -= song.hyperStart - audioSource.time;
+                beatCounter--;
+
                 PlayPhase("Hyper");
             }
             else
