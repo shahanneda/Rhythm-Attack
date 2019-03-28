@@ -15,8 +15,8 @@ public class SongController : MonoBehaviour
     public Beat lateBeat;
     public Beat postBeat;
 
-    private int beatCounter = 0;
-    private int fastBeatCounter;
+    private float beatCounter = 0;
+    private float fastBeatCounter;
 
     [SerializeField] private float extraTime = 0;
 
@@ -212,7 +212,6 @@ public class SongController : MonoBehaviour
             if (bulletSpawner.batteries.Count <= 0)
             {
                 extraTime -= song.hyperStart - audioSource.time;
-                beatCounter--;
 
                 PlayPhase("Hyper");
             }
